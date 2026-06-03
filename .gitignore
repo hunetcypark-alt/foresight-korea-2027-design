@@ -1,0 +1,15 @@
+# 내부 문서 — 외부 공개 제외
+*.pdf
+마스터문서*.pdf
+컨셉페이퍼*.pdf
+HU-*.pdf
+
+# 백업 및 참고용 파일
+FORESIGHT KOREA 2027 - Home 복사본.html
+참고용히어로페이지.html
+
+# Claude Code 설정
+.claude/
+
+# macOS
+.DS_Store
