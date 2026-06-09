@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600;700&family=DM+Mono:wght@300;400;500&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
+
 <body>
 
 
@@ -136,6 +137,10 @@
      HERO
 ════════════════════════════════════════════════════════════════ -->
 <section id="hero">
+  <video id="hero-video" autoplay muted loop playsinline>
+    <source src="assets/히어로영상_b.mp4" type="video/mp4">
+  </video>
+  <div id="hero-dim"></div>
   <canvas id="grid-cv"></canvas>
   <canvas id="cv"></canvas>
 
@@ -297,43 +302,6 @@
   </div>
 </section>
 
-<!-- 홈 전체 섹션 사이드 내비게이션 -->
-<nav class="cxt-sidenav" id="cxt-sidenav" aria-label="섹션 이동">
-  <button class="cxt-dot" data-target="intro">
-    <span class="cxt-dot-label">About</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-  <div class="cxt-connector"></div>
-  <button class="cxt-dot" data-target="concept">
-    <span class="cxt-dot-label">Concept · 2027</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-  <div class="cxt-connector"></div>
-  <button class="cxt-dot" data-target="tracks">
-    <span class="cxt-dot-label">Program · Tracks</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-  <div class="cxt-connector"></div>
-  <button class="cxt-dot" data-target="speakers">
-    <span class="cxt-dot-label">Speakers</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-  <div class="cxt-connector"></div>
-  <button class="cxt-dot" data-target="purchase">
-    <span class="cxt-dot-label">Register</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-  <div class="cxt-connector"></div>
-  <button class="cxt-dot" data-target="insight">
-    <span class="cxt-dot-label">Insight</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-  <div class="cxt-connector"></div>
-  <button class="cxt-dot" data-target="archive">
-    <span class="cxt-dot-label">Archive</span>
-    <span class="cxt-dot-mark"></span>
-  </button>
-</nav>
 
 <!-- ════════════════════════════════════════════════════════════════
      ② 포럼 소개 — FORESIGHT KOREA란
@@ -390,205 +358,129 @@
 한국 경영진이 자기 회사의 OS를 다시 쓰기 위한 좌표와 실행 언어를 함께 잡는 자리입니다.</p>
     </div>
 
-    <!-- 4대 핵심 의제 — 본문 하단, 힘 뺀 미니 스트립 (내용 미확정) -->
-    <div class="cx-agendas reveal">
-      <div class="cx-ag-head">
-        <span style="font-size: 16px">2027 포럼에서 다룰 4대 아젠다</span>
-      </div>
-      <div class="cx-ag-row">
-        <div class="cx-ag"><span class="n" style="font-family: Pretendard">01</span><span class="t">리더십</span></div>
-        <div class="cx-ag"><span class="n" style="font-family: Pretendard">02</span><span class="t">거버넌스</span></div>
-        <div class="cx-ag"><span class="n" style="font-family: Pretendard">03</span><span class="t">조직혁신</span></div>
-        <div class="cx-ag"><span class="n" style="font-family: Pretendard">04</span><span class="t">인재전략</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════
-     ③ 트랙 미리보기 — 5개 트랙 (뉴어드민 트랙 API 자리)
+     ③ 성과 데이터 — 숫자로 보는 FORESIGHT KOREA
 ════════════════════════════════════════════════════════════════ -->
-<section class="s" id="tracks">
-  <!-- 배경: 떠오르는 빛의 호(arc) — 컨셉의 업라이트와 이어짐 -->
-  <div class="tr-bg" aria-hidden="true">
-    <div class="tr-bloom"></div>
-    <div class="tr-arc"></div>
+<section class="s s-stats" id="stats">
+  <!-- 배경 블룸 -->
+  <div class="st-bg" aria-hidden="true">
+    <div class="st-bloom"></div>
   </div>
+  <div class="stats-bg-title" aria-hidden="true">FORESIGHT</div>
 
   <div class="wrap">
-    <div class="eyebrow"><span>Program · Tracks</span><span class="idx">
-</span></div>
-    <h2 class="s-h">5개 트랙, <em>총 30개의 세션</em>으로<br>2027 전략의 좌표를 그립니다.</h2>
-    <p class="s-sub">기조연설 1개 + 5개 트랙 30개 세션. 각 트랙은 50분 단위 세션 6개로 구성됩니다.</p>
+    <h2 class="s-h reveal">숫자로 증명하는<br><em>포럼의 가치</em></h2>
 
-    <div class="tr-grid">
+    <ul class="stats-grid">
 
-      <!-- Track A -->
-      <div class="tr is-open" style="--acc:#3cc6ff">
-        <span class="tr-short"><span class="tr-short-letter">A</span><span class="tr-short-name">거시환경</span></span>
-        <div class="tr-content">
-          <div class="tr-icon">
-            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9.4"/><ellipse cx="14" cy="14" rx="4.1" ry="9.4"/><line x1="4.8" y1="11" x2="23.2" y2="11"/><line x1="4.8" y1="17" x2="23.2" y2="17"/></svg>
+      <!-- Speakers -->
+      <li class="stat-card" style="--acc:#3cc6ff">
+        <div class="stat-inner">
+          <div class="stat-deco" aria-hidden="true">
+            <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 마이크 캡슐 -->
+              <rect x="50" y="8" width="40" height="64" rx="20" fill="white"/>
+              <!-- 픽업 아크 -->
+              <path d="M22 58C22 92 44 110 70 110C96 110 118 92 118 58" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              <!-- 스탠드 -->
+              <line x1="70" y1="110" x2="70" y2="130" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              <!-- 베이스 -->
+              <line x1="42" y1="130" x2="98" y2="130" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="tr-tag">Track A · 거시환경</div>
-          <div class="tr-title">2027 전략 수립의 외부 좌표: 경제∙정세∙정책 리스크를 읽는 법</div>
-          <div class="tr-desc">경제·정세·정책 리스크를 사업 가정으로 전환하는 법. 환율·금리·공급망·지정학 변수를 투자 의사결정에 반영합니다.</div>
-          <div class="tr-foot"><span>6 sessions</span><span class="tr-foot-arrow">→</span></div>
+          <div class="stat-bot"></div>
+          <span class="stat-edge"></span>
+          <strong class="stat-num">32</strong>
+          <em class="stat-label">Speakers</em>
+          <p class="stat-desc">업계 및 학계<br>최고 전문가들의<br>현장 인사이트</p>
         </div>
-        <div class="tr-deco" aria-hidden="true">
-          <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#ga-clip)">
-              <path d="M70 156.8C107.114 156.8 137.2 126.713 137.2 89.5999C137.2 52.4864 107.114 22.3999 70 22.3999C32.8865 22.3999 2.8 52.4864 2.8 89.5999C2.8 126.713 32.8865 156.8 70 156.8Z" fill="url(#ga-grad)"/>
-              <path d="M97.8998 89.6001C97.8998 71.2002 94.6339 54.6133 89.4145 42.6831C86.8038 36.716 83.7336 31.9813 80.4008 28.7593C77.0753 25.5444 73.5632 23.9 70.0004 23.8999C66.4374 23.8999 62.9246 25.5442 59.599 28.7593C56.2663 31.9813 53.196 36.716 50.5854 42.6831C45.3659 54.6133 42.1 71.2002 42.1 89.6001C42.1 108 45.366 124.586 50.5854 136.516C53.1961 142.483 56.2662 147.219 59.599 150.441C62.9246 153.656 66.4375 155.3 70.0004 155.3C73.5631 155.3 77.0754 153.656 80.4008 150.441C83.7336 147.219 86.8038 142.483 89.4145 136.516C94.6339 124.586 97.8998 108 97.8998 89.6001ZM100.9 89.6001C100.9 108.313 97.5846 125.327 92.1635 137.718C89.4539 143.912 86.1885 149.018 82.4867 152.597C78.7777 156.183 74.5558 158.3 70.0004 158.3C65.4449 158.3 61.2231 156.183 57.5141 152.597C53.8122 149.018 50.547 143.912 47.8373 137.718C42.4161 125.327 39.1 108.314 39.1 89.6001C39.1 70.8865 42.416 53.8724 47.8373 41.481C50.5469 35.2876 53.8122 30.1809 57.5141 26.6021C61.2231 23.0164 65.445 20.8999 70.0004 20.8999C74.5558 20.9 78.7777 23.0163 82.4867 26.6021C86.1886 30.1809 89.4538 35.2875 92.1635 41.481C97.5847 53.8724 100.9 70.8865 100.9 89.6001Z" fill="white" fill-opacity="0.3"/>
-              <path d="M135.7 89.5996C135.7 86.4784 134.107 83.3484 130.894 80.3408C127.677 77.331 122.942 74.5513 116.965 72.1855C105.02 67.4575 88.4163 64.5 70.0002 64.5C51.5838 64.5 34.9792 67.4574 23.0344 72.1855C17.0577 74.5513 12.322 77.3309 9.10567 80.3408C5.89197 83.3484 4.30014 86.4784 4.3 89.5996C4.3 92.7209 5.89201 95.8508 9.10567 98.8584C12.322 101.868 17.0576 104.649 23.0344 107.015C34.9792 111.743 51.5838 114.7 70.0002 114.7C88.4163 114.7 105.02 111.743 116.965 107.015C122.942 104.649 127.677 101.868 130.894 98.8584C134.108 95.8507 135.7 92.721 135.7 89.5996ZM138.7 89.5996C138.7 93.8235 136.531 97.6918 132.945 101.049C129.36 104.404 124.254 107.356 118.07 109.804C105.693 114.703 88.6972 117.7 70.0002 117.7C51.3031 117.7 34.3066 114.703 21.9299 109.804C15.7461 107.356 10.6405 104.403 7.05586 101.049C3.4688 97.6918 1.3 93.8236 1.3 89.5996C1.30014 85.3757 3.46879 81.5074 7.05586 78.1504C10.6404 74.7958 15.7462 71.8442 21.9299 69.3965C34.3066 64.4974 51.3031 61.5 70.0002 61.5C88.6972 61.5 105.693 64.4974 118.07 69.3965C124.254 71.8443 129.36 74.7957 132.945 78.1504C136.532 81.5074 138.7 85.3757 138.7 89.5996Z" fill="white" fill-opacity="0.3"/>
-            </g>
-            <defs>
-              <linearGradient id="ga-grad" x1="2.8" y1="22.3999" x2="2.8" y2="143.5" gradientUnits="userSpaceOnUse">
-                <stop stop-color="white" stop-opacity="0.65"/>
-                <stop offset="1" stop-color="white" stop-opacity="0"/>
-              </linearGradient>
-              <clipPath id="ga-clip"><rect width="140" height="140" fill="white"/></clipPath>
-            </defs>
-          </svg>
-        </div>
-        <div class="tr-bot"></div>
-        <span class="tr-edge"></span>
-      </div>
+      </li>
 
-      <!-- Track B -->
-      <div class="tr" style="--acc:#4aa6ff">
-        <span class="tr-short"><span class="tr-short-letter">B</span><span class="tr-short-name">경영전략</span></span>
-        <div class="tr-content">
-          <div class="tr-icon">
-            <svg viewBox="0 0 28 28" fill="none"><rect x="4.6" y="4.6" width="8.6" height="8.6" rx="2"/><rect x="15.4" y="4.6" width="8" height="5.8" rx="2"/><rect x="15.4" y="13" width="8" height="10.4" rx="2"/><rect x="4.6" y="15.8" width="8.6" height="7.6" rx="2"/></svg>
+      <!-- Sessions -->
+      <li class="stat-card" style="--acc:#4aa6ff">
+        <div class="stat-inner">
+          <div class="stat-deco" aria-hidden="true">
+            <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="16" width="48" height="13" rx="6.5" fill="white"/>
+              <rect x="64" y="16" width="66" height="13" rx="6.5" fill="white"/>
+              <rect x="10" y="37" width="72" height="13" rx="6.5" fill="white"/>
+              <rect x="88" y="37" width="42" height="13" rx="6.5" fill="white"/>
+              <rect x="10" y="58" width="36" height="13" rx="6.5" fill="white"/>
+              <rect x="52" y="58" width="52" height="13" rx="6.5" fill="white"/>
+              <rect x="10" y="79" width="58" height="13" rx="6.5" fill="white"/>
+              <rect x="74" y="79" width="56" height="13" rx="6.5" fill="white"/>
+              <rect x="10" y="100" width="44" height="13" rx="6.5" fill="white"/>
+              <rect x="60" y="100" width="70" height="13" rx="6.5" fill="white"/>
+            </svg>
           </div>
-          <div class="tr-tag">Track B · 경영전략·혁신</div>
-          <div class="tr-title">AI Native Company의 전략 공식:<br>사업 모델과 성장 포트폴리오를 다시 짜다</div>
-          <div class="tr-desc">사업 모델·고객 가치·의사결정 구조를 AI 전제로 다시 설계하는 전략 프레임을 다룹니다.</div>
-          <div class="tr-foot"><span>6 sessions</span><span class="tr-foot-arrow">→</span></div>
+          <div class="stat-bot"></div>
+          <span class="stat-edge"></span>
+          <strong class="stat-num">30</strong>
+          <em class="stat-label">Sessions</em>
+          <p class="stat-desc">기조연설부터<br>트랙 심화까지<br>총 30개 프로그램</p>
         </div>
-        <div class="tr-deco" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="white" stop-opacity=".70"/>
-                <stop offset="100%" stop-color="white" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <rect x="6" y="38" width="26" height="62" rx="7" fill="url(#gb)"/>
-            <rect x="38" y="14" width="26" height="86" rx="7" fill="url(#gb)"/>
-            <rect x="70" y="54" width="26" height="46" rx="7" fill="url(#gb)"/>
-          </svg>
-        </div>
-        <div class="tr-bot"></div>
-        <span class="tr-edge"></span>
-      </div>
+      </li>
 
-      <!-- Track C -->
-      <div class="tr" style="--acc:#5a8dff">
-        <span class="tr-short"><span class="tr-short-letter">C</span><span class="tr-short-name">AX · Tech</span></span>
-        <div class="tr-content">
-          <div class="tr-icon">
-            <svg viewBox="0 0 28 28" fill="none"><rect x="8" y="8" width="12" height="12" rx="2.6"/><circle cx="14" cy="14" r="2.4"/><line x1="11" y1="4.6" x2="11" y2="8"/><line x1="17" y1="4.6" x2="17" y2="8"/><line x1="11" y1="20" x2="11" y2="23.4"/><line x1="17" y1="20" x2="17" y2="23.4"/><line x1="4.6" y1="11" x2="8" y2="11"/><line x1="4.6" y1="17" x2="8" y2="17"/><line x1="20" y1="11" x2="23.4" y2="11"/><line x1="20" y1="17" x2="23.4" y2="17"/></svg>
+      <!-- Tracks -->
+      <li class="stat-card" style="--acc:#5a8dff">
+        <div class="stat-inner">
+          <div class="stat-deco" aria-hidden="true">
+            <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6"   y="42"  width="20" height="98"  rx="10" fill="white"/>
+              <rect x="32"  y="22"  width="20" height="118" rx="10" fill="white"/>
+              <rect x="60"  y="6"   width="20" height="134" rx="10" fill="white"/>
+              <rect x="88"  y="22"  width="20" height="118" rx="10" fill="white"/>
+              <rect x="114" y="42"  width="20" height="98"  rx="10" fill="white"/>
+            </svg>
           </div>
-          <div class="tr-tag">Track C · AX · Tech</div>
-          <div class="tr-title">AX의 기술 백본: AI Agent, 데이터, 플랫폼이 경영의 OS를 바꾼다</div>
-          <div class="tr-desc">AI Agent·데이터·플랫폼·보안이 경영의 OS를 어떻게 바꾸는지, 경영진의 언어로 해석합니다.</div>
-          <div class="tr-foot"><span>6 sessions</span><span class="tr-foot-arrow">→</span></div>
+          <div class="stat-bot"></div>
+          <span class="stat-edge"></span>
+          <strong class="stat-num">5</strong>
+          <em class="stat-label">Tracks</em>
+          <p class="stat-desc">경제·경영전략·AX<br>마케팅·조직 전략<br>5개 전문 트랙</p>
         </div>
-        <div class="tr-deco" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gc" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="white" stop-opacity=".65"/>
-                <stop offset="100%" stop-color="white" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <line x1="32" y1="5"  x2="32" y2="14" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="50" y1="3"  x2="50" y2="14" stroke="white" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/>
-            <line x1="68" y1="5"  x2="68" y2="14" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="32" y1="86" x2="32" y2="95" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="50" y1="86" x2="50" y2="97" stroke="white" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/>
-            <line x1="68" y1="86" x2="68" y2="95" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="5"  y1="32" x2="14" y2="32" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="3"  y1="50" x2="14" y2="50" stroke="white" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/>
-            <line x1="5"  y1="68" x2="14" y2="68" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="86" y1="32" x2="95" y2="32" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <line x1="86" y1="50" x2="97" y2="50" stroke="white" stroke-opacity=".28" stroke-width="3" stroke-linecap="round"/>
-            <line x1="86" y1="68" x2="95" y2="68" stroke="white" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
-            <rect x="14" y="14" width="72" height="72" rx="13" fill="url(#gc)"/>
-          </svg>
-        </div>
-        <div class="tr-bot"></div>
-        <span class="tr-edge"></span>
-      </div>
+      </li>
 
-      <!-- Track D -->
-      <div class="tr" style="--acc:#6f7bf0">
-        <span class="tr-short"><span class="tr-short-letter">D</span><span class="tr-short-name">마케팅</span></span>
-        <div class="tr-content">
-          <div class="tr-icon">
-            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9.4"/><circle cx="14" cy="14" r="5.2"/><circle cx="14" cy="14" r="1.5" fill="currentColor" stroke="none"/></svg>
+      <!-- Attendees -->
+      <li class="stat-card" style="--acc:#8b5cf6">
+        <div class="stat-inner">
+          <div class="stat-deco" aria-hidden="true">
+            <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 객석 행렬 — 뒤→앞 4줄, 원근감으로 점점 크고 진해짐 -->
+              <!-- Row 4 (뒤쪽) -->
+              <circle cx="28" cy="18" r="5.5" fill="white" fill-opacity=".28"/>
+              <circle cx="56" cy="18" r="5.5" fill="white" fill-opacity=".28"/>
+              <circle cx="84" cy="18" r="5.5" fill="white" fill-opacity=".28"/>
+              <circle cx="112" cy="18" r="5.5" fill="white" fill-opacity=".28"/>
+              <!-- Row 3 -->
+              <circle cx="21" cy="52" r="7"   fill="white" fill-opacity=".46"/>
+              <circle cx="51" cy="52" r="7"   fill="white" fill-opacity=".46"/>
+              <circle cx="81" cy="52" r="7"   fill="white" fill-opacity=".46"/>
+              <circle cx="111" cy="52" r="7"  fill="white" fill-opacity=".46"/>
+              <!-- Row 2 -->
+              <circle cx="21" cy="90" r="9"   fill="white" fill-opacity=".68"/>
+              <circle cx="51" cy="90" r="9"   fill="white" fill-opacity=".68"/>
+              <circle cx="81" cy="90" r="9"   fill="white" fill-opacity=".68"/>
+              <circle cx="111" cy="90" r="9"  fill="white" fill-opacity=".68"/>
+              <!-- Row 1 (앞쪽) -->
+              <circle cx="21" cy="124" r="11" fill="white"/>
+              <circle cx="51" cy="124" r="11" fill="white"/>
+              <circle cx="81" cy="124" r="11" fill="white"/>
+              <circle cx="111" cy="124" r="11" fill="white"/>
+            </svg>
           </div>
-          <div class="tr-tag">Track D · 마케팅</div>
-          <div class="tr-title">AI가 고객 접점을 재정의한다: 마케팅과 세일즈 OS의 전환</div>
-          <div class="tr-desc">AI 타겟팅·콘텐츠·CX·B2B 세일즈를 하나의 마케팅 OS 관점에서 다룹니다.</div>
-          <div class="tr-foot"><span>6 sessions</span><span class="tr-foot-arrow">→</span></div>
+          <div class="stat-bot"></div>
+          <span class="stat-edge"></span>
+          <strong class="stat-num">1,200<span class="stat-plus">+</span></strong>
+          <em class="stat-label">Attendees</em>
+          <p class="stat-desc">2026년 현장에서<br>함께한 경영자들이<br>선택한 포럼</p>
         </div>
-        <div class="tr-deco" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gd" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="white" stop-opacity=".60"/>
-                <stop offset="100%" stop-color="white" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <circle cx="50" cy="54" r="44" fill="url(#gd)"/>
-            <circle cx="50" cy="54" r="28" fill="white" fill-opacity=".26"/>
-            <circle cx="50" cy="54" r="13" fill="white" fill-opacity=".44"/>
-          </svg>
-        </div>
-        <div class="tr-bot"></div>
-        <span class="tr-edge"></span>
-      </div>
+      </li>
 
-      <!-- Track E -->
-      <div class="tr" style="--acc:#8b5cf6">
-        <span class="tr-short"><span class="tr-short-letter">E</span><span class="tr-short-name">조직·리더십</span></span>
-        <div class="tr-content">
-          <div class="tr-icon">
-            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="6.6" r="2.6"/><circle cx="6.6" cy="20" r="2.6"/><circle cx="21.4" cy="20" r="2.6"/><line x1="13.8" y1="9.1" x2="7.7" y2="17.5"/><line x1="14.2" y1="9.1" x2="20.3" y2="17.5"/><line x1="9.2" y1="20" x2="18.8" y2="20"/></svg>
-          </div>
-          <div class="tr-tag">Track E · 조직·리더십</div>
-          <div class="tr-title">AI Native 조직을 만드는 법: 속도, 인재, 평가, 리더십의 재설계</div>
-          <div class="tr-desc">직무 재설계·리스킬링·평가보상·Human-AI 협업까지, 사람 중심 조직 OS를 재구성합니다.</div>
-          <div class="tr-foot"><span>6 sessions</span><span class="tr-foot-arrow">→</span></div>
-        </div>
-        <div class="tr-deco" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="ge" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="white" stop-opacity=".68"/>
-                <stop offset="100%" stop-color="white" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <line x1="50" y1="22" x2="20" y2="76" stroke="white" stroke-opacity=".30" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="50" y1="22" x2="80" y2="76" stroke="white" stroke-opacity=".30" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="20" y1="76" x2="80" y2="76" stroke="white" stroke-opacity=".24" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="20" cy="76" r="15" fill="url(#ge)"/>
-            <circle cx="80" cy="76" r="15" fill="url(#ge)"/>
-            <circle cx="50" cy="22" r="22" fill="url(#ge)"/>
-          </svg>
-        </div>
-        <div class="tr-bot"></div>
-        <span class="tr-edge"></span>
-      </div>
-
-    </div>
-
-    <div class="tr-more">
-      <a href="#" class="viewall">Program &amp; Speakers 전체 보기 <span>→</span></a>
-    </div>
+    </ul>
   </div>
 </section>
 
@@ -604,37 +496,35 @@
   <!-- 포탈 글로우 — overflow:visible로 tracks 영역까지 상승 -->
   <div class="sp-portal" aria-hidden="true"></div>
 
-  <div class="wrap">
-
-    <!-- 인물 실루엣 아이콘 (연사 이미지 미확정 → 플레이스홀더) -->
-    <svg width="0" height="0" aria-hidden="true" style="position:absolute">
-      <defs>
-        <linearGradient id="silg" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0"   stop-color="#90c0ff" stop-opacity="0.72"/>
-          <stop offset="0.5" stop-color="#5a8dff" stop-opacity="0.50"/>
-          <stop offset="1"   stop-color="#2a50c8" stop-opacity="0.22"/>
-        </linearGradient>
-      </defs>
-      <symbol id="avatar-sil" viewBox="0 0 454 482">
-        <path d="M150.993 36.4C131.715 66.203 133.349 101.351 139.729 134.768C136.83 135.174 134 136.506 132.945 139.475C129.787 148.359 133.662 160.556 136.301 169.329C138.062 175.183 143.629 183.898 148.146 188.047C149.986 189.534 152.497 190.702 154.67 191.711C155.658 194.724 156.121 198.726 156.875 201.921C158.127 207.332 159.524 212.815 161.25 218.085C163.314 224.388 166.686 230.119 169.676 235.818C170.662 237.699 169.409 246.501 169.034 249.016C168.461 252.869 167.541 258.841 165.563 262.294C162.235 267.621 154.877 271.229 149.8 274.746C147.64 276.244 145.577 277.551 143.439 279.151C141.039 280.781 138.325 283.556 135.648 284.616C128.817 287.321 121.894 289.961 115.083 292.719C97.8531 299.534 80.7094 306.564 63.6559 313.809C55.0491 317.466 47.4751 319.659 39.5814 325.396C30.0759 332.321 21.9541 342.181 16.8831 352.819C11.411 364.296 10.541 378.751 9.2487 391.206L5.52023 428.691C4.53428 438.264 3.49277 447.831 2.3958 457.391C1.4404 465.534 0.5812 473.381 0 481.556H453.128L452.128 470.689C450.643 457.456 449.118 444.329 447.901 431.559C446.731 419.101 445.496 406.649 444.198 394.204C442.733 380.821 441.566 365.269 436.163 352.951C431.133 341.479 422.118 331.164 411.706 324.214C403.946 319.034 397.571 317.426 389.338 313.931C376.101 308.194 362.778 302.646 349.381 297.289C342.578 294.524 335.578 291.571 328.776 288.976C320.518 285.829 315.803 284.561 308.833 278.841C303.918 274.924 294.461 270.241 290.061 266.486C285.178 262.319 283.368 242.329 282.906 236.144C284.133 233.588 285.908 231.104 287.203 228.545C291.538 219.992 294.086 210.772 296.238 201.47C296.966 198.336 297.401 194.654 298.471 191.658C300.331 190.506 302.841 189.754 304.743 188.319C306.893 186.698 308.226 184.74 309.768 182.571C315.883 173.98 318.448 164.928 320.096 154.629C320.851 149.905 321.751 141.844 318.691 137.659C317.211 135.635 315.523 135.178 313.221 134.934C318.178 111.812 321.823 71.192 305.951 50.6018C302.413 46.0113 296.046 43.8068 290.323 43.334C294.183 29.7525 288.113 21.003 276.511 13.8318C238.038 -9.94724 176.785 -3.47077 150.993 36.4Z" fill="url(#silg)"/>
-      </symbol>
-    </svg>
-
-    <!-- 키노트 — 대형 배너 (이미지형 · 상단 고정) -->
-    <div class="spb spb-keynote reveal" id="kn-banner" style="--acc:#5a8dff">
-      <div class="spb-bg" aria-hidden="true"></div>
+  <!-- 키노트 — wrap 밖으로 분리해 전체 너비 풀페이지 -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <linearGradient id="silg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0"   stop-color="#90c0ff" stop-opacity="0.72"/>
+        <stop offset="0.5" stop-color="#5a8dff" stop-opacity="0.50"/>
+        <stop offset="1"   stop-color="#2a50c8" stop-opacity="0.22"/>
+      </linearGradient>
+    </defs>
+    <symbol id="avatar-sil" viewBox="0 0 454 482">
+      <path d="M150.993 36.4C131.715 66.203 133.349 101.351 139.729 134.768C136.83 135.174 134 136.506 132.945 139.475C129.787 148.359 133.662 160.556 136.301 169.329C138.062 175.183 143.629 183.898 148.146 188.047C149.986 189.534 152.497 190.702 154.67 191.711C155.658 194.724 156.121 198.726 156.875 201.921C158.127 207.332 159.524 212.815 161.25 218.085C163.314 224.388 166.686 230.119 169.676 235.818C170.662 237.699 169.409 246.501 169.034 249.016C168.461 252.869 167.541 258.841 165.563 262.294C162.235 267.621 154.877 271.229 149.8 274.746C147.64 276.244 145.577 277.551 143.439 279.151C141.039 280.781 138.325 283.556 135.648 284.616C128.817 287.321 121.894 289.961 115.083 292.719C97.8531 299.534 80.7094 306.564 63.6559 313.809C55.0491 317.466 47.4751 319.659 39.5814 325.396C30.0759 332.321 21.9541 342.181 16.8831 352.819C11.411 364.296 10.541 378.751 9.2487 391.206L5.52023 428.691C4.53428 438.264 3.49277 447.831 2.3958 457.391C1.4404 465.534 0.5812 473.381 0 481.556H453.128L452.128 470.689C450.643 457.456 449.118 444.329 447.901 431.559C446.731 419.101 445.496 406.649 444.198 394.204C442.733 380.821 441.566 365.269 436.163 352.951C431.133 341.479 422.118 331.164 411.706 324.214C403.946 319.034 397.571 317.426 389.338 313.931C376.101 308.194 362.778 302.646 349.381 297.289C342.578 294.524 335.578 291.571 328.776 288.976C320.518 285.829 315.803 284.561 308.833 278.841C303.918 274.924 294.461 270.241 290.061 266.486C285.178 262.319 283.368 242.329 282.906 236.144C284.133 233.588 285.908 231.104 287.203 228.545C291.538 219.992 294.086 210.772 296.238 201.47C296.966 198.336 297.401 194.654 298.471 191.658C300.331 190.506 302.841 189.754 304.743 188.319C306.893 186.698 308.226 184.74 309.768 182.571C315.883 173.98 318.448 164.928 320.096 154.629C320.851 149.905 321.751 141.844 318.691 137.659C317.211 135.635 315.523 135.178 313.221 134.934C318.178 111.812 321.823 71.192 305.951 50.6018C302.413 46.0113 296.046 43.8068 290.323 43.334C294.183 29.7525 288.113 21.003 276.511 13.8318C238.038 -9.94724 176.785 -3.47077 150.993 36.4Z" fill="url(#silg)"/>
+    </symbol>
+  </svg>
+  <div class="spb spb-keynote reveal" id="kn-banner" style="--acc:#5a8dff">
+    <div class="spb-bg" aria-hidden="true"></div>
+    <div class="spb-photo">
+      <img src="assets/img/ceo-photo.png" alt="키노트 연사">
+    </div>
+    <div class="spb-inner">
       <div class="eyebrow spb-kn-eyebrow"><span>KEYNOTE</span></div>
-      <div class="spb-photo">
-        <svg viewBox="0 0 454 482" fill="url(#silg)" xmlns="http://www.w3.org/2000/svg"><path d="M150.993 36.4C131.715 66.203 133.349 101.351 139.729 134.768C136.83 135.174 134 136.506 132.945 139.475C129.787 148.359 133.662 160.556 136.301 169.329C138.062 175.183 143.629 183.898 148.146 188.047C149.986 189.534 152.497 190.702 154.67 191.711C155.658 194.724 156.121 198.726 156.875 201.921C158.127 207.332 159.524 212.815 161.25 218.085C163.314 224.388 166.686 230.119 169.676 235.818C170.662 237.699 169.409 246.501 169.034 249.016C168.461 252.869 167.541 258.841 165.563 262.294C162.235 267.621 154.877 271.229 149.8 274.746C147.64 276.244 145.577 277.551 143.439 279.151C141.039 280.781 138.325 283.556 135.648 284.616C128.817 287.321 121.894 289.961 115.083 292.719C97.8531 299.534 80.7094 306.564 63.6559 313.809C55.0491 317.466 47.4751 319.659 39.5814 325.396C30.0759 332.321 21.9541 342.181 16.8831 352.819C11.411 364.296 10.541 378.751 9.2487 391.206L5.52023 428.691C4.53428 438.264 3.49277 447.831 2.3958 457.391C1.4404 465.534 0.5812 473.381 0 481.556H453.128L452.128 470.689C450.643 457.456 449.118 444.329 447.901 431.559C446.731 419.101 445.496 406.649 444.198 394.204C442.733 380.821 441.566 365.269 436.163 352.951C431.133 341.479 422.118 331.164 411.706 324.214C403.946 319.034 397.571 317.426 389.338 313.931C376.101 308.194 362.778 302.646 349.381 297.289C342.578 294.524 335.578 291.571 328.776 288.976C320.518 285.829 315.803 284.561 308.833 278.841C303.918 274.924 294.461 270.241 290.061 266.486C285.178 262.319 283.368 242.329 282.906 236.144C284.133 233.588 285.908 231.104 287.203 228.545C291.538 219.992 294.086 210.772 296.238 201.47C296.966 198.336 297.401 194.654 298.471 191.658C300.331 190.506 302.841 189.754 304.743 188.319C306.893 186.698 308.226 184.74 309.768 182.571C315.883 173.98 318.448 164.928 320.096 154.629C320.851 149.905 321.751 141.844 318.691 137.659C317.211 135.635 315.523 135.178 313.221 134.934C318.178 111.812 321.823 71.192 305.951 50.6018C302.413 46.0113 296.046 43.8068 290.323 43.334C294.183 29.7525 288.113 21.003 276.511 13.8318C238.038 -9.94724 176.785 -3.47077 150.993 36.4Z"/></svg>
-      </div>
-      <div class="spb-inner">
-        <h3 class="spb-title">AX: Transforming into an<br>AI-Native Company</h3>
-        <div class="spb-meta">
-          <div class="spb-company">LG AI연구원</div>
-          <div class="spb-name">이홍락 <span>CSAI</span></div>
-        </div>
+      <h3 class="spb-title">AX: Transforming into an<br>AI-Native Company</h3>
+      <div class="spb-meta">
+        <div class="spb-company">LG AI연구원</div>
+        <div class="spb-name">이홍락 <span>CSAI</span></div>
       </div>
     </div>
+  </div>
+
+  <div class="wrap">
 
     <!-- 트랙 탭 바 (스티키) -->
     <nav class="sp-track-nav" id="sp-track-nav" aria-label="트랙 바로가기">
@@ -652,21 +542,20 @@
       <!-- TRACK A -->
       <div class="trz" id="sp-trz-a" style="--acc: #3cc6ff; padding: 80px 0px 0px">
         <div class="trz-head srise">
-          <div class="trz-eyebrow">TRACK A - 거시환경</div>
-          <h3 class="trz-title">2027 전략 수립의 외부 좌표: 경제·정세·정책 리스크를 읽는 법</h3>
+          <div class="trz-eyebrow"><span class="trz-eyebrow-track">TRACK A</span><span class="trz-eyebrow-cat">거시환경</span></div>
         </div>
         <div class="trz-row">
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img.png" alt="김효상" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">A-1</div>
-            <div class="sc-title">2027 사업계획의 첫 번째 전제: 성장·물가·교역의 새 질서</div>
+            <div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>2027 사업계획의 첫 번째 전제: 성장·물가·교역의 새 질서</div>
             <div class="sc-foot">
               <div class="sc-co">대외경제정책연구원</div>
               <div class="sc-name">윤상하 실장</div>
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-1.png" alt="강명수" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">A-2</div>
             <div class="sc-title">모두가 타깃이 되는 세계: 2027 지정학 리스크와 한국 기업의 선택</div>
             <div class="sc-foot">
@@ -675,7 +564,7 @@
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-2.png" alt="강준영" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">A-3</div>
             <div class="sc-title">에너지·물류 초크포인트: 원가와 공급망을 흔드는 다음 충격</div>
             <div class="sc-foot">
@@ -684,7 +573,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/man.svg" alt="" style="width:100%;height:100%;object-fit:contain;object-position:bottom center;transform:scale(1.2) translateY(25%);transform-origin:bottom center;opacity:.4"></div>
             <div class="sc-no">A-4</div>
             <div class="sc-title">환율·금리·자본비용: 2027 재무 전략의 리스크 지도</div>
             <div class="sc-foot">
@@ -692,7 +581,7 @@
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-4.png" alt="조동철" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">A-5</div>
             <div class="sc-title">K자형 양극화의 한국 경제: 2027 성장 기회와 방어 전략</div>
             <div class="sc-foot">
@@ -701,7 +590,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-5.png" alt="김동규" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">A-6</div>
             <div class="sc-title">불확실성을 숫자로 바꾸는 시나리오 경영: 예산과 실행계획의 기술</div>
             <div class="sc-foot">
@@ -713,20 +602,19 @@
       <!-- TRACK B -->
       <div class="trz" id="sp-trz-b" style="--acc:#4aa6ff">
         <div class="trz-head srise">
-          <div class="trz-eyebrow">TRACK B - 경영전략·혁신</div>
-          <h3 class="trz-title">AI Native Company의 전략 공식: 사업 모델과 성장 포트폴리오를 다시 짜다</h3>
+          <div class="trz-eyebrow"><span class="trz-eyebrow-track">TRACK B</span><span class="trz-eyebrow-cat">경영전략·혁신</span></div>
         </div>
         <div class="trz-row">
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-6.png" alt="강정묵" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">B-1</div>
-            <div class="sc-title">연간 계획의 종말: AI Adaptive Planning으로 전략을 다시 짜다</div>
+            <div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>연간 계획의 종말: AI Adaptive Planning으로 전략을 다시 짜다</div>
             <div class="sc-foot">
               <div class="sc-name">TBD</div>
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-7.png" alt="원정준" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">B-2</div>
             <div class="sc-title">AI Native 도약의 첫 조건: 성장을 막는 레거시를 버리는 법</div>
             <div class="sc-foot">
@@ -734,7 +622,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-8.png" alt="노상규" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">B-3</div>
             <div class="sc-title">Dual AX 전략: 사업 모델과 실행 역량을 동시에 바꾸다</div>
             <div class="sc-foot">
@@ -742,7 +630,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-9.png" alt="신현한" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">B-4</div>
             <div class="sc-title">[AX사례] 제품을 넘어 생태계로: 플랫폼 기업은 어떻게 비즈니스를 재정의했나</div>
             <div class="sc-foot">
@@ -750,7 +638,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-10.png" alt="최창범" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">B-5</div>
             <div class="sc-title">[AX사례] 실행 속도의 혁명: 하이퍼 스냅스 조직은 어떻게 움직이는가</div>
             <div class="sc-foot">
@@ -758,7 +646,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-11.png" alt="손재권" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">B-6</div>
             <div class="sc-title">실리콘밸리의 극단적 AX: ‘1인 유니콘’이 던지는 성장의 질문</div>
             <div class="sc-foot">
@@ -770,20 +658,19 @@
       <!-- TRACK C -->
       <div class="trz" id="sp-trz-c" style="--acc:#5a8dff">
         <div class="trz-head srise">
-          <div class="trz-eyebrow">TRACK C - AX·Tech</div>
-          <h3 class="trz-title">AX의 기술 백본: AI Agent, 데이터, 플랫폼이 경영의 OS를 바꾼다</h3>
+          <div class="trz-eyebrow"><span class="trz-eyebrow-track">TRACK C</span><span class="trz-eyebrow-cat">AX·Tech</span></div>
         </div>
         <div class="trz-row">
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-12.png" alt="윤성훈" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">C-1</div>
-            <div class="sc-title">스틸칼라의 등장: 피지컬 AI가 산업 현장을 바꾸는 방식</div>
+            <div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>스틸칼라의 등장: 피지컬 AI가 산업 현장을 바꾸는 방식</div>
             <div class="sc-foot">
               <div class="sc-name">TBD</div>
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-13.png" alt="황지영" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">C-2</div>
             <div class="sc-title">테크 드래곤의 비상: 중국 AI 굴기가 바꾸는 경쟁의 판</div>
             <div class="sc-foot">
@@ -792,7 +679,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-14.png" alt="김용섭" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">C-3</div>
             <div class="sc-title">AI 투자의 성패: 거품과 워크슬롭을 넘어 ROI를 만드는 법</div>
             <div class="sc-foot">
@@ -800,7 +687,7 @@
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-15.png" alt="전영수" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">C-4</div>
             <div class="sc-title">[AX사례] 전사 AI 도입의 현실: 성공 조건과 실패 패턴</div>
             <div class="sc-foot">
@@ -809,7 +696,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-16.png" alt="정연승" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">C-5</div>
             <div class="sc-title">자율 경제 에이전트(AEA): AI가 결정하는 시대의 통제와 책임</div>
             <div class="sc-foot">
@@ -817,7 +704,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-17.png" alt="정희선" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">C-6</div>
             <div class="sc-title">통제인가 자율인가: 새도우 AI를 성과로 바꾸는 조직 설계</div>
             <div class="sc-foot">
@@ -829,21 +716,20 @@
       <!-- TRACK D -->
       <div class="trz" id="sp-trz-d" style="--acc:#6f7bf0">
         <div class="trz-head srise">
-          <div class="trz-eyebrow">TRACK D - 마케팅</div>
-          <h3 class="trz-title">AI가 고객 접점을 재정의한다: 마케팅과 세일즈 OS의 전환</h3>
+          <div class="trz-eyebrow"><span class="trz-eyebrow-track">TRACK D</span><span class="trz-eyebrow-cat">마케팅</span></div>
         </div>
         <div class="trz-row">
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-18.png" alt="박진석" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">D-1</div>
-            <div class="sc-title">AI 네이티브 소비자의 탄생: 2027 고객은 어떻게 선택하는가</div>
+            <div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>AI 네이티브 소비자의 탄생: 2027 고객은 어떻게 선택하는가</div>
             <div class="sc-foot">
               <div class="sc-co">트렌드코리아컴퍼니</div>
               <div class="sc-name">전미영 박사</div>
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-19.png" alt="송기홍" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">D-2</div>
             <div class="sc-title">검색 이후의 브랜드 전략: AI가 바꾼 구매 여정의 새 규칙</div>
             <div class="sc-foot">
@@ -852,7 +738,7 @@
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-20.png" alt="JR Keller" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">D-3</div>
             <div class="sc-title">AI 시대의 미디어 투자 전략: 채널 믹스와 성과 극대화의 새 공식</div>
             <div class="sc-foot">
@@ -861,7 +747,7 @@
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-21.png" alt="한광모" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">D-4</div>
             <div class="sc-title">[AX사례] 퍼포먼스 마케팅의 재설계: AI 측정·최적화와 인간의 판단</div>
             <div class="sc-foot">
@@ -870,7 +756,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-22.png" alt="이중학" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">D-5</div>
             <div class="sc-title">AI 네이티브 마케팅 조직: 사람과 에이전트는 어떻게 협업하는가</div>
             <div class="sc-foot">
@@ -878,7 +764,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-23.png" alt="이승훈" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">D-6</div>
             <div class="sc-title">[AX사례] 고객 경험의 AX: AI는 접점을 어떻게 바꾸는가</div>
             <div class="sc-foot">
@@ -890,21 +776,20 @@
       <!-- TRACK E -->
       <div class="trz" id="sp-trz-e" style="--acc:#8b5cf6">
         <div class="trz-head srise">
-          <div class="trz-eyebrow">TRACK E - 조직·리더십</div>
-          <h3 class="trz-title">AI Native 조직을 만드는 법: 속도, 인재, 평가, 리더십의 재설계</h3>
+          <div class="trz-eyebrow"><span class="trz-eyebrow-track">TRACK E</span><span class="trz-eyebrow-cat">조직·리더십</span></div>
         </div>
         <div class="trz-row">
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-24.png" alt="정찬욱" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">E-1</div>
-            <div class="sc-title">글로벌 빅테크가 다시 짠 일의 구조: AI Native 직무 재설계</div>
+            <div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>글로벌 빅테크가 다시 짠 일의 구조: AI Native 직무 재설계</div>
             <div class="sc-foot">
               <div class="sc-co">동국대학교</div>
               <div class="sc-name">이중학 교수</div>
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-25.png" alt="강정수" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">E-2</div>
             <div class="sc-title">프롬프트가 업무 능력이 된 시대: 임직원 AI 리스킬링 전략</div>
             <div class="sc-foot">
@@ -912,7 +797,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-26.png" alt="백서인" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">E-3</div>
             <div class="sc-title">프롬프트 리더십: 구성원의 AI 잠재력을 깨우는 리더의 역할</div>
             <div class="sc-foot">
@@ -920,7 +805,7 @@
             </div>
           </article>
           <article class="sc srise" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-27.png" alt="한기용" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">E-4</div>
             <div class="sc-title">[AX사례] AI Native HR: 채용부터 평가까지 인재 의사결정을 바꾸다</div>
             <div class="sc-foot">
@@ -929,7 +814,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-28.png" alt="이동근" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">E-5</div>
             <div class="sc-title">[AX사례] 전사 AI 내재화의 조건: 임원진은 어떻게 변화를 밀어붙였나</div>
             <div class="sc-foot">
@@ -937,7 +822,7 @@
             </div>
           </article>
           <article class="sc srise is-tbd" style="font-size: 16px">
-            <div class="sc-photo"><svg class="av-sil" viewBox="0 0 100 100"><use href="#avatar-sil"/></svg></div>
+            <div class="sc-photo"><img src="assets/img/speakers/img-29.png" alt="오성미" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div>
             <div class="sc-no">E-6</div>
             <div class="sc-title">[AX사례] 연공서열과 AI 속도의 충돌: 한국형 조직의 현실적 전환법</div>
             <div class="sc-foot">
@@ -947,12 +832,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Program & Speakers 이동 버튼 -->
+    <div class="sp-more-wrap">
+      <a href="#" onclick="switchPage('program');return false" class="sp-more-btn">
+        Program &amp; Speakers 전체 보기
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════
      ⑤ 구매 안내 배너 — 단계별 상태에 따라 통째로 분기
 ════════════════════════════════════════════════════════════════ -->
+<div class="reg-archive-wrap">
 <section class="s" id="purchase">
   <div class="wrap">
     <div class="eyebrow"><span>Registration</span><span class="idx">
@@ -1014,6 +909,7 @@
               <div class="tkt-pass-now"><span class="tkt-price">525,000<span class="won">원</span></span><span class="tkt-disc">30%할인</span></div>
             </div>
           </div>
+          <a class="tkt-cta" onclick="switchPage('reg');return false;" href="#page-reg">지금 등록하기 →</a>
         </div>
 
         <!-- 3차 — 판매예정 -->
@@ -1055,7 +951,7 @@
         </div>
       </div>
 
-      <div class="reg-note" style="font-size: 16px">* 개인 등록은 최대 5인까지 가능하며, 6인 이상은 단체 등록으로 문의해 주세요.</div>
+      <div class="reg-note" style="font-size: 16px">* 개인 등록은 최대 4인까지 가능하며, 5인 이상은 단체 등록으로 문의해 주세요.</div>
     </div>
 
     <!-- ② VOD 판매 배너 (vodsale 상태에서만 노출) -->
@@ -1104,41 +1000,99 @@
     <h2 class="s-h" style="text-align: center; padding: 0px; font-weight: 700; margin-left: auto; margin-right: auto">영상으로 먼저 만나보세요</h2>
     <p class="s-sub" style="text-align: center; margin-left: auto; margin-right: auto">포럼의 핵심만 담은 트랙별 하이라이트, 지금 바로 미리보기로 확인하세요.</p>
 
-    <div class="iv2-slider">
-      <button class="iv2-arrow" aria-label="이전">←</button>
-      <div class="iv2-grid">
-      <article class="iv2">
-        <div class="iv2-media">
-          <iframe class="iv2-frame" loading="lazy"
-            src="https://www.youtube.com/embed/videoseries?list=PLlCkO5MOSqc7Ec94Tn4RbJuYEbYDvPN9A&rel=0&modestbranding=1"
-            title="예고편 · 테크 & AI 미리보기"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </article>
+    <div class="iv-wrap">
+      <button class="iv-arr iv-arr-prev" id="iv-prev" aria-label="이전">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="iv-viewport" id="iv-viewport">
+        <div class="iv-track" id="iv-track">
 
-      <article class="iv2">
-        <div class="iv2-media">
-          <iframe class="iv2-frame" loading="lazy"
-            src="https://www.youtube.com/embed/videoseries?list=PLlCkO5MOSqc5q3-3I1-bXUjiKKy0EPxWs&rel=0&modestbranding=1"
-            title="하이라이트 · 경제 & 국제정세 미리보기"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </article>
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="oUKRWztjfeU">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/oUKRWztjfeU/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">작년 행사 참석자가 전하는 '포사이트 코리아 이런 점이 좋았어요!'</p>
+          </a></div>
 
-      <article class="iv2">
-        <div class="iv2-media">
-          <iframe class="iv2-frame" loading="lazy"
-            src="https://www.youtube.com/embed/videoseries?list=PLlCkO5MOSqc7Ec94Tn4RbJuYEbYDvPN9A&rel=0&modestbranding=1"
-            title="하이라이트 · 리더십 & 조직혁신 미리보기"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="FpNbvALZbsY">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/FpNbvALZbsY/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">[월간휴넷 포사이트 코리아 2026 프리뷰] Session 1.</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="Jf-q5UycxZE">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/Jf-q5UycxZE/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">[월간휴넷 포사이트 코리아 2026 프리뷰] Session 2.</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="E97ubaSDmJg">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/E97ubaSDmJg/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">피크코리아, 경영을 새로 쓰다</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="UE8wSGiSUY8">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/UE8wSGiSUY8/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">한국 기업이 집중해야 되는 경영 전략?</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="w1kdDdMTUPU">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/w1kdDdMTUPU/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">대한민국 CEO를 대상으로 한 흥미로운 설문 결과?</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="48tjZLQwhO0">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/48tjZLQwhO0/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">경제 성장의 원동력은 이것? 그런데 왜 성장은 멈췄을까</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="djDv8E_2BVk">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/djDv8E_2BVk/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">국내 AI 활용과 해외의 차이점은?</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="Vnzc_SDWKqw">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/Vnzc_SDWKqw/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">대전환의 분기점: 글로벌 경제 전망 2026</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="yYqh4AVyxao">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/yYqh4AVyxao/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">격변기 사업전략의 새로운 프레임워크</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="Ig4pbjy_83w">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/Ig4pbjy_83w/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">AI에 의한 고객 여정의 마지막 진화, 위임하는 종의 탄생</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="4oQNeugn4v8">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/4oQNeugn4v8/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">연공서열 파괴, 원점 사고로 다시 만드는 미래 조직</p>
+          </a></div>
+
+          <div class="iv-slide"><a class="iv-card" href="#" data-ytid="lu2HulShvGQ">
+            <div class="iv-thumb"><img src="https://img.youtube.com/vi/lu2HulShvGQ/mqdefault.jpg" alt="" loading="lazy"><div class="iv-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <p class="iv-title">테크트렌드 2026: AI 전쟁을 미리보다</p>
+          </a></div>
+
         </div>
-      </article>
-      </div><!-- /.iv2-grid -->
-      <button class="iv2-arrow" aria-label="다음">→</button>
-    </div><!-- /.iv2-slider -->
+      </div>
+      <button class="iv-arr iv-arr-next" id="iv-next" aria-label="다음">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div><!-- /.iv-wrap -->
+
+    <!-- 유튜브 모달 -->
+    <div id="iv-modal" class="iv-modal" hidden aria-modal="true" role="dialog">
+      <div class="iv-modal-bg" id="iv-modal-bg"></div>
+      <div class="iv-modal-box">
+        <button class="iv-modal-close" id="iv-modal-close" aria-label="닫기">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="iv-modal-player">
+          <iframe id="iv-modal-iframe" src="" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1149,7 +1103,7 @@
   <div class="wrap" style="text-align: left">
     <div class="eyebrow"><span>Forum Archive</span><span class="idx">
 </span></div>
-    <h2 class="s-h" style="text-align: center; margin-left: auto; margin-right: auto">지난 포럼 전문가 다시보기</h2>
+    <h2 class="s-h" style="text-align: center; margin-left: auto; margin-right: auto">지난 포럼 다시보기</h2>
     <p class="s-sub" style="text-align: center; margin-left: auto; margin-right: auto">FORESIGHT KOREA의 누적된 인사이트를 살펴보세요.</p>
 
     <div class="arc-grid">
@@ -1157,7 +1111,7 @@
         <div class="arc-yr" style="font-family: Pretendard">2026</div>
         <div class="arc-info">
           <div class="arc-t">FORESIGHT KOREA 2026</div>
-          <div class="arc-d" style="font-size: 14px">2025.09.30 · 그랜드 인터컨티넨탈 서울 파르나스</div>
+          <div class="arc-d" style="font-size: 14px">2025.09.30</div>
         </div>
         <div class="arc-link">→</div>
       </a>
@@ -1165,7 +1119,7 @@
         <div class="arc-yr" style="font-family: Pretendard">2025</div>
         <div class="arc-info">
           <div class="arc-t">FORESIGHT KOREA 2025</div>
-          <div class="arc-d" style="font-size: 14px">2024.10.16 · 그랜드 인터컨티넨탈 서울 파르나스</div>
+          <div class="arc-d" style="font-size: 14px">2024.10.16</div>
         </div>
         <div class="arc-link">→</div>
       </a>
@@ -1173,6 +1127,7 @@
   </div>
 </section>
 </div><!-- /.insight-archive-wrap -->
+</div><!-- /.reg-archive-wrap -->
 
 </div><!-- /page-home -->
 
@@ -1184,9 +1139,6 @@
 
   <!-- 서브탑 -->
   <div class="subtop">
-    <div class="subtop-graphic" aria-hidden="true">
-      <img src="assets/img/subtop-vector.png" alt="" class="subtop-graphic-img">
-    </div>
 <div class="subtop-row">
       <div class="subtop-left">
         <img src="assets/img/logo-w-h.png" alt="FORESIGHT KOREA 2027" class="subtop-logoimg">
@@ -1221,22 +1173,19 @@
 
       <div class="ceo-layout">
 
-        <!-- ─── LEFT: 인삿말 영상만 ─── -->
+        <!-- ─── LEFT: CEO 사진 카드 ─── -->
         <aside class="ceo-aside">
-          <div class="ceo-yt-wrap reveal">
-            <iframe
-              class="ceo-yt-frame"
-              src="https://www.youtube.com/embed/3bN4sWRlsug?rel=0&modestbranding=1"
-              title="WELCOMING VIDEO · 2027"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+          <div class="ceo-photo-wrap reveal">
+            <img src="assets/img/ceo-photo.png" alt="조영탁 대표이사" class="ceo-photo-img">
+            <div class="ceo-photo-overlay"></div>
+            <div class="ceo-photo-caption">
+              <p>FORESIGHT KOREA 2027 집행위원장</p>
+              <p><strong>휴넷 대표이사 조영탁</strong></p>
+            </div>
           </div>
         </aside>
 
-        <!-- ─── RIGHT: Welcoming Address + 프로필 + 인삿말 ─── -->
+        <!-- ─── RIGHT: Welcoming Address + 인삿말 ─── -->
         <div class="ceo-content">
 
           <div class="ceo-welcoming-head reveal">
@@ -1250,17 +1199,6 @@
             <p class="reveal">AI 솔루션의 주기가 2주 단위로 요동치는 시대에 어제의 '빠름'은 오늘의 '느림'이 되었습니다. 전략 수립부터 성과 창출까지의 시간 갭(Gap)을 극복하지 못하는 기업은 생존의 무대에서 밀려납니다. AI 시대의 격차는 'K자형'으로 극명하게 갈릴 것입니다. 그 갈림길은 기술력 그 자체가 아니라, 변화를 읽고 조직을 재설계하는 리더의 속도에서 결정됩니다.</p>
             <p class="reveal">이러한 통찰을 바탕으로 '휴넷 CEO 포럼 – FORESIGHT KOREA 2027'을 준비했습니다. 'AX: Transforming into an AI-Native Company'를 화두로 경제, 전략, 마케팅, 리더십, 테크 등 5개 트랙 30개 세션을 통해 경영의 본질을 묻고 실전적 실행 경로를 그립니다. 본 포럼은 트렌드를 소개하는 자리가 아닙니다. 평균적인 결단과 관성적인 속도로는 정체된 'K의 아래쪽'을 벗어날 수 없습니다. 회사의 OS를 근본부터 다시 쓰기로 결심한 리더들을 위한 가장 강력한 출발선이 될 것입니다.<br>
             대한민국 경영의 새로운 장을 여는 이 자리에 함께하시길 바랍니다. 하루의 결단이 귀사의 향후 몇 년을 결정할 것입니다. 감사합니다.</p>
-          </div>
-
-          <!-- 프로필 — 라인 구분 -->
-          <div class="ceo-profile reveal">
-            <div class="ceo-profile-photo">
-              <img src="assets/img/ceo-photo.png" alt="조영탁 대표이사">
-            </div>
-            <div class="ceo-profile-info">
-              <div class="ceo-profile-role">FORESIGHT KOREA 2027 집행위원장</div>
-              <div class="ceo-profile-name">휴넷 대표이사 조영탁</div>
-            </div>
           </div>
 
         </div>
@@ -1279,9 +1217,6 @@
 
   <!-- ══ 서브탑 ══ -->
   <div class="subtop">
-    <div class="subtop-graphic" aria-hidden="true">
-      <img src="assets/img/subtop-vector.png" alt="" class="subtop-graphic-img">
-    </div>
 <div class="subtop-row">
       <div class="subtop-left">
         <img src="assets/img/logo-w-h.png" alt="FORESIGHT KOREA 2027" class="subtop-logoimg">
@@ -1307,148 +1242,276 @@
 
 
 
-  <!-- ══ KEYNOTE 섹션 ══ -->
-  <section id="pg-keynote" class="pgsec">
+  <section id="pg-section" class="pgsec">
     <div class="wrap">
       <header class="pgsec-head">
-        <h2 class="pgsec-title">Program &amp; Speakers</h2>
+        <h2 class="pgsec-title">Program & Speakers</h2>
       </header>
-      <div class="pgtl">
+      <div style="display:flex;gap:24px;margin-bottom:0;border-bottom:1px solid var(--line);padding-bottom:0">
+        <button id="pg-tab-speakers" onclick="switchPgTab('speakers')" style="font-family:var(--ko);font-size:18px;font-weight:700;color:var(--fg-100);padding-bottom:12px;border:none;background:none;cursor:pointer;border-bottom:3px solid var(--fg-100);margin-bottom:-1px">연사소개</button>
+        <button id="pg-tab-timetable" onclick="switchPgTab('timetable')" style="font-family:var(--ko);font-size:18px;font-weight:700;color:var(--fg-45);padding-bottom:12px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px">타임테이블</button>
+      </div>
 
-        <!-- KEYNOTE 09:00~09:50 -->
-        <div class="pgtl-row pgtl-row--kn">
-          <div class="pgtl-time">09:00~09:50</div>
-          <div class="pgtl-body">
-            <div class="pgtl-card pgtl-kn pgtl-kn--with-photo">
-              <div class="pgtl-kn-content">
-                <span class="pgtl-badge pgtl-badge-kn">KEYNOTE</span>
-                <p class="pgtl-ctitle">AX: Transforming into an AI-Native Company</p>
-                <div class="pgtl-spk"><span class="pgtl-org">LG AI연구원</span><span class="pgtl-name">이홍락 CSAI</span></div>
+      <!-- ══ 탭 패널 1: 연사 소개 ══ -->
+      <div id="pg-panel-speakers">
+
+      <div class="pg-sp-layout">
+        <aside class="pg-sidebar" id="pg-sidebar">
+          <nav class="pg-sb-nav">
+            <a href="#pg-kn" class="pg-sb-item pg-sb-kn" data-section="pg-kn">KEYNOTE</a>
+            <div class="pg-sb-sep"></div>
+            <a href="#pg-trk-a" class="pg-sb-item" data-section="pg-trk-a">TRACK A<span>거시환경</span></a>
+            <a href="#pg-trk-b" class="pg-sb-item" data-section="pg-trk-b">TRACK B<span>경영전략·혁신</span></a>
+            <a href="#pg-trk-c" class="pg-sb-item" data-section="pg-trk-c">TRACK C<span>AX · Tech</span></a>
+            <a href="#pg-trk-d" class="pg-sb-item" data-section="pg-trk-d">TRACK D<span>마케팅</span></a>
+            <a href="#pg-trk-e" class="pg-sb-item" data-section="pg-trk-e">TRACK E<span>조직인사·리더십</span></a>
+          </nav>
+        </aside>
+        <div class="pg-sp-main">
+
+      <!-- KEYNOTE HERO -->
+      <section id="pg-kn" class="pg-kn-hero-sec">
+        <div class="pg-kn-intro">
+          <p class="pg-kn-intro-eyebrow">Keynote</p>
+          <h3 class="pg-kn-intro-title">AX: Transforming into an AI-Native Company</h3>
+          <p class="pg-kn-intro-desc">지난 3년간 한국 기업의 AI 도입은 빠르게 확산되었다. 그러나 파일럿은 늘었어도 전사 전략은 그대로이고, 도구는 도입했어도 의사결정 구조는 과거의 문법을 따른다. 진짜 과제는 'AI를 더 쓰는 것'이 아니라 'AI를 전제로 회사를 다시 설계하는 것'이다. AX(AI Transformation)는 사업 포트폴리오, 고객 가치, 조직 운영, 인재 기준, 의사결정 권한까지 회사의 운영체제(OS)를 다시 짜는 작업이다. AI Native Company는 AI를 도구로 소비하지 않는다. 제품을 다시 설계하고, 고객 접점을 다시 정의하며, 조직의 일하는 방식과 리더십을 다시 만든다. AI 시대의 결과는 K자로 갈린다. 먼저 움직인 소수만이 위쪽 곡선에 올라탄다. 이번 휴넷CEO 포럼은 'AX: Transforming into an AI-Native Company'를 화두로, 한국 경영진이 자기 회사의 OS를 다시 쓰기 위한 좌표와 실행 언어를 함께 잡는 자리다.</p>
+        </div>
+        <div class="pg-kn-hero-card">
+          <div class="pg-kn-hero-photo">
+            <img src="assets/img/ceo-photo.png" alt="김세직">
+          </div>
+          <div class="pg-kn-hero-body">
+            <p class="pg-kn-hero-title">피크코리아, 정점에 선 대한민국</p>
+            <div class="pg-kn-hero-speaker">
+              <span class="pg-kn-hero-org">서울대학교 경제학부</span>
+              <strong class="pg-kn-hero-name">김세직 교수</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRACK A -->
+      <section id="pg-trk-a" class="pg-trk-sec" style="--acc:#3cc6ff">
+        <div class="pg-trk-intro">
+          <p class="pg-trk-intro-eyebrow">TRACK A — 거시환경</p>
+          <h3 class="pg-trk-intro-title">2027 전략 수립의 외부 좌표: 경제·정세·정책 리스크를 읽는 법</h3>
+          <p class="pg-trk-intro-desc">AI 전환은 기술 선택만으로 완성되지 않는다. 금리, 환율, 공급망, 지정학, 산업 정책의 변화가 기업의 투자 여력과 성장 경로를 동시에 흔든다. TRACK A는 2027년 사업계획의 전제가 될 글로벌 경제와 국제정세의 핵심 변수를 진단한다. 경영진은 불확실성을 막연한 위험으로 남겨두지 않고, 투자·시장·공급망 의사결정에 반영할 수 있는 전략 가정으로 전환하는 법을 확인한다.</p>
+        </div>
+        <div class="trz-row">
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img.png" alt="김효상" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">A-1</div><div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>대전환의 분기점: 글로벌 경제 전망 2026</div><div class="sc-foot"><div class="sc-co">대외경제정책연구원</div><div class="sc-name">김효상 팀장</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-1.png" alt="강명수" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">A-2</div><div class="sc-title">트럼프대통령이 촉발한 신보호무역주의와 한국의 대응 전략</div><div class="sc-foot"><div class="sc-co">삼일PwC</div><div class="sc-name">강명수 센터장</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-2.png" alt="강준영" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">A-3</div><div class="sc-title">중국 대외정책 변화와 한국기업의 전략</div><div class="sc-foot"><div class="sc-co">한국외국어대학교</div><div class="sc-name">강준영 교수</div></div></article>
+          <article class="sc is-tbd"><div class="sc-photo"><img src="assets/img/man.svg" alt="" style="width:100%;height:100%;object-fit:contain;object-position:bottom center;transform:scale(1.2) translateY(25%);transform-origin:bottom center;opacity:.4"></div><div class="sc-no">A-4</div><div class="sc-title">피크코리아 현재와 미래: 한국 경제 전망 2026</div><div class="sc-foot"><div class="sc-name">TBD</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-4.png" alt="조동철" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">A-5</div><div class="sc-title">한국경제 장기전망과 구조개혁 과제</div><div class="sc-foot"><div class="sc-co">KDI(한국개발연구원)</div><div class="sc-name">조동철 원장</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-5.png" alt="김동규" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">A-6</div><div class="sc-title">강대국 경쟁의 틈새에서 부상하는 지역 강국들: 새로운 세력 균형 읽기</div><div class="sc-foot"><div class="sc-co">PADO</div><div class="sc-name">김동규 편집장</div></div></article>
+        </div>
+      </section>
+
+      <!-- TRACK B -->
+      <section id="pg-trk-b" class="pg-trk-sec" style="--acc:#4aa6ff">
+        <div class="pg-trk-intro">
+          <p class="pg-trk-intro-eyebrow">TRACK B — 경영전략·혁신</p>
+          <h3 class="pg-trk-intro-title">AI Native Company의 전략 공식: 사업 모델과 성장 포트폴리오를 다시 짜다</h3>
+          <p class="pg-trk-intro-desc">'AI를 활용하자'는 선언만으로는 전략이 되지 않는다. 중요한 질문은 어떤 사업을 키우고, 어떤 방식을 버리며, 어디에 자본과 인재를 재배치할 것인가이다. TRACK B는 AI를 전제로 사업 포트폴리오, 제품·서비스 라인업, 고객 가치, 의사결정 구조를 다시 설계하는 전략 프레임을 다룬다. 경영진은 자사 사업을 AI Native 관점에서 재해석하고, 2027년 전략 회의에서 바로 논의할 수 있는 성장 선택지를 가져간다.</p>
+        </div>
+        <div class="trz-row">
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-6.png" alt="강정묵" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">B-1</div><div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>격변기 사업전략의 새로운 프레임워크</div><div class="sc-foot"><div class="sc-co">PwC</div><div class="sc-name">강정묵 파트너</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-7.png" alt="원정준" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">B-2</div><div class="sc-title">경제 불황기의 리밸런싱과 포트폴리오 혁신</div><div class="sc-foot"><div class="sc-co">KPMG</div><div class="sc-name">원정준 부대표</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-8.png" alt="노상규" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">B-3</div><div class="sc-title">Internet of Teslas: 테슬라의 오가닉 비즈니스 전략에 대한 이해</div><div class="sc-foot"><div class="sc-co">서울대학교</div><div class="sc-name">노상규 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-9.png" alt="신현한" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">B-4</div><div class="sc-title">피크코리아를 극복하는 지배구조와 이사회 중심 경영</div><div class="sc-foot"><div class="sc-co">연세대학교</div><div class="sc-name">신현한 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-10.png" alt="최창범" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">B-5</div><div class="sc-title">새로운 질서 속, CEO의 고민(속마음)은?</div><div class="sc-foot"><div class="sc-co">PwC</div><div class="sc-name">최창범 전무</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-11.png" alt="손재권" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">B-6</div><div class="sc-title">혁신을 미리 보다: 실리콘벨리 發 기업혁신의 2026</div><div class="sc-foot"><div class="sc-co">더밀크</div><div class="sc-name">손재권 대표</div></div></article>
+        </div>
+      </section>
+
+      <!-- TRACK C -->
+      <section id="pg-trk-c" class="pg-trk-sec" style="--acc:#5a8dff">
+        <div class="pg-trk-intro">
+          <p class="pg-trk-intro-eyebrow">TRACK C — AX · Tech</p>
+          <h3 class="pg-trk-intro-title">AX의 기술 백본: AI Agent, 데이터, 플랫폼이 경영의 OS를 바꾼다</h3>
+          <p class="pg-trk-intro-desc">AI Agent, 데이터 인프라, 산업별 AI 플랫폼은 기업 운영의 기본 단위를 바꾸고 있다. 기술은 더 이상 IT 부서의 실행 과제가 아니라, 사업 모델과 조직 설계를 결정하는 경영 변수다. TRACK C는 AI 모델의 진화, Agent 기반 업무 방식, 데이터·보안·플랫폼 전략, 글로벌 기술 패권의 흐름을 경영진의 언어로 해석한다. 경영진은 무엇을 도입하고, 무엇을 보류하며, 어떤 기술 역량을 내부에 축적해야 하는지 판단하는 기준을 얻는다.</p>
+        </div>
+        <div class="trz-row">
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-12.png" alt="윤성훈" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">C-1</div><div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>AI에 의한 고객여정의 마지막 진화, 위임하는 종의 탄생</div><div class="sc-foot"><div class="sc-co">커니(Kearney)</div><div class="sc-name">윤성훈 파트너</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-13.png" alt="황지영" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">C-2</div><div class="sc-title">에이전틱 AI 커머스 시대, 고객경험을 어떻게 향상시킬 것인가?</div><div class="sc-foot"><div class="sc-co">노스캐롤라이나대학교</div><div class="sc-name">황지영 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-14.png" alt="김용섭" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">C-3</div><div class="sc-title">소비자 마음의 지도: 대한민국 소비 키워드 2026</div><div class="sc-foot"><div class="sc-co">날카로운상상력연구소</div><div class="sc-name">김용섭 소장</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-15.png" alt="전영수" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">C-4</div><div class="sc-title">인구 구조 변화가 불러 온 마케팅의 위기, 그리고 기회</div><div class="sc-foot"><div class="sc-co">한양대학교</div><div class="sc-name">전영수 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-16.png" alt="정연승" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">C-5</div><div class="sc-title">최근 유통트렌드와 성공기업 사례를 통한 인사이트 전략</div><div class="sc-foot"><div class="sc-co">단국대학교</div><div class="sc-name">정연승 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-17.png" alt="정희선" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">C-6</div><div class="sc-title">일본에서 배우는 저성장, 고령화 시대의 마케팅 전략</div><div class="sc-foot"><div class="sc-co">일본 유자베이스</div><div class="sc-name">정희선 애널리스트</div></div></article>
+        </div>
+      </section>
+
+      <!-- TRACK D -->
+      <section id="pg-trk-d" class="pg-trk-sec" style="--acc:#6f7bf0">
+        <div class="pg-trk-intro">
+          <p class="pg-trk-intro-eyebrow">TRACK D — 마케팅</p>
+          <h3 class="pg-trk-intro-title">AI가 고객 접점을 재정의한다: 마케팅과 세일즈 OS의 전환</h3>
+          <p class="pg-trk-intro-desc">AI는 고객을 이해하고, 콘텐츠를 만들고, 채널을 운영하고, 세일즈 기회를 포착하는 방식을 다시 정의하고 있다. 동시에 고객은 더 빠른 응답, 더 정교한 개인화, 더 일관된 경험을 당연한 기준으로 받아들이기 시작했다. TRACK D는 AI 기반 타겟팅, 콘텐츠·크리에이티브 자동화, 고객경험 혁신, B2B 세일즈 전환을 하나의 마케팅 OS 관점에서 다룬다. 경영진과 마케팅 리더는 고객 접점을 비용 센터가 아니라 성장 엔진으로 바꾸는 실행 방향을 확인한다.</p>
+        </div>
+        <div class="trz-row">
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-18.png" alt="박진석" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">D-1</div><div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>연공서열 파괴, 원점 사고로 다시 만드는 미래 조직</div><div class="sc-foot"><div class="sc-co">콘페리 코리아</div><div class="sc-name">박진석 대표</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-19.png" alt="송기홍" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">D-2</div><div class="sc-title">전통적 채용의 종말, 인재 리밸런싱</div><div class="sc-foot"><div class="sc-co">리멤버</div><div class="sc-name">송기홍 대표</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-20.png" alt="JR Keller" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">D-3</div><div class="sc-title">조직·인재관리의 새로운 지형 — 글로벌 트렌드 중심으로</div><div class="sc-foot"><div class="sc-co">코넬대학교</div><div class="sc-name">JR Keller 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-21.png" alt="한광모" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">D-4</div><div class="sc-title">AI Powered HR: AI는 HR을 어떻게 바꾸고 있는가?</div><div class="sc-foot"><div class="sc-co">SAP코리아</div><div class="sc-name">한광모 본부장</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-22.png" alt="이중학" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">D-5</div><div class="sc-title">인재의 재정의: 하이브리드 리소스 시대의 대응 전략</div><div class="sc-foot"><div class="sc-co">동국대학교</div><div class="sc-name">이중학 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-23.png" alt="이승훈" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">D-6</div><div class="sc-title">대전환 시대의 새로운 리더십 방정식</div><div class="sc-foot"><div class="sc-co">링글</div><div class="sc-name">이승훈 대표</div></div></article>
+        </div>
+      </section>
+
+      <!-- TRACK E -->
+      <section id="pg-trk-e" class="pg-trk-sec" style="--acc:#8b5cf6">
+        <div class="pg-trk-intro">
+          <p class="pg-trk-intro-eyebrow">TRACK E — 조직인사·리더십</p>
+          <h3 class="pg-trk-intro-title">AI Native 조직을 만드는 법: 속도, 인재, 평가, 리더십의 재설계</h3>
+          <p class="pg-trk-intro-desc">AI Native Company의 경쟁력은 도구 도입률이 아니라 조직의 속도에서 갈린다. 외부 변화를 감지하는 속도, 계획을 세우는 속도, 전사에 공유하는 속도, 실행해 성과를 만드는 속도를 높이지 못하면 AI는 성과로 연결되지 않는다. TRACK E는 직무 재설계, 인재 확보와 재교육, 평가·보상 체계, Human-AI 협업, 리더십의 역할 변화를 다룬다. 사람을 대체하는 조직이 아니라, 사람이 더 높은 가치의 일에 집중하도록 일의 구조를 다시 설계하는 방법을 제시한다.</p>
+        </div>
+        <div class="trz-row">
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-24.png" alt="정찬욱" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">E-1</div><div class="sc-title"><span class="sc-vid-ic" title="영상 강연"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3.5" width="9.5" height="9" rx="1.8" fill="currentColor"/><path d="M10.5 7.1L14.5 5V11L10.5 8.9V7.1Z" fill="currentColor"/></svg></span>테크 트렌드 2026: AI 전쟁을 미리보다</div><div class="sc-foot"><div class="sc-co">딜로이트 컨설팅</div><div class="sc-name">정찬욱 전무</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-25.png" alt="강정수" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">E-2</div><div class="sc-title">2026, consumer AI가 온다</div><div class="sc-foot"><div class="sc-co">블루닷 AI연구센터</div><div class="sc-name">강정수 센터장</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-26.png" alt="백서인" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">E-3</div><div class="sc-title">테크 드래곤의 비상: 차이나 테크의 부상과 우리의 대응 방안</div><div class="sc-foot"><div class="sc-co">한양대학교</div><div class="sc-name">백서인 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-27.png" alt="한기용" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">E-4</div><div class="sc-title">AI가 바꾸는 기업 경영의 미래</div><div class="sc-foot"><div class="sc-co">산호세주립대</div><div class="sc-name">한기용 교수</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-28.png" alt="이동근" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">E-5</div><div class="sc-title">AX의 실패요인과 지속가능한 AI 가치창출 체계</div><div class="sc-foot"><div class="sc-co">KPMG</div><div class="sc-name">이동근 전무</div></div></article>
+          <article class="sc"><div class="sc-photo"><img src="assets/img/speakers/img-29.png" alt="오성미" style="width:100%;height:100%;object-fit:cover;object-position:top center"></div><div class="sc-no">E-6</div><div class="sc-title">AI가 만드는 조직의 미래와 일하는 방식</div><div class="sc-foot"><div class="sc-co">마이크로소프트</div><div class="sc-name">오성미 총괄팀장</div></div></article>
+        </div>
+      </section>
+        </div><!-- /pg-sp-main -->
+      </div><!-- /pg-sp-layout -->
+
+      </div>
+
+      <!-- ══ 탭 패널 2: Time Table ══ -->
+      <div id="pg-panel-timetable" hidden>
+        <div class="pgtl">
+
+          <!-- KEYNOTE 09:00~09:50 -->
+          <div class="pgtl-row pgtl-row--kn">
+            <div class="pgtl-time">09:00~09:50</div>
+            <div class="pgtl-body">
+              <div class="pgtl-card pgtl-kn pgtl-kn--with-photo">
+                <div class="pgtl-kn-content">
+                  <span class="pgtl-badge pgtl-badge-kn">KEYNOTE</span>
+                  <p class="pgtl-ctitle">AX: Transforming into an AI-Native Company</p>
+                  <div class="pgtl-spk"><span class="pgtl-org">LG AI연구원</span><span class="pgtl-name">이홍락 CSAI</span></div>
+                </div>
+                <div class="pgtl-kn-photo">
+                  <img src="assets/img/ceo-photo.png" alt="이홍락 CSAI" class="pgtl-kn-man">
+                </div>
               </div>
-              <div class="pgtl-kn-photo">
-                <img src="assets/img/man.svg" alt="" class="pgtl-kn-man">
+            </div>
+          </div>
+
+          <!-- 세션 1 10:10~11:00 (안내 포함) -->
+          <div class="pgtl-row pgtl-row--tr" id="pg-track-sessions">
+            <div class="pgtl-time">10:10~11:00</div>
+            <div class="pgtl-body">
+              <div class="pgtl-track-notice">
+                <p class="pgtl-tn-title">각 TRACK 프로그램 진행</p>
+                <ul class="pgtl-tn-list">
+                  <li>각 프로그램 전후 20분의 Break Time이 제공됩니다.</li>
+                  <li>12:10 ~ 13:30 까지 점심시간이 제공됩니다.</li>
+                </ul>
+              </div>
+              <div class="pgtl-cards5">
+                <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">2027 사업계획의 첫 번째 전제: 성장·물가·교역의 새 질서</p><span class="pgtl-c5-spk">대외경제정책연구원 · 윤상하 실장</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">연간 계획의 종말: AI Adaptive Planning으로 전략을 다시 짜다</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">스틸칼라의 등장: 피지컬 AI가 산업 현장을 바꾸는 방식</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">AI 네이티브 소비자의 탄생: 2027 고객은 어떻게 선택하는가</p><span class="pgtl-c5-spk">트렌드코리아컴퍼니 · 전미영 박사</span></div>
+                <div class="pgtl-c5" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">글로벌 빅테크가 다시 짠 일의 구조: AI Native 직무 재설계</p><span class="pgtl-c5-spk">동국대학교 · 이중학 교수</span></div>
               </div>
             </div>
           </div>
-        </div>
 
-
-        <!-- 세션 1 10:10~11:00 (안내 포함) -->
-        <div class="pgtl-row pgtl-row--tr" id="pg-track-sessions">
-          <div class="pgtl-time">10:10~11:00</div>
-          <div class="pgtl-body">
-            <div class="pgtl-track-notice">
-              <p class="pgtl-tn-title">각 TRACK 프로그램 진행</p>
-              <ul class="pgtl-tn-list">
-                <li>각 프로그램 전후 20분의 Break Time이 제공됩니다.</li>
-                <li>12:10 ~ 13:30 까지 점심시간이 제공됩니다.</li>
-              </ul>
-            </div>
-            <div class="pgtl-cards5">
-              <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">2027 사업계획의 첫 번째 전제: 성장·물가·교역의 새 질서</p><span class="pgtl-c5-spk">대외경제정책연구원 · 윤상하 실장</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">연간 계획의 종말: AI Adaptive Planning으로 전략을 다시 짜다</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">스틸칼라의 등장: 피지컬 AI가 산업 현장을 바꾸는 방식</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">AI 네이티브 소비자의 탄생: 2027 고객은 어떻게 선택하는가</p><span class="pgtl-c5-spk">트렌드코리아컴퍼니 · 전미영 박사</span></div>
-              <div class="pgtl-c5" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">글로벌 빅테크가 다시 짠 일의 구조: AI Native 직무 재설계</p><span class="pgtl-c5-spk">동국대학교 · 이중학 교수</span></div>
+          <!-- 세션 2 11:20~12:10 -->
+          <div class="pgtl-row pgtl-row--tr">
+            <div class="pgtl-time">11:20~12:10</div>
+            <div class="pgtl-body">
+              <div class="pgtl-cards5">
+                <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">모두가 타깃이 되는 세계: 2027 지정학 리스크와 한국 기업의 선택</p><span class="pgtl-c5-spk">중앙대학교 · 이승주 교수</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">AI Native 도약의 첫 조건: 성장을 막는 레거시를 버리는 법</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">테크 드래곤의 비상: 중국 AI 굴기가 바꾸는 경쟁의 판</p><span class="pgtl-c5-spk">한양대학교 · 백서인 교수</span></div>
+                <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">검색 이후의 브랜드 전략: AI가 바꾼 구매 여정의 새 규칙</p><span class="pgtl-c5-spk">Kearney · 윤성훈 파트너</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">프롬프트가 업무 능력이 된 시대: 임직원 AI 리스킬링 전략</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-
-        <!-- 세션 2 11:20~12:10 -->
-        <div class="pgtl-row pgtl-row--tr">
-          <div class="pgtl-time">11:20~12:10</div>
-          <div class="pgtl-body">
-            <div class="pgtl-cards5">
-              <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">모두가 타깃이 되는 세계: 2027 지정학 리스크와 한국 기업의 선택</p><span class="pgtl-c5-spk">중앙대학교 · 이승주 교수</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">AI Native 도약의 첫 조건: 성장을 막는 레거시를 버리는 법</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">테크 드래곤의 비상: 중국 AI 굴기가 바꾸는 경쟁의 판</p><span class="pgtl-c5-spk">한양대학교 · 백서인 교수</span></div>
-              <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">검색 이후의 브랜드 전략: AI가 바꾼 구매 여정의 새 규칙</p><span class="pgtl-c5-spk">Kearney · 윤성훈 파트너</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">프롬프트가 업무 능력이 된 시대: 임직원 AI 리스킬링 전략</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+          <!-- 점심 12:10~13:30 -->
+          <div class="pgtl-row">
+            <div class="pgtl-time">12:10~13:30</div>
+            <div class="pgtl-body">
+              <div class="pgtl-card pgtl-special"><span class="pgtl-ctitle">점심시간 · 네트워킹 런치</span></div>
             </div>
           </div>
-        </div>
 
-        <!-- 점심 12:10~13:30 -->
-        <div class="pgtl-row">
-          <div class="pgtl-time">12:10~13:30</div>
-          <div class="pgtl-body">
-            <div class="pgtl-card pgtl-special"><span class="pgtl-ctitle">점심시간 · 네트워킹 런치</span></div>
-          </div>
-        </div>
-
-        <!-- 세션 3 13:30~14:20 -->
-        <div class="pgtl-row pgtl-row--tr">
-          <div class="pgtl-time">13:30~14:20</div>
-          <div class="pgtl-body">
-            <div class="pgtl-cards5">
-              <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">에너지·물류 초크포인트: 원가와 공급망을 흔드는 다음 충격</p><span class="pgtl-c5-spk">삼일PwC · 강명수 국제통상솔루션센터장</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">Dual AX 전략: 사업 모델과 실행 역량을 동시에 바꾸다</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">AI 투자의 성패: 거품과 워크슬롭을 넘어 ROI를 만드는 법</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">AI 시대의 미디어 투자 전략: 채널 믹스와 성과 극대화의 새 공식</p><span class="pgtl-c5-spk">한국종합예술원 · 이승무 교수</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">프롬프트 리더십: 구성원의 AI 잠재력을 깨우는 리더의 역할</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+          <!-- 세션 3 13:30~14:20 -->
+          <div class="pgtl-row pgtl-row--tr">
+            <div class="pgtl-time">13:30~14:20</div>
+            <div class="pgtl-body">
+              <div class="pgtl-cards5">
+                <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">에너지·물류 초크포인트: 원가와 공급망을 흔드는 다음 충격</p><span class="pgtl-c5-spk">삼일PwC · 강명수 국제통상솔루션센터장</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">Dual AX 전략: 사업 모델과 실행 역량을 동시에 바꾸다</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">AI 투자의 성패: 거품과 워크슬롭을 넘어 ROI를 만드는 법</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">AI 시대의 미디어 투자 전략: 채널 믹스와 성과 극대화의 새 공식</p><span class="pgtl-c5-spk">한국종합예술원 · 이승무 교수</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">프롬프트 리더십: 구성원의 AI 잠재력을 깨우는 리더의 역할</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-
-        <!-- 세션 4 14:40~15:30 -->
-        <div class="pgtl-row pgtl-row--tr">
-          <div class="pgtl-time">14:40~15:30</div>
-          <div class="pgtl-body">
-            <div class="pgtl-cards5">
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">환율·금리·자본비용: 2027 재무 전략의 리스크 지도</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">[AX사례] 제품을 넘어 생태계로: 플랫폼 기업은 어떻게 비즈니스를 재정의했나</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">[AX사례] 전사 AI 도입의 현실: 성공 조건과 실패 패턴</p><span class="pgtl-c5-spk">KPMG · 이동근 AI센터장</span></div>
-              <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">[AX사례] 퍼포먼스 마케팅의 재설계: AI 측정·최적화와 인간의 판단</p><span class="pgtl-c5-spk">고려대학교 · 송수진 교수</span></div>
-              <div class="pgtl-c5" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">[AX사례] AI Native HR: 채용부터 평가까지 인재 의사결정을 바꾸다</p><span class="pgtl-c5-spk">SAP · 한광모 본부장</span></div>
+          <!-- 세션 4 14:40~15:30 -->
+          <div class="pgtl-row pgtl-row--tr">
+            <div class="pgtl-time">14:40~15:30</div>
+            <div class="pgtl-body">
+              <div class="pgtl-cards5">
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">환율·금리·자본비용: 2027 재무 전략의 리스크 지도</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">[AX사례] 제품을 넘어 생태계로: 플랫폼 기업은 어떻게 비즈니스를 재정의했나</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">[AX사례] 전사 AI 도입의 현실: 성공 조건과 실패 패턴</p><span class="pgtl-c5-spk">KPMG · 이동근 AI센터장</span></div>
+                <div class="pgtl-c5" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">[AX사례] 퍼포먼스 마케팅의 재설계: AI 측정·최적화와 인간의 판단</p><span class="pgtl-c5-spk">고려대학교 · 송수진 교수</span></div>
+                <div class="pgtl-c5" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">[AX사례] AI Native HR: 채용부터 평가까지 인재 의사결정을 바꾸다</p><span class="pgtl-c5-spk">SAP · 한광모 본부장</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-
-        <!-- 세션 5 15:50~16:40 -->
-        <div class="pgtl-row pgtl-row--tr">
-          <div class="pgtl-time">15:50~16:40</div>
-          <div class="pgtl-body">
-            <div class="pgtl-cards5">
-              <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">K자형 양극화의 한국 경제: 2027 성장 기회와 방어 전략</p><span class="pgtl-c5-spk">현대경제연구원 · 주원 실장</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">[AX사례] 실행 속도의 혁명: 하이퍼 스냅스 조직은 어떻게 움직이는가</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">자율 경제 에이전트(AEA): AI가 결정하는 시대의 통제와 책임</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">AI 네이티브 마케팅 조직: 사람과 에이전트는 어떻게 협업하는가</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">[AX사례] 전사 AI 내재화의 조건: 임원진은 어떻게 변화를 밀어붙였나</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+          <!-- 세션 5 15:50~16:40 -->
+          <div class="pgtl-row pgtl-row--tr">
+            <div class="pgtl-time">15:50~16:40</div>
+            <div class="pgtl-body">
+              <div class="pgtl-cards5">
+                <div class="pgtl-c5" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">K자형 양극화의 한국 경제: 2027 성장 기회와 방어 전략</p><span class="pgtl-c5-spk">현대경제연구원 · 주원 실장</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">[AX사례] 실행 속도의 혁명: 하이퍼 스냅스 조직은 어떻게 움직이는가</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">자율 경제 에이전트(AEA): AI가 결정하는 시대의 통제와 책임</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">AI 네이티브 마케팅 조직: 사람과 에이전트는 어떻게 협업하는가</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">[AX사례] 전사 AI 내재화의 조건: 임원진은 어떻게 변화를 밀어붙였나</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-
-        <!-- 세션 6 17:00~17:50 (행사 종료) -->
-        <div class="pgtl-row pgtl-row--tr">
-          <div class="pgtl-time">17:00~17:50</div>
-          <div class="pgtl-body">
-            <div class="pgtl-cards5">
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">불확실성을 숫자로 바꾸는 시나리오 경영: 예산과 실행계획의 기술</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">실리콘밸리의 극단적 AX: '1인 유니콘'이 던지는 성장의 질문</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">통제인가 자율인가: 새도우 AI를 성과로 바꾸는 조직 설계</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">[AX사례] 고객 경험의 AX: AI는 접점을 어떻게 바꾸는가</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
-              <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">[AX사례] 연공서열과 AI 속도의 충돌: 한국형 조직의 현실적 전환법</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+          <!-- 세션 6 17:00~17:50 -->
+          <div class="pgtl-row pgtl-row--tr">
+            <div class="pgtl-time">17:00~17:50</div>
+            <div class="pgtl-body">
+              <div class="pgtl-cards5">
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#3cc6ff"><span class="pgtl-c5-trk">TRACK A</span><p class="pgtl-c5-title">불확실성을 숫자로 바꾸는 시나리오 경영: 예산과 실행계획의 기술</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#4aa6ff"><span class="pgtl-c5-trk">TRACK B</span><p class="pgtl-c5-title">실리콘밸리의 극단적 AX: '1인 유니콘'이 던지는 성장의 질문</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#5a8dff"><span class="pgtl-c5-trk">TRACK C</span><p class="pgtl-c5-title">통제인가 자율인가: 새도우 AI를 성과로 바꾸는 조직 설계</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#6f7bf0"><span class="pgtl-c5-trk">TRACK D</span><p class="pgtl-c5-title">[AX사례] 고객 경험의 AX: AI는 접점을 어떻게 바꾸는가</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+                <div class="pgtl-c5 pgtl-c5-nd" style="--tc:#8b5cf6"><span class="pgtl-c5-trk">TRACK E</span><p class="pgtl-c5-title">[AX사례] 연공서열과 AI 속도의 충돌: 한국형 조직의 현실적 전환법</p><span class="pgtl-c5-spk">섭외 진행 중</span></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- 클로징 세레머니 -->
-        <div class="pgtl-row">
-          <div class="pgtl-time">17:50~18:00</div>
-          <div class="pgtl-body">
-            <div class="pgtl-card pgtl-special"><span class="pgtl-badge pgtl-badge-sp">클로징</span><span class="pgtl-ctitle">클로징 세레머니 · 수료증 배부</span></div>
+          <!-- 클로징 세레머니 -->
+          <div class="pgtl-row">
+            <div class="pgtl-time">17:50~18:00</div>
+            <div class="pgtl-body">
+              <div class="pgtl-card pgtl-special"><span class="pgtl-badge pgtl-badge-sp">클로징</span><span class="pgtl-ctitle">클로징 세레머니 · 수료증 배부</span></div>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
 
-</div><!-- /page-program -->
 </div><!-- /page-program -->
 
 
@@ -1459,9 +1522,6 @@
 <div id="page-events" class="page" style="background:#03040a;min-height:100vh">
   <!-- 서브탑 -->
   <div class="subtop">
-    <div class="subtop-graphic" aria-hidden="true">
-      <img src="assets/img/subtop-vector.png" alt="" class="subtop-graphic-img">
-    </div>
     <div class="subtop-row">
       <div class="subtop-left">
         <img src="assets/img/logo-w-h.png" alt="FORESIGHT KOREA 2027" class="subtop-logoimg">
@@ -1533,84 +1593,100 @@
 <!-- ════════════════════════════════════════════════════════════════
      PAGE: REGISTER
 ════════════════════════════════════════════════════════════════ -->
-<div id="page-register" class="page" style="background:#fff;min-height:100vh">
-  <div style="background:#fff;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:40">
-    <!-- 상단 GNB는 공통 GNB로 처리됨 -->
-  </div>
-  <div style="max-width:1280px;margin:0 auto;padding:56px 60px 120px">
-    <header class="pgsec-head">
-      <h2 class="pgsec-title">Register</h2>
-    </header>
-    <!-- 탭 -->
-    <div style="display:flex;gap:24px;margin-bottom:32px;border-bottom:1px solid #ebebeb;padding-bottom:0">
-      <button id="reg-tab-register" onclick="switchRegTab('register')" style="font-family:var(--ko);font-size:18px;font-weight:700;color:#20222d;padding-bottom:12px;border:none;background:none;cursor:pointer;border-bottom:3px solid #13151b;margin-bottom:-1px">등록하기</button>
-      <button id="reg-tab-confirm" onclick="switchRegTab('confirm')" style="font-family:var(--ko);font-size:18px;font-weight:700;color:#c8c8c8;padding-bottom:12px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px">등록확인</button>
-    </div>
+<div id="page-register" class="page" style="background:#f7f8fa;min-height:100vh">
+  <div class="wrap">
+    <div class="reg-inner">
 
-    <!-- 등록하기 패널 -->
-    <div id="reg-panel-register">
-      <!-- 상품 카드 -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px">
-        <div style="position:relative;border-radius:8px;overflow:hidden;aspect-ratio:372/320;box-shadow:0 3px 5px rgba(0,0,0,.04)">
-          <img src="assets/img/reg-allpass.jpg" alt="ALL PASS" style="width:100%;height:100%;object-fit:cover;display:block">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 27%,rgba(0,0,0,1))"></div>
-          <div style="position:absolute;top:0;left:0;background:#3a6bff;padding:8px 12px;border-radius:0 0 8px 0">
-            <div style="color:#fff;font-size:14px;font-weight:700;line-height:1.3;text-align:center">ALL<br>PASS</div>
-          </div>
-          <div style="position:absolute;bottom:16px;left:24px">
-            <div style="color:#3a6bff;font-size:13px;font-weight:700;margin-bottom:4px">include</div>
-            <div style="color:#fff;font-size:15px;font-weight:700">OFFLINE / LIVE / VOD / 강연자료</div>
-          </div>
-        </div>
-        <div style="position:relative;border-radius:8px;overflow:hidden;aspect-ratio:372/320;box-shadow:0 3px 5px rgba(0,0,0,.04)">
-          <img src="assets/img/reg-livepass.jpg" alt="LIVE PASS" style="width:100%;height:100%;object-fit:cover;display:block">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 27%,rgba(0,0,0,1))"></div>
-          <div style="position:absolute;top:0;left:0;background:#3a6bff;padding:8px 12px;border-radius:0 0 8px 0">
-            <div style="color:#fff;font-size:14px;font-weight:700;line-height:1.3;text-align:center">LIVE<br>PASS</div>
-          </div>
-          <div style="position:absolute;bottom:16px;left:24px">
-            <div style="color:#3a6bff;font-size:13px;font-weight:700;margin-bottom:4px">include</div>
-            <div style="color:#fff;font-size:15px;font-weight:700">LIVE / VOD / 강연자료</div>
-          </div>
-        </div>
-      </div>
-      <p style="font-size:12px;color:#20222d;margin-bottom:32px">*VOD 학습기간 : 한 달</p>
-      <!-- 신청 방법 -->
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <a href="#" style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
-          <div>
-            <div style="font-size:16px;font-weight:700;color:#20222d;margin-bottom:4px">개인 신청하기</div>
-            <div style="font-size:14px;color:#888">최대 4인</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#" style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;text-decoration:none;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
-          <div>
-            <div style="font-size:16px;font-weight:700;color:#20222d;margin-bottom:4px">단체 신청하기</div>
-            <div style="font-size:14px;color:#888">5인 이상</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
+      <header class="pgsec-head">
+        <h2 class="pgsec-title">Register</h2>
+      </header>
 
-    <!-- 등록확인 패널 -->
-    <div id="reg-panel-confirm" hidden>
-      <p style="font-size:15px;color:#888;margin-bottom:32px;line-height:1.7">등록 시 입력하신 이름과 휴대폰번호 뒷 4자리로 확인하실 수 있습니다.</p>
-      <div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px">
-        <div>
-          <label style="display:block;font-size:12px;color:#888;margin-bottom:6px;font-weight:500">이름</label>
-          <input type="text" placeholder="이름을 입력하세요" style="width:100%;padding:12px 16px;border:1px solid #e0e0e0;border-radius:6px;font-size:15px;font-family:var(--ko);outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#3a6bff'" onblur="this.style.borderColor='#e0e0e0'">
+      <!-- 탭 바 -->
+      <div class="reg-tab-bar">
+        <button id="reg-tab-register" class="reg-tab-btn reg-tab-active" onclick="switchRegTab('register')">등록하기</button>
+        <button id="reg-tab-confirm" class="reg-tab-btn" onclick="switchRegTab('confirm')">등록확인</button>
+      </div>
+
+      <!-- ══ 등록하기 패널 ══ -->
+      <div id="reg-panel-register">
+        <div class="reg-thumb-grid">
+          <div class="reg-thumb">
+            <img src="assets/img/reg-allpass.jpg" alt="" class="reg-thumb-img">
+            <div class="reg-thumb-grad"></div>
+            <div class="reg-thumb-badge"><span>ALL</span><span>PASS</span></div>
+            <div class="reg-thumb-foot">
+              <p class="reg-thumb-incl">include</p>
+              <p class="reg-thumb-feats">OFFLINE / LIVE / VOD / 강연자료</p>
+            </div>
+          </div>
+          <div class="reg-thumb">
+            <img src="assets/img/reg-livepass.jpg" alt="" class="reg-thumb-img">
+            <div class="reg-thumb-grad"></div>
+            <div class="reg-thumb-badge"><span>LIVE</span><span>PASS</span></div>
+            <div class="reg-thumb-foot">
+              <p class="reg-thumb-incl">include</p>
+              <p class="reg-thumb-feats">LIVE / VOD / 강연자료</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <label style="display:block;font-size:12px;color:#888;margin-bottom:6px;font-weight:500">휴대폰 번호 뒷 4자리</label>
-          <input type="text" placeholder="4자리를 입력하세요" maxlength="4" style="width:100%;padding:12px 16px;border:1px solid #e0e0e0;border-radius:6px;font-size:15px;font-family:var(--ko);outline:none;box-sizing:border-box" onfocus="this.style.borderColor='#3a6bff'" onblur="this.style.borderColor='#e0e0e0'">
+        <p class="reg-vod-note">*VOD 학습기간 : 한 달</p>
+        <div class="reg-apply-list">
+          <a href="#" class="reg-apply-item">
+            <div>
+              <div class="reg-apply-name">개인 신청하기</div>
+              <div class="reg-apply-sub">최대 4인</div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="reg-apply-item">
+            <div>
+              <div class="reg-apply-name">단체 신청하기</div>
+              <div class="reg-apply-sub">5인 이상</div>
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
-      <div style="display:flex;gap:12px;margin-top:24px;justify-content:center">
-        <button style="padding:14px 32px;border:1px solid #e0e0e0;border-radius:4px;background:#fff;font-size:16px;font-family:var(--ko);color:#20222d;cursor:pointer">취소</button>
-        <button style="padding:14px 32px;border:none;border-radius:4px;background:#13151b;font-size:16px;font-family:var(--ko);color:#fff;cursor:pointer;font-weight:600">확인</button>
+
+      <!-- ══ 등록확인 패널 ══ -->
+      <div id="reg-panel-confirm" hidden>
+        <div class="reg-thumb-grid">
+          <div class="reg-thumb">
+            <img src="assets/img/reg-allpass.jpg" alt="" class="reg-thumb-img">
+            <div class="reg-thumb-grad"></div>
+            <div class="reg-thumb-badge"><span>ALL</span><span>PASS</span></div>
+            <div class="reg-thumb-foot">
+              <p class="reg-thumb-incl">include</p>
+              <p class="reg-thumb-feats">OFFLINE / LIVE / VOD / 강연자료</p>
+            </div>
+          </div>
+          <div class="reg-thumb">
+            <img src="assets/img/reg-livepass.jpg" alt="" class="reg-thumb-img">
+            <div class="reg-thumb-grad"></div>
+            <div class="reg-thumb-badge"><span>LIVE</span><span>PASS</span></div>
+            <div class="reg-thumb-foot">
+              <p class="reg-thumb-incl">include</p>
+              <p class="reg-thumb-feats">LIVE / VOD / 강연자료</p>
+            </div>
+          </div>
+        </div>
+        <p class="reg-vod-note">*VOD 학습기간 : 한 달</p>
+        <p class="reg-confirm-desc">등록 시 입력하신 이름과 휴대폰번호 뒷자리를 입력해 주세요.</p>
+        <div class="reg-confirm-form">
+          <input type="text" placeholder="이름을 입력해 주세요" class="reg-finput">
+          <input type="text" placeholder="휴대폰번호 뒷자리 네자리를 입력해 주세요" maxlength="4" class="reg-finput">
+        </div>
+        <!-- PC·태블릿: 버튼 두 개 -->
+        <div class="reg-btns">
+          <button class="reg-btn reg-btn--outline">참석확인증 발급</button>
+          <button class="reg-btn reg-btn--dark">등록확인</button>
+        </div>
+        <!-- 모바일: 버튼 한 개 전체폭 -->
+        <div class="reg-btns-mob">
+          <button class="reg-btn reg-btn--dark reg-btn--full">확인</button>
+        </div>
       </div>
+
     </div>
   </div>
 </div><!-- /page-register -->
@@ -1621,9 +1697,6 @@
 ════════════════════════════════════════════════════════════════ -->
 <div id="page-faq" class="page" style="background:#fff;min-height:100vh">
   <div class="subtop">
-    <div class="subtop-graphic" aria-hidden="true">
-      <img src="assets/img/subtop-vector.png" alt="" class="subtop-graphic-img">
-    </div>
     <div class="subtop-row">
       <div class="subtop-left">
         <img src="assets/img/logo-w-h.png" alt="FORESIGHT KOREA 2027" class="subtop-logoimg">
@@ -1646,90 +1719,112 @@
       </div>
     </div>
   </div>
-  <div style="max-width:1280px;margin:0 auto;padding:64px 60px 120px">
+  <div class="faq-body">
 
     <!-- 오시는 길 -->
-    <div style="margin-bottom:64px">
+    <div class="faq-sec">
       <header class="pgsec-head">
         <h2 class="pgsec-title">오시는 길</h2>
       </header>
-      <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:20px;flex-wrap:wrap">
-        <span style="font-size:20px;font-weight:700;color:#20222d;letter-spacing:-.7px">그랜드 인터컨티넨탈 서울 파르나스 5F Grand Ballroom</span>
-        <span style="font-size:18px;color:#20222d">(서울특별시 강남구 테헤란로 521)</span>
+      <div class="faq-venue">
+        <span class="faq-venue-name">그랜드 인터컨티넨탈 서울 파르나스 5F Grand Ballroom</span>
+        <span class="faq-venue-addr">(서울특별시 강남구 테헤란로 521)</span>
       </div>
-      <!-- 지도 -->
-      <div style="border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid #e8e8e8">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.4!2d127.0583!3d37.5086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca4063b53a6b1%3A0x527dea89c8b17b50!2z6re4656Z7J6Q7YWM7L2U7L-g66C17YWM7IS47YOA7JuQIOyggeyKpQ!5e0!3m2!1sko!2skr!4v1000000000000!5m2!1sko!2skr"
-          width="100%" height="460" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <!-- 지도 이미지 -->
+      <div class="faq-map">
+        <img src="https://ceo.hunet.co.kr/static/images/foresight-korea/2026/faq/map.png" alt="오시는 길 지도" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
-      <p style="font-size:16px;color:#70737c;line-height:1.6">※ 인터컨티넨탈 서울 코엑스와 혼동하시지 않도록 참고해주시기 바랍니다.</p>
+      <p class="faq-map-note">※ 인터컨티넨탈 서울 코엑스와 혼동하시지 않도록 참고해주시기 바랍니다.</p>
     </div>
 
     <!-- 교통 안내 -->
-    <div style="margin-bottom:64px">
-      <div style="border-top:1px solid #0f0f10"></div>
-      <!-- 지하철 -->
-      <div style="display:flex;align-items:center;gap:64px;padding:24px 0;border-bottom:1px solid #e1e2e4">
-        <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;width:120px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="4" width="18" height="14" rx="3" stroke="#20222d" stroke-width="1.5"/><path d="M7 18l1.5-2.5M15 18l-1.5-2.5M8 10h6M11 7v6" stroke="#20222d" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span style="font-size:18px;font-weight:700;color:#171719">지하철</span>
+    <div class="faq-sec faq-traffic">
+      <div class="faq-trow">
+        <div class="faq-ticon">
+          <!-- 지하철 아이콘 (reference 동일) -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23" width="22" height="22"><path fill="currentColor" d="M15.26 2.334H7.235c-.205 0-1.282.06-2.294 1.238C3.944 4.732 3.916 5.874 3.916 6v10.084a1.834 1.834 0 0 0 1.833 1.833h.917l-1.833 2.75H6.99l.611-.917h7.333l.62.917h2.112l-1.833-2.75h.916a1.833 1.833 0 0 0 1.834-1.834V6c0-.172-.03-1.314-1.035-2.443-1.06-1.19-2.165-1.223-2.288-1.223M9.416 4.167h3.667V6H9.416zM7.124 16.084a1.376 1.376 0 1 1 .001-2.752 1.376 1.376 0 0 1 0 2.752m8.25 0a1.375 1.375 0 1 1 .001-2.751 1.375 1.375 0 0 1 0 2.75M16.75 11.5h-11V7.834h11z"/></svg>
+          <span class="faq-tname">지하철</span>
         </div>
-        <div style="display:flex;align-items:flex-start;gap:12px">
-          <span style="display:inline-flex;align-items:center;padding:2px 10px;border:2px solid #40c057;border-radius:50px;font-size:14px;font-weight:500;color:#40c057;flex-shrink:0">2호선</span>
-          <div>
-            <span style="font-size:16px;font-weight:500;color:#171719">삼성역 5번출구 (도보 1분)</span>
-            <span style="font-size:14px;color:#70737c;margin-left:8px">*지하로 오실 경우 파르나스몰 내 연결 엘리베이터를 이용하실 수 있습니다.</span>
+        <div class="faq-tdetail">
+          <div class="faq-subway-row">
+            <span class="faq-line-badge">2호선</span>
+            <div>
+              <span class="faq-ttext fw">삼성역 5번출구 (도보 1분)</span>
+              <span class="faq-ttext sm">*지하로 오실 경우 파르나스몰 내 연결 엘리베이터를 이용하실 수 있습니다.</span>
+            </div>
           </div>
         </div>
       </div>
-      <!-- 버스 -->
-      <div style="display:flex;align-items:flex-start;gap:64px;padding:24px 0;border-bottom:1px solid #e1e2e4">
-        <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;width:120px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="4" width="18" height="12" rx="3" stroke="#20222d" stroke-width="1.5"/><circle cx="6" cy="17" r="1.5" stroke="#20222d" stroke-width="1.3"/><circle cx="16" cy="17" r="1.5" stroke="#20222d" stroke-width="1.3"/><path d="M6 4V2M16 4V2M2 10h18" stroke="#20222d" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span style="font-size:18px;font-weight:700;color:#171719">버스</span>
+
+      <div class="faq-trow">
+        <div class="faq-ticon">
+          <!-- 버스 아이콘 (reference 동일) -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23" width="22" height="22"><path fill="currentColor" d="M16.75 10.63h-11V6.045h11M15.373 16.13a1.375 1.375 0 1 1 0-2.75 1.375 1.375 0 0 1 0 2.75m-8.25 0a1.375 1.375 0 1 1 0-2.75 1.375 1.375 0 0 1 0 2.75m-3.208-.916c0 .806.358 1.53.917 2.035v1.631a.917.917 0 0 0 .916.917h.917a.917.917 0 0 0 .917-.917v-.916h7.333v.916a.917.917 0 0 0 .917.917h.916a.917.917 0 0 0 .917-.917v-1.631c.56-.504.917-1.229.917-2.035V6.046c0-3.208-3.282-3.667-7.334-3.667s-7.333.459-7.333 3.667z"/></svg>
+          <span class="faq-tname">버스</span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div style="display:flex;align-items:flex-start;gap:16px">
-            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-              <div style="background:#3a6bff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:11px;font-weight:700">A</span></div>
-              <span style="font-size:16px;font-weight:500;color:#171719;white-space:nowrap">지하철 2호선 삼성역</span>
+        <div class="faq-tdetail faq-bus-detail">
+          <!-- 버스 A -->
+          <div class="faq-bus-row">
+            <div class="faq-bus-stop">
+              <div class="faq-pin">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 31" width="24" height="30"><path fill="currentColor" d="M12 .188c6.627 0 12 5.372 12 12 0 2.55-.799 4.913-2.155 6.857h.012l-.092.111q-.473.661-1.029 1.252l-8.074 9.83a.857.857 0 0 1-1.324 0l-8.075-9.83a12 12 0 0 1-1.029-1.252l-.091-.111h.012A11.94 11.94 0 0 1 0 12.187c0-6.627 5.373-12 12-12"/></svg>
+                <span class="faq-pin-label">A</span>
+              </div>
+              <span class="faq-ttext fw">지하철 2호선 삼성역</span>
             </div>
-            <span style="font-size:15px;color:#46474c;line-height:1.6">146, 333, 341, 360, 740, N13, N61, 3411, 500-2, 1100, 1700, 2000, 2000-1, 7007, 9303, 8001, P9601, P9602, M6450, 강남07, 강남08</span>
+            <span class="faq-ttext">146, 333, 341, 360, 740, N13, N61, 3411, 500-2, 1100, 1700, 2000, 2000-1, 7007, 9303, 8001, P9601, P9602, M6450, 강남07, 강남08</span>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:16px">
-            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-              <div style="background:#3a6bff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:11px;font-weight:700">B</span></div>
-              <span style="font-size:16px;font-weight:500;color:#171719;white-space:nowrap">지하철 2호선 삼성역</span>
+          <!-- 버스 B -->
+          <div class="faq-bus-row">
+            <div class="faq-bus-stop">
+              <div class="faq-pin">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 31" width="24" height="30"><path fill="currentColor" d="M12 .188c6.627 0 12 5.372 12 12 0 2.55-.799 4.913-2.155 6.857h.012l-.092.111q-.473.661-1.029 1.252l-8.074 9.83a.857.857 0 0 1-1.324 0l-8.075-9.83a12 12 0 0 1-1.029-1.252l-.091-.111h.012A11.94 11.94 0 0 1 0 12.187c0-6.627 5.373-12 12-12"/></svg>
+                <span class="faq-pin-label">B</span>
+              </div>
+              <span class="faq-ttext fw">지하철 2호선 삼성역</span>
             </div>
-            <span style="font-size:15px;color:#46474c">11-3, 917, 350, 401, 2413, 3422, 4318, 4319, 6900, 9407, 9507, 9607</span>
+            <span class="faq-ttext">11-3, 917, 350, 401, 2413, 3422, 4318, 4319, 6900, 9407, 9507, 9607</span>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:16px">
-            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-              <div style="background:#3a6bff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:11px;font-weight:700">C</span></div>
-              <span style="font-size:16px;font-weight:500;color:#171719;white-space:nowrap">무역 센터</span>
+          <!-- 버스 C -->
+          <div class="faq-bus-row">
+            <div class="faq-bus-stop">
+              <div class="faq-pin">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 31" width="24" height="30"><path fill="currentColor" d="M12 .188c6.627 0 12 5.372 12 12 0 2.55-.799 4.913-2.155 6.857h.012l-.092.111q-.473.661-1.029 1.252l-8.074 9.83a.857.857 0 0 1-1.324 0l-8.075-9.83a12 12 0 0 1-1.029-1.252l-.091-.111h.012A11.94 11.94 0 0 1 0 12.187c0-6.627 5.373-12 12-12"/></svg>
+                <span class="faq-pin-label">C</span>
+              </div>
+              <span class="faq-ttext fw">무역 센터</span>
             </div>
-            <span style="font-size:15px;color:#46474c">143, 2413, 4419, 500-2, 9407, 9507, 9607, 강남01, 강남06, 강남08</span>
+            <span class="faq-ttext">143, 2413, 4419, 500-2, 9407, 9507, 9607, 강남01, 강남06, 강남08</span>
           </div>
         </div>
       </div>
-      <!-- SRT -->
-      <div style="display:flex;align-items:flex-start;gap:64px;padding:24px 0;border-bottom:1px solid #e1e2e4">
-        <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;width:120px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#20222d" stroke-width="1.5"/><path d="M7 11h8M11 7v8" stroke="#20222d" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span style="font-size:18px;font-weight:700;color:#171719">SRT</span>
+
+      <div class="faq-trow">
+        <div class="faq-ticon">
+          <!-- SRT 아이콘 (reference 동일) -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23" width="22" height="22"><path fill="currentColor" fill-rule="evenodd" d="M3.003 17.092a.917.917 0 1 0 0 1.833h17.416a.917.917 0 0 0 0-1.833zm8.25-11.917c-2.956 0-5.447.986-7.213 2.374-1.733 1.362-2.87 3.204-2.87 4.96 0 .771.236 1.43.653 1.961.406.52.948.871 1.5 1.113 1.087.475 2.38.592 3.346.592h12.84a1.83 1.83 0 0 0 1.827-1.833V7.009c0-1.01-.816-1.834-1.832-1.834zm4.583 1.834h3.667v2.75h-3.667zm-4.583 0h2.75v2.75h-3.667V7.045q.303-.024.607-.032zm-2.75.35v2.4H4.33q.391-.417.842-.77c.882-.692 2.008-1.278 3.33-1.63" clip-rule="evenodd"/></svg>
+          <span class="faq-tname">SRT</span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div style="display:flex;align-items:center;gap:40px">
-            <span style="font-size:16px;font-weight:500;color:#171719;white-space:nowrap">지하철</span>
-            <span style="font-size:15px;color:#46474c">수서역에서 분당선 승차 → 선릉역에서 2호선 환승 → 삼성역에서 하차</span>
+        <div class="faq-tdetail">
+          <div class="faq-srt-row">
+            <span class="faq-ttext fw srt-label">지하철</span>
+            <span class="faq-ttext">수서역에서 분당선 승차 → 선릉역에서 2호선 환승 → 삼성역에서 하차</span>
           </div>
-          <div style="display:flex;align-items:center;gap:40px">
-            <span style="font-size:16px;font-weight:500;color:#171719;white-space:nowrap">버스</span>
-            <div style="display:flex;gap:24px;align-items:center">
-              <span style="display:flex;align-items:center;gap:8px;font-size:15px;color:#46474c"><div style="background:#3a6bff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:10px;font-weight:700">A</span></div>333, 3425</span>
-              <span style="display:flex;align-items:center;gap:8px;font-size:15px;color:#46474c"><div style="background:#3a6bff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:10px;font-weight:700">B</span></div>6900</span>
-              <span style="display:flex;align-items:center;gap:8px;font-size:15px;color:#46474c"><div style="background:#3a6bff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:10px;font-weight:700">D</span></div>강남06, 401, 4419</span>
+          <div class="faq-srt-row">
+            <span class="faq-ttext fw srt-label">버스</span>
+            <div class="faq-srt-buses">
+              <span class="faq-srt-bus">
+                <span class="faq-pin-sm"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 31" width="18" height="22"><path fill="currentColor" d="M12 .188c6.627 0 12 5.372 12 12 0 2.55-.799 4.913-2.155 6.857h.012l-.092.111q-.473.661-1.029 1.252l-8.074 9.83a.857.857 0 0 1-1.324 0l-8.075-9.83a12 12 0 0 1-1.029-1.252l-.091-.111h.012A11.94 11.94 0 0 1 0 12.187c0-6.627 5.373-12 12-12"/></svg><span>A</span></span>
+                333, 3425
+              </span>
+              <span class="faq-srt-bus">
+                <span class="faq-pin-sm"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 31" width="18" height="22"><path fill="currentColor" d="M12 .188c6.627 0 12 5.372 12 12 0 2.55-.799 4.913-2.155 6.857h.012l-.092.111q-.473.661-1.029 1.252l-8.074 9.83a.857.857 0 0 1-1.324 0l-8.075-9.83a12 12 0 0 1-1.029-1.252l-.091-.111h.012A11.94 11.94 0 0 1 0 12.187c0-6.627 5.373-12 12-12"/></svg><span>B</span></span>
+                6900
+              </span>
+              <span class="faq-srt-bus">
+                <span class="faq-pin-sm"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 31" width="18" height="22"><path fill="currentColor" d="M12 .188c6.627 0 12 5.372 12 12 0 2.55-.799 4.913-2.155 6.857h.012l-.092.111q-.473.661-1.029 1.252l-8.074 9.83a.857.857 0 0 1-1.324 0l-8.075-9.83a12 12 0 0 1-1.029-1.252l-.091-.111h.012A11.94 11.94 0 0 1 0 12.187c0-6.627 5.373-12 12-12"/></svg><span>D</span></span>
+                강남06, 401, 4419
+              </span>
             </div>
           </div>
         </div>
@@ -1738,104 +1833,83 @@
     </div>
 
     <!-- FAQ -->
-    <div>
+    <div class="faq-sec">
       <header class="pgsec-head">
         <h2 class="pgsec-title">FAQ</h2>
       </header>
-      <div id="faq-list" style="border-top:1px solid #0f0f10">
-        <!-- FAQ 아이템 (JavaScript로 토글) -->
+      <div id="faq-list" style="border-top:1px solid #171719">
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6;font-weight:700">행사는 언제, 어디에서 진행되나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">행사는 언제, 어디에서 진행되나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">FORESIGHT KOREA 2027 오프라인은 2026년 10월 1일(목) 서울 그랜드 인터컨티넨탈 파르나스에서 진행됩니다. 현장 라이브 강연은 유료 신청 참가자에 한해 본 홈페이지에서 오전 9시부터 오후 6시까지 시청하실 수 있습니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">FORESIGHT KOREA 2027 오프라인은 2026년 10월 1일(목) 서울 그랜드 인터컨티넨탈 파르나스에서 진행됩니다. 현장 라이브 강연은 유료 신청 참가자에 한해 본 홈페이지에서 오전 9시부터 오후 6시까지 시청하실 수 있습니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">등록 후 취소/환불은 어떻게 하나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">등록 후 취소/환불은 어떻게 하나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">행사 2일 전(2026년 9월 27일)까지 전액 환불 가능합니다. 행사 전날부터는 환불이 불가합니다. 취소는 My Forum에서 직접 신청하시거나 고객센터(1588-6559)로 문의해 주세요.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">행사 2일 전(2026년 9월 27일)까지 전액 환불 가능합니다. 행사 전날부터는 환불이 불가합니다. 취소는 My Forum에서 직접 신청하시거나 고객센터(1588-6559)로 문의해 주세요.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">ALL PASS와 LIVE PASS의 차이가 무엇인가요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">ALL PASS와 LIVE PASS의 차이가 무엇인가요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">ALL PASS는 오프라인 현장 참석 + 라이브 생중계 + 다시보기(3개월)가 포함됩니다. LIVE PASS는 라이브 생중계 + 다시보기(3개월)가 포함되며, 오프라인 현장 참석은 제공되지 않습니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">ALL PASS는 오프라인 현장 참석 + 라이브 생중계 + 다시보기(3개월)가 포함됩니다. LIVE PASS는 라이브 생중계 + 다시보기(3개월)가 포함되며, 오프라인 현장 참석은 제공되지 않습니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">단체 등록은 어떻게 진행하나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">단체 등록은 어떻게 진행하나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">6인 이상 단체 등록은 고객센터(1588-6559)로 문의해 주세요. 담당자가 배정되어 단체 할인 및 별도 등록 절차를 안내해 드립니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">6인 이상 단체 등록은 고객센터(1588-6559)로 문의해 주세요. 담당자가 배정되어 단체 할인 및 별도 등록 절차를 안내해 드립니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">얼리버드 할인은 언제까지 적용되나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">얼리버드 할인은 언제까지 적용되나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">얼리버드 1차(~8/15, 40% 할인), 2차(~8/27, 30% 할인), 3차(~9/13, 15% 할인)로 운영됩니다. 단계별로 할인율이 낮아지니 빨리 등록하실수록 유리합니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">얼리버드 1차(~8/15, 40% 할인), 2차(~8/27, 30% 할인), 3차(~9/13, 15% 할인)로 운영됩니다. 단계별로 할인율이 낮아지니 빨리 등록하실수록 유리합니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">세금계산서 발행이 가능한가요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">세금계산서 발행이 가능한가요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">세금계산서 발행이 필요하신 경우 고객센터(1588-6559) 또는 이메일(pmkt@hunet.co.kr)로 문의해 주세요.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">세금계산서 발행이 필요하신 경우 고객센터(1588-6559) 또는 이메일(<a href="mailto:hubiz@hunet.co.kr" style="color:inherit;text-decoration:underline">hubiz@hunet.co.kr</a>)로 문의해 주세요.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">다시보기는 언제부터 제공되나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">다시보기는 언제부터 제공되나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">다시보기는 행사 종료 후 영업일 기준 3~5일 내에 ALL PASS 및 LIVE PASS 구매자에게 3개월간 무료로 제공됩니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">다시보기는 행사 종료 후 영업일 기준 3~5일 내에 ALL PASS 및 LIVE PASS 구매자에게 3개월간 무료로 제공됩니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">주차 지원이 되나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">주차 지원이 가능한가요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">주차는 그랜드 인터컨티넨탈 서울 파르나스 주차장을 이용하실 수 있습니다. 주차비는 개인 부담이며, 대중교통 이용을 권장합니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">행사 당일 그랜드 인터컨티넨탈 서울 파르나스 지하 주차장을 무료로 이용하실 수 있습니다. 단, 주차 공간이 한정되어 있으므로 대중교통 이용을 권장합니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">수료증은 발급되나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">수료증은 발급되나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">행사 참석자에게는 수료증이 발급됩니다. My Forum에서 PDF로 다운로드하실 수 있습니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">행사 참석자에게는 수료증이 발급됩니다. My Forum에서 PDF로 다운로드하실 수 있습니다.</p></div>
         </div>
         <div class="faq-item">
-          <button onclick="toggleFaq(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border:none;background:none;cursor:pointer;border-bottom:1px solid #e1e2e4;text-align:left">
-            <span style="font-size:18px;color:#20222d;line-height:1.6">강연 자료는 어디서 받을 수 있나요?</span>
-            <svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;transition:transform .2s"><path d="M5 7.5l5 5 5-5" stroke="#20222d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button onclick="toggleFaq(this)" class="faq-q">
+            <span class="faq-q-text">강연 자료는 어디서 받을 수 있나요?</span>
+            <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20" width="20" height="20" style="flex-shrink:0;transition:transform .25s"><g fill="none" fill-rule="evenodd"><path fill="currentColor" fill-rule="nonzero" d="m17.54 7.942-6.535 6.25a.67.67 0 0 1-.462.183.67.67 0 0 1-.463-.183l-6.536-6.25a.606.606 0 0 1 0-.884.675.675 0 0 1 .925 0l6.074 5.808 6.073-5.808a.68.68 0 0 1 .632-.162.64.64 0 0 1 .462.442.61.61 0 0 1-.17.604"/><path d="M.085 0H21v20H.085z"/></g></svg>
           </button>
-          <div class="faq-answer" style="display:none;background:#f7f7f8;padding:24px;border-bottom:1px solid #e1e2e4">
-            <p style="font-size:16px;color:#20222d;line-height:1.6">ALL PASS 및 LIVE PASS 구매자에게는 연사별 강연 자료(PDF)가 My Forum을 통해 제공됩니다. 연사 동의 후 제공 가능한 자료에 한해 배포됩니다.</p>
-          </div>
+          <div class="faq-answer"><p class="faq-a-text">ALL PASS 및 LIVE PASS 구매자에게는 연사별 강연 자료(PDF)가 My Forum을 통해 제공됩니다. 연사 동의 후 제공 가능한 자료에 한해 배포됩니다.</p></div>
         </div>
       </div>
-      <p style="margin-top:16px;font-size:16px;color:#70737c;line-height:1.6">※ 찾으시는 내용이 없으시면 <strong>pmkt</strong><a href="mailto:pmkt@hunet.co.kr" style="color:#70737c">@hunet.co.kr</a>로 문의해 주세요.</p>
+      <p class="faq-contact">찾으시는 내용이 없으시면 <a href="mailto:hubiz@hunet.co.kr"><strong>hubiz@hunet.co.kr</strong></a>로 문의해 주세요.</p>
     </div>
   </div>
 </div><!-- /page-faq -->
@@ -2051,27 +2125,6 @@
 </div>
 
 <!-- ════ FLOATING BANNER ════ -->
-<div id="float-banner">
-  <p class="fb-title">2차 할인 판매 중!</p>
-  <div class="fb-detail">
-    <div class="fb-countdown">
-      <span class="fb-emoji">🚨</span>
-      <span class="fb-label">가격 인상까지</span>
-      <span class="fb-badge">23일</span>
-      <span class="fb-label">남음</span>
-    </div>
-    <div class="fb-btns">
-      <a href="#" class="fb-btn fb-btn--ghost">
-        <svg viewBox="0 0 22 22" fill="none" width="18" height="18" stroke="currentColor"><rect x="3" y="1.5" width="13" height="19" rx="1.5" stroke-width="1.5"/><path d="M6.5 7h8M6.5 11h8M6.5 15h5" stroke-width="1.4" stroke-linecap="round"/></svg>
-        리플렛
-      </a>
-      <a href="#" onclick="switchPage('register');return false" class="fb-btn fb-btn--solid">
-        <svg viewBox="0 0 22 22" fill="none" width="18" height="18" stroke="currentColor"><path d="M4 12L8.5 16.5L18 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        등록하기
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- 커서 앰비언트 빛 — body 최상위, viewport 전체 자유 이동 -->
 <div id="cursor-ambient" aria-hidden="true">
@@ -2080,6 +2133,32 @@
 
 <script src="assets/hero-canvas.js"></script>
 <script src="assets/app.js"></script>
+
+<!-- ── 모바일·태블릿 하단 내비게이션 ── -->
+<nav class="mob-bottom-nav" id="mob-bottom-nav" aria-label="하단 내비게이션">
+  <div class="mob-bn-items">
+    <a class="mob-bn-item active" data-page="home" href="#" onclick="switchPage('home');return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/><polyline points="9 21 9 13 15 13 15 21"/></svg>
+      Home
+    </a>
+    <a class="mob-bn-item mob-bn-ceo" data-page="ceo" href="#" onclick="switchPage('ceo');return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.87 3.58-7 8-7s8 3.13 8 7"/></svg>
+      CEO
+    </a>
+    <a class="mob-bn-item" data-page="program" href="#" onclick="switchPage('program');return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Program &amp; Speakers
+    </a>
+    <a class="mob-bn-item" data-page="events" href="#" onclick="switchPage('events');return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Events
+    </a>
+    <a class="mob-bn-item" data-page="faq" href="#" onclick="switchPage('faq');return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor" stroke="none"/></svg>
+      FAQ
+    </a>
+  </div>
+</nav>
 </body>
 </html>
 
