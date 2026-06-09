@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const vh = window.innerHeight || document.documentElement.clientHeight;
     for(let k = revRemaining.length - 1; k >= 0; k--){
       const el = revRemaining[k];
-      if(el.getBoundingClientRect().top < vh * 0.88){
+      if(el.getBoundingClientRect().top < vh * 0.72){
         el.classList.add('in');
         // 안전망: 프리뷰가 애니메이션을 commit하지 않고 멈추는 경우 대비 —
         // 충분히 지난 뒤 애니메이션을 해제해 선언된 최종상태(보임)가 항상 적용되도록
@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function check(){
     var vh = window.innerHeight || document.documentElement.clientHeight;
     for(var i=els.length-1;i>=0;i--){
-      if(els[i].getBoundingClientRect().top < vh*0.9){
+      if(els[i].getBoundingClientRect().top < vh*0.72){
         var el=els[i];
         el.classList.add('in');
         setTimeout((function(n){ return function(){ n.classList.add('srise-done'); }; })(el), 1200);
@@ -457,10 +457,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
       a.classList.toggle('on', a.dataset.page === pageId);
     });
   }
+  /* 하단 내비게이션 바 active 동기화 */
+  function syncBottomNav(pageId) {
+    document.querySelectorAll('.mob-bn-item[data-page]').forEach(function(a) {
+      a.classList.toggle('active', a.dataset.page === pageId);
+    });
+  }
   var _origSwitch = switchPage;
   window.switchPage = function(id) {
     _origSwitch(id);
     syncMobNav(id);
+    syncBottomNav(id);
   };
 })();
 
@@ -520,10 +527,7 @@ function switchRegTab(tab) {
   var tabs = { register: document.getElementById('reg-tab-register'), confirm: document.getElementById('reg-tab-confirm') };
   Object.keys(panels).forEach(function(k) {
     if (panels[k]) panels[k].hidden = (k !== tab);
-    if (tabs[k]) {
-      tabs[k].style.color = k === tab ? '#20222d' : '#c8c8c8';
-      tabs[k].style.borderBottomColor = k === tab ? '#13151b' : 'transparent';
-    }
+    if (tabs[k]) tabs[k].classList.toggle('reg-tab-active', k === tab);
   });
 }
 
@@ -540,11 +544,60 @@ function switchMfTab(tab) {
   });
 }
 
+/* ── Program Speakers 사이드바 스크롤 액티브 ── */
+(function(){
+  var sidebar = document.getElementById('pg-sidebar');
+  if(!sidebar) return;
+  var items = sidebar.querySelectorAll('.pg-sb-item[data-section]');
+  var sections = [];
+  items.forEach(function(item){
+    var el = document.getElementById(item.dataset.section);
+    if(el) sections.push({el:el, item:item});
+  });
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.id;
+        items.forEach(function(it){ it.classList.toggle('active', it.dataset.section === id); });
+      }
+    });
+  },{rootMargin:'-10% 0px -65% 0px'});
+  sections.forEach(function(s){ observer.observe(s.el); });
+})();
+
+/* ── Sidebar stuck border (tablet · mobile) ── */
+(function(){
+  var sidebar = document.getElementById('pg-sidebar');
+  var panel = document.getElementById('pg-panel-speakers');
+  if(!sidebar || !panel) return;
+  var sentinel = document.createElement('div');
+  sentinel.setAttribute('aria-hidden','true');
+  sentinel.style.cssText = 'height:1px;margin-bottom:-1px;pointer-events:none;';
+  panel.insertBefore(sentinel, panel.firstChild);
+  new IntersectionObserver(function(entries){
+    if(window.innerWidth >= 1024) return;
+    sidebar.classList.toggle('is-stuck', !entries[0].isIntersecting);
+  }, {threshold:0}).observe(sentinel);
+})();
+
+/* ── Program 탭 전환 ── */
+function switchPgTab(tab) {
+  var panels = { speakers: document.getElementById('pg-panel-speakers'), timetable: document.getElementById('pg-panel-timetable') };
+  var tabs = { speakers: document.getElementById('pg-tab-speakers'), timetable: document.getElementById('pg-tab-timetable') };
+  Object.keys(panels).forEach(function(k) {
+    if (panels[k]) panels[k].hidden = (k !== tab);
+    if (tabs[k]) {
+      tabs[k].style.color = k === tab ? 'var(--fg-100)' : 'var(--fg-45)';
+      tabs[k].style.borderBottomColor = k === tab ? 'var(--fg-100)' : 'transparent';
+    }
+  });
+}
+
 /* ── FAQ 아코디언 ── */
 function toggleFaq(btn) {
   var answer = btn.nextElementSibling;
   var arrow = btn.querySelector('.faq-arrow');
-  var isOpen = answer.style.display !== 'none';
+  var isOpen = window.getComputedStyle(answer).display !== 'none';
   answer.style.display = isOpen ? 'none' : 'block';
   if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
   btn.style.borderBottomColor = isOpen ? '#e1e2e4' : 'transparent';
@@ -684,7 +737,7 @@ function spScrollTo(id, btn){
   var SESS_DATA = {
     'A-1':{bio:'윤상하 실장은 대외경제정책연구원(KIEP)에서 국제거시금융을 연구하고 있습니다. 글로벌 경기 사이클, 무역·금융 흐름, 신흥국 경제를 중심으로 한국 기업과 정책 당국에 실질적인 거시 분석을 제공해 왔습니다.',tags:['#성장전망','#물가','#교역질서'],desc:'2027년 세계 경제는 선진국 성장 둔화와 신흥국 분화, 구조적 인플레이션 잔존, 탈세계화 흐름 속 교역 패턴 재편이라는 세 가지 큰 변수를 동시에 마주하고 있습니다.\n\n미국은 고금리 장기화의 후유증이 가시지 않은 상황에서 대선 이후 정책 불확실성이 커지고 있으며, 유럽은 구조적 경쟁력 약화와 에너지 전환 비용 부담이 맞물려 저성장 기조를 이어갈 가능성이 높습니다. 반면 인도·동남아를 중심으로 한 아시아 신흥국의 성장 모멘텀은 상대적으로 견조하게 유지될 전망입니다.\n\n물가 측면에서는 서비스 인플레이션 고착화, 지정학적 공급 충격, 기후변화에 따른 식품·에너지 변동성이 2%대 목표로의 완전한 복귀를 늦추는 요인으로 작용하고 있습니다. 각국 중앙은행의 금리 인하 경로가 예상보다 완만하게 진행될 경우, 기업의 자본조달 비용과 소비심리에 추가적인 부담이 될 수 있습니다.\n\n교역 구조 측면에서는 미·중 디커플링이 가속화되면서 글로벌 공급망이 Friend-shoring과 Near-shoring 중심으로 재편되고 있습니다. 이에 따라 한국 기업은 미국·유럽 시장을 위한 공급망과 중국·동남아 시장을 위한 공급망을 사실상 이원화해야 하는 전략적 도전에 직면해 있습니다.\n\n본 세션에서는 이러한 거시 변수들을 사업계획의 전제 조건으로 전환하는 방법론을 실질적으로 다룹니다. 성장률·환율·금리·교역량의 시나리오별 가정값 설정, 각 가정이 매출·원가·재무에 미치는 민감도 분석, 그리고 불확실성에 강한 사업계획 구조 설계까지—2027년 전략 기획의 출발점이 될 핵심 프레임워크를 제공합니다.'},
     'A-2':{bio:'이승주 교수는 중앙대학교 정치국제학과 교수로 국제관계와 지정학을 전공합니다. 미·중 전략 경쟁, 한반도 안보, 동아시아 국제질서를 연구하며 기업과 정부 자문에 폭넓게 참여하고 있습니다.',tags:['#지정학리스크','#공급망','#한국기업'],desc:'미·중 전략 경쟁, 러·우 전쟁, 중동 불안이 동시에 진행되는 2027년의 지정학 지형을 분석합니다. 한국 기업이 노출된 지정학 리스크를 유형별로 분류하고, 생산기지·수출 전략·현지화 결정에 반영할 수 있는 실전 프레임을 제공합니다.'},
-    'A-3':{bio:'강명수 센터장은 삼일PwC의 국제통상솔루션센터장으로 관세·통상 규제·공급망 리스크 분야의 전문가입니다. 국내 주요 대기업의 무역 구조 재편 및 통상 전략 자문을 담당하고 있습니다.',tags:['#에너지','#물류','#원가전략'],desc:'에너지 전환 가속화와 물류 초크포인트 집중이 글로벌 원가 구조를 어떻게 바꾸는지 분석합니다. 공급망 다변화·에너지 비용 내재화·물류 리스크 헷징 전략을 통해 기업이 충격을 선제적으로 흡수하는 방법을 제시합니다.'},
+    'A-3':{photo:'https://img.hunet.co.kr/files/b2c/hunetceo/강명수.png',bio:'강명수 센터장은 삼일PwC의 국제통상솔루션센터장으로 관세·통상 규제·공급망 리스크 분야의 전문가입니다. 국내 주요 대기업의 무역 구조 재편 및 통상 전략 자문을 담당하고 있습니다.',tags:['#에너지','#물류','#원가전략'],desc:'에너지 전환 가속화와 물류 초크포인트 집중이 글로벌 원가 구조를 어떻게 바꾸는지 분석합니다. 공급망 다변화·에너지 비용 내재화·물류 리스크 헷징 전략을 통해 기업이 충격을 선제적으로 흡수하는 방법을 제시합니다.'},
     'A-4':{tags:['#환율','#금리','#자본비용'],desc:'고금리·달러 강세 구조가 기업 재무에 미치는 영향을 데이터로 분석하고, 2027년 환율·금리·자본비용의 시나리오별 대응 전략을 다룹니다. CFO와 전략기획 담당자가 즉시 활용할 수 있는 재무 리스크 지도를 제공합니다.'},
     'A-5':{bio:'주원 실장은 현대경제연구원에서 거시경제 분석을 담당하고 있습니다. 한국 경제의 구조적 전환, 소득 양극화, 소비·고용 트렌드를 연구하며 다수의 경제 전망 보고서를 발표해 왔습니다.',tags:['#K자양극화','#한국경제','#방어전략'],desc:'AI·자동화·플랫폼 독점이 심화시키는 K자형 양극화 속에서 한국 기업이 위쪽 곡선에 올라타기 위한 조건을 분석합니다. 성장 기회 포착을 위한 포지셔닝 전략과, 하방 압력을 방어하는 비용 구조 혁신 방향을 제시합니다.'},
     'A-6':{tags:['#시나리오경영','#예산','#불확실성'],desc:'불확실성을 숫자로 전환하는 시나리오 플래닝 방법론을 소개합니다. 기준·낙관·비관 시나리오를 설계하고, 이를 연간 예산과 실행계획에 연동하는 구체적 프로세스와 도구를 다룹니다.'},
@@ -695,21 +748,21 @@ function spScrollTo(id, btn){
     'B-5':{tags:['#실행속도','#하이퍼조직','#의사결정'],desc:'하이퍼 스냅스 조직이 의사결정-실행 사이클을 극단적으로 단축하는 구조와 문화를 분석합니다. 권한 위임, 정보 흐름 최적화, OKR 운용 방식의 변화가 실행 속도에 미치는 효과를 사례로 설명합니다.'},
     'B-6':{tags:['#1인유니콘','#실리콘밸리','#AI극한활용'],desc:'AI로 소수 인력이 유니콘급 기업을 만드는 실리콘밸리의 사례가 전통 대기업에 던지는 질문을 탐구합니다. 인원 대비 성과 밀도를 높이는 AI 활용 전략과, 한국 기업이 이를 현실적으로 적용하는 방안을 모색합니다.'},
     'C-1':{tags:['#피지컬AI','#스틸칼라','#제조혁신'],desc:'휴머노이드 로봇과 피지컬 AI가 제조·물류·건설 현장에서 인간 노동을 어떻게 대체하고 보완하는지 분석합니다. 스틸칼라 확산이 인력 계획·공정 설계·원가 구조에 미치는 영향과 경영자의 준비 과제를 다룹니다.'},
-    'C-2':{bio:'백서인 교수는 한양대학교에서 중국 경제와 기술 혁신을 연구합니다. 중국 AI 산업 생태계, 디지털 경제 정책, 한·중 기술 경쟁 구도를 전문으로 하며 기업 자문과 정책 연구를 병행하고 있습니다.',tags:['#중국AI','#딥시크','#기술경쟁'],desc:'딥시크를 비롯한 중국 AI 기술의 급격한 성장이 미국 주도 AI 생태계와 글로벌 기술 패권 경쟁을 어떻게 재편하는지 진단합니다. 한국 기업이 중국 AI 굴기에서 위협과 기회를 동시에 읽는 전략적 관점을 제공합니다.'},
+    'C-2':{photo:'https://img.hunet.co.kr/files/b2c/hunetceo/백서인.png',bio:'백서인 교수는 한양대학교에서 중국 경제와 기술 혁신을 연구합니다. 중국 AI 산업 생태계, 디지털 경제 정책, 한·중 기술 경쟁 구도를 전문으로 하며 기업 자문과 정책 연구를 병행하고 있습니다.',tags:['#중국AI','#딥시크','#기술경쟁'],desc:'딥시크를 비롯한 중국 AI 기술의 급격한 성장이 미국 주도 AI 생태계와 글로벌 기술 패권 경쟁을 어떻게 재편하는지 진단합니다. 한국 기업이 중국 AI 굴기에서 위협과 기회를 동시에 읽는 전략적 관점을 제공합니다.'},
     'C-3':{tags:['#AI투자ROI','#비용효율','#성과측정'],desc:'AI 투자에서 실제 비즈니스 가치를 만드는 기업과 그러지 못하는 기업의 결정적 차이를 분석합니다. 워크슬롭 효과를 피하고 ROI를 창출하는 AI 투자 포트폴리오 구성 원칙과 성과 측정 방법론을 제시합니다.'},
-    'C-4':{bio:'이동근 AI센터장은 KPMG 한국에서 AI 전략 및 디지털 전환 컨설팅을 이끌고 있습니다. 금융·제조·유통 등 다양한 산업의 AI 도입 프로젝트를 수행하며 실전 사례 기반의 인사이트를 제공합니다.',tags:['#전사AI','#도입전략','#성공패턴'],desc:'전사 AI 도입 프로젝트의 성공 조건과 반복되는 실패 패턴을 실제 기업 컨설팅 경험을 바탕으로 분석합니다. 경영진이 놓치는 핵심 의사결정 포인트와 조직 준비도 진단 프레임을 제공합니다.'},
+    'C-4':{photo:'https://img.hunet.co.kr/files/b2c/hunetceo/이동근.png',bio:'이동근 AI센터장은 KPMG 한국에서 AI 전략 및 디지털 전환 컨설팅을 이끌고 있습니다. 금융·제조·유통 등 다양한 산업의 AI 도입 프로젝트를 수행하며 실전 사례 기반의 인사이트를 제공합니다.',tags:['#전사AI','#도입전략','#성공패턴'],desc:'전사 AI 도입 프로젝트의 성공 조건과 반복되는 실패 패턴을 실제 기업 컨설팅 경험을 바탕으로 분석합니다. 경영진이 놓치는 핵심 의사결정 포인트와 조직 준비도 진단 프레임을 제공합니다.'},
     'C-5':{tags:['#AI에이전트','#자율의사결정','#거버넌스'],desc:'AI 에이전트가 가격 결정·공급망 조정·투자 실행 등 경제적 결정을 자율적으로 내리는 시대의 통제 메커니즘을 탐구합니다. 인간의 감독 범위와 AI 자율성의 경계를 설계하는 기업 거버넌스 프레임을 제시합니다.'},
     'C-6':{tags:['#섀도우AI','#조직설계','#AI문화'],desc:'임직원이 비공식 채널로 활용하는 섀도우 AI를 조직 성과로 전환하는 방법을 다룹니다. 통제와 자율의 균형을 맞추는 AI 사용 정책 설계, 내부 AI 챔피언 육성, 사내 AI 거버넌스 구조를 소개합니다.'},
     'D-1':{bio:'전미영 박사는 트렌드코리아컴퍼니의 수석연구원으로 소비자 행동과 라이프스타일 트렌드를 연구합니다. 《트렌드코리아》 시리즈의 공동저자로 매년 국내 소비 트렌드를 선도적으로 전망해 왔습니다.',tags:['#AI소비자','#구매여정','#트렌드2027'],desc:'AI 검색·추천·개인화를 일상으로 받아들인 소비자가 어떻게 정보를 탐색하고 구매를 결정하는지 트렌드 데이터로 분석합니다. 2027년 마케터가 재설계해야 할 고객 여정의 핵심 변곡점을 제시합니다.'},
-    'D-2':{bio:'윤성훈 파트너는 글로벌 전략 컨설팅 펌 Kearney의 파트너로 마케팅 전략과 소비재 산업을 전문으로 합니다. AI 시대의 브랜드 전략과 고객 여정 혁신 분야에서 국내외 기업의 전략 수립을 지원하고 있습니다.',tags:['#AI검색','#브랜드전략','#GEO'],desc:'구글 검색 대신 AI 어시스턴트로 정보를 얻는 소비자 시대, 브랜드가 AI 추천 결과에 포함되기 위한 생성형 엔진 최적화(GEO) 전략을 다룹니다. SEO 이후의 브랜드 가시성 확보 방법론을 실전 사례와 함께 제시합니다.'},
+    'D-2':{photo:'https://img.hunet.co.kr/files/b2c/hunetceo/윤성훈.png',bio:'윤성훈 파트너는 글로벌 전략 컨설팅 펌 Kearney의 파트너로 마케팅 전략과 소비재 산업을 전문으로 합니다. AI 시대의 브랜드 전략과 고객 여정 혁신 분야에서 국내외 기업의 전략 수립을 지원하고 있습니다.',tags:['#AI검색','#브랜드전략','#GEO'],desc:'구글 검색 대신 AI 어시스턴트로 정보를 얻는 소비자 시대, 브랜드가 AI 추천 결과에 포함되기 위한 생성형 엔진 최적화(GEO) 전략을 다룹니다. SEO 이후의 브랜드 가시성 확보 방법론을 실전 사례와 함께 제시합니다.'},
     'D-3':{bio:'이승무 교수는 한국종합예술원(K-Arts)에서 미디어와 엔터테인먼트 경영을 가르칩니다. 디지털 광고 생태계, 미디어 투자 전략, 크리에이티브 경제를 연구하며 실무와 학문을 연결하는 강연으로 정평이 나 있습니다.',tags:['#미디어믹스','#채널전략','#AI최적화'],desc:'AI 기반 미디어 바잉과 성과 측정이 광고 생태계를 어떻게 재편하는지 분석합니다. 채널 믹스 최적화, 크리에이티브 AI 자동화, 증분 효과 측정 방법론의 변화를 실제 집행 데이터 기반으로 설명합니다.'},
     'D-4':{bio:'송수진 교수는 고려대학교 경영대학에서 마케팅을 가르치고 있습니다. AI 기반 퍼포먼스 마케팅, 디지털 광고 효과 측정, 소비자 의사결정을 연구하며 국내 주요 기업의 마케팅 전략 자문을 담당합니다.',tags:['#퍼포먼스마케팅','#AI측정','#AX사례'],desc:'AI 타겟팅·예산 자동 최적화·멀티터치 어트리뷰션이 퍼포먼스 마케팅의 구조를 어떻게 바꾸는지 실제 캠페인 사례로 분석합니다. 자동화 영역과 인간의 판단이 여전히 필요한 영역을 구분하는 실전 기준을 제시합니다.'},
     'D-5':{tags:['#AI마케팅조직','#에이전트협업','#조직설계'],desc:'콘텐츠 제작·캠페인 실행·성과 분석을 AI 에이전트가 담당하는 마케팅 조직의 미래 구조를 탐구합니다. 마케터의 역할 재정의, 에이전트 관리 역량, AI 네이티브 마케팅팀 빌딩 전략을 다룹니다.'},
     'D-6':{tags:['#고객경험','#AI개인화','#CX혁신'],desc:'AI가 고객 서비스·개인화 추천·옴니채널 경험 통합을 어떻게 혁신하는지 국내외 기업 사례로 분석합니다. 고객 접점의 AI 전환이 NPS·재구매율·LTV에 미친 실제 성과와 구현 로드맵을 제시합니다.'},
-    'E-1':{bio:'이중학 교수는 동국대학교 경영학부 교수로 인적자원관리와 조직행동을 전공합니다. AI 시대 직무 재설계와 조직 변화 관리를 연구하며 기업 현장과의 협력 연구를 활발히 진행하고 있습니다.',tags:['#직무재설계','#AI네이티브HR','#빅테크사례'],desc:'구글·아마존·메타 등 글로벌 빅테크가 AI 시대에 맞춰 직무 정의·채용 기준·평가 방식을 어떻게 바꿨는지 분석합니다. 한국 기업이 AI Native 직무 체계를 설계하는 데 적용할 수 있는 프레임워크를 제시합니다.'},
+    'E-1':{photo:'https://img.hunet.co.kr/files/b2c/hunetceo/이중학.png',bio:'이중학 교수는 동국대학교 경영학부 교수로 인적자원관리와 조직행동을 전공합니다. AI 시대 직무 재설계와 조직 변화 관리를 연구하며 기업 현장과의 협력 연구를 활발히 진행하고 있습니다.',tags:['#직무재설계','#AI네이티브HR','#빅테크사례'],desc:'구글·아마존·메타 등 글로벌 빅테크가 AI 시대에 맞춰 직무 정의·채용 기준·평가 방식을 어떻게 바꿨는지 분석합니다. 한국 기업이 AI Native 직무 체계를 설계하는 데 적용할 수 있는 프레임워크를 제시합니다.'},
     'E-2':{tags:['#AI리스킬링','#역량교육','#프롬프트'],desc:'프롬프트 엔지니어링이 기본 업무 역량이 된 시대, 임직원 AI 역량 격차를 진단하고 체계적으로 끌어올리는 리스킬링 전략을 다룹니다. 직급별·직무별 AI 교육 커리큘럼 설계와 내재화 촉진 방법론을 소개합니다.'},
     'E-3':{tags:['#프롬프트리더십','#조직변화','#리더역할'],desc:'AI 전환을 주도하는 리더가 갖춰야 할 새로운 리더십 언어와 행동 양식을 탐구합니다. 구성원의 AI 실험을 촉진하고, 실패를 학습으로 전환하며, AI 친화적 문화를 만드는 프롬프트 리더십의 실천 방법을 제시합니다.'},
-    'E-4':{bio:'한광모 본부장은 SAP 한국에서 HR 솔루션 및 인재 관리 사업을 이끌고 있습니다. AI 기반 채용·평가·리스킬링 솔루션 도입 프로젝트를 다수 수행하며 HR 테크 분야의 실전 전문가로 활동하고 있습니다.',tags:['#AI채용','#성과평가','#HRtech'],desc:'AI 스크리닝·역량 면접 보조·성과 패턴 분석을 도입한 기업의 HR 혁신 사례를 분석합니다. AI Native HR 시스템이 채용 품질·평가 공정성·인재 유지율에 미친 실제 효과와 단계별 도입 로드맵을 소개합니다.'},
+    'E-4':{photo:'https://img.hunet.co.kr/files/b2c/hunetceo/한광모.png',bio:'한광모 본부장은 SAP 한국에서 HR 솔루션 및 인재 관리 사업을 이끌고 있습니다. AI 기반 채용·평가·리스킬링 솔루션 도입 프로젝트를 다수 수행하며 HR 테크 분야의 실전 전문가로 활동하고 있습니다.',tags:['#AI채용','#성과평가','#HRtech'],desc:'AI 스크리닝·역량 면접 보조·성과 패턴 분석을 도입한 기업의 HR 혁신 사례를 분석합니다. AI Native HR 시스템이 채용 품질·평가 공정성·인재 유지율에 미친 실제 효과와 단계별 도입 로드맵을 소개합니다.'},
     'E-5':{tags:['#AI내재화','#변화관리','#임원리더십'],desc:'전사 AI 내재화에 성공한 기업의 C-레벨 경영진이 어떻게 조직의 저항을 극복하고 변화의 동력을 유지했는지 생생한 경험을 공유합니다. 변화 관리의 핵심 레버와 성공 요인을 실전 관점에서 정리합니다.'},
     'E-6':{tags:['#연공서열','#AI속도','#한국형전환'],desc:'연공서열 문화와 AI 시대 실행 속도 사이의 충돌을 현실적으로 해결한 한국 기업의 조직 전환 사례를 분석합니다. 세대 간 AI 역량 격차를 좁히고, 속도와 경험을 공존시키는 한국형 조직 혁신 방법론을 제시합니다.'}
   };
@@ -734,6 +787,16 @@ function spScrollTo(id, btn){
     var sessId= getSessionId(card);
     var data  = SESS_DATA[sessId] || {};
 
+    var photoImg = document.querySelector('.sess-photo-img');
+    /* 스피커 패널의 매칭 카드에서 이미지 우선 조회 */
+    var scImg = '';
+    document.querySelectorAll('article.sc').forEach(function(sc){
+      if(!scImg && ((sc.querySelector('.sc-no')||{}).textContent||'').trim() === sessId){
+        scImg = ((sc.querySelector('.sc-photo img')||{}).src) || '';
+      }
+    });
+    if(photoImg) photoImg.src = scImg || data.photo || 'assets/img/man.svg';
+
     var orgTxt='', nameTxt='';
     if(spk.indexOf('·') > -1){
       var p = spk.split('·');
@@ -749,6 +812,8 @@ function spScrollTo(id, btn){
     orgEl.textContent      = orgTxt;
     nameEl.textContent     = nameTxt;
     nameEl.className       = 'sess-name' + (isTbd ? ' is-tbd' : '');
+    var photoWrapPg = document.querySelector('.sess-photo-wrap');
+    if(photoWrapPg) photoWrapPg.style.setProperty('--ph-acc', color);
     /* 연사소개 탭 */
     var spkDescEl = document.getElementById('sess-speaker-desc');
     if(spkDescEl) spkDescEl.textContent = isTbd
@@ -825,6 +890,16 @@ function spScrollTo(id, btn){
     nameEl.textContent     = nameTxt;
     nameEl.className       = 'sess-name' + (isTbd ? ' is-tbd' : '');
 
+    var photoImg = document.querySelector('.sess-photo-img');
+    var cardPhotoSrc = ((card.querySelector('.sc-photo img')||{}).src) || '';
+    var resolvedSrc = cardPhotoSrc || (data.photo || 'assets/img/man.svg');
+    if(photoImg) photoImg.src = resolvedSrc;
+    var photoWrap = document.querySelector('.sess-photo-wrap');
+    if(photoWrap){
+      photoWrap.style.setProperty('--ph-acc', color);
+      photoWrap.classList.toggle('no-real-photo', resolvedSrc.includes('man.svg'));
+    }
+
     var spkEl2 = document.getElementById('sess-speaker-desc');
     if(spkEl2) spkEl2.textContent = isTbd
       ? '해당 세션의 연사는 현재 섭외 진행 중입니다. 확정 후 연사 소개가 업데이트됩니다.'
@@ -851,67 +926,102 @@ function spScrollTo(id, btn){
     document.body.style.overflow = 'hidden';
   }
 
+  /* 키노트 카드 → 모달 */
+  function openModalFromKn() {
+    var card   = document.querySelector('.pg-kn-hero-card');
+    var title  = ((card && card.querySelector('.pg-kn-hero-title'))||{}).textContent || '';
+    var org    = ((card && card.querySelector('.pg-kn-hero-org'))||{}).textContent || '';
+    var name   = ((card && card.querySelector('.pg-kn-hero-name'))||{}).textContent || '';
+    var photo  = ((card && card.querySelector('.pg-kn-hero-photo img'))||{}).src || '';
+
+    topEl.style.background = '#3a6bff';
+    trkLbl.textContent     = 'KEYNOTE';
+    titleEl.textContent    = title;
+    orgEl.textContent      = org;
+    nameEl.textContent     = name;
+    nameEl.className       = 'sess-name';
+
+    var photoImg = document.querySelector('.sess-photo-img');
+    if(photoImg) photoImg.src = photo || 'assets/img/man.svg';
+
+    var spkDescEl = document.getElementById('sess-speaker-desc');
+    if(spkDescEl) spkDescEl.textContent = '김세직 교수는 서울대학교 경제학부 교수로, 성장이론·기술혁신·경제발전을 연구합니다. 한국 경제의 성장 잠재력 분석과 AI 시대 기업의 구조적 도전을 주제로 학계와 정책 현장에서 활발하게 활동하고 있습니다.';
+
+    var sessDescEl = document.getElementById('sess-session-desc');
+    if(sessDescEl) sessDescEl.textContent = 'AI·기술 충격이 한국 경제의 성장 잠재력을 어떻게 바꾸고 있는지 분석합니다. 피크코리아 담론을 기업 전략의 좌표로 재해석하고, AI Native Company로의 전환이 K자 양극화에서 위쪽 곡선을 차지하기 위한 핵심 조건임을 논증합니다.';
+
+    var tagsEl = document.getElementById('sess-tags');
+    if(tagsEl){
+      tagsEl.innerHTML = '';
+      ['#피크코리아','#성장전략','#AX전환'].forEach(function(tag){
+        var span = document.createElement('span');
+        span.className = 'sess-tag';
+        span.textContent = tag;
+        tagsEl.appendChild(span);
+      });
+    }
+
+    switchSessTab('speaker');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  /* 홈 키노트 배너 버튼 → 이홍락 CSAI 모달 */
+  function openModalFromKnBanner() {
+    topEl.style.background = '#3a6bff';
+    trkLbl.textContent     = 'KEYNOTE';
+    titleEl.textContent    = 'AX: Transforming into an AI-Native Company';
+    orgEl.textContent      = 'LG AI연구원';
+    nameEl.textContent     = '이홍락 CSAI';
+    nameEl.className       = 'sess-name';
+
+    var photoImg = document.querySelector('.sess-photo-img');
+    if(photoImg) photoImg.src = 'assets/img/ceo-photo.png';
+    var photoWrap = document.querySelector('.sess-photo-wrap');
+    if(photoWrap){
+      photoWrap.style.setProperty('--ph-acc','#5a8dff');
+      photoWrap.classList.remove('no-real-photo');
+    }
+
+    var spkDescEl = document.getElementById('sess-speaker-desc');
+    if(spkDescEl) spkDescEl.textContent = '이홍락 CSAI는 LG AI연구원의 최고 AI 과학자(Chief AI Scientist)로, 초거대 AI 모델 EXAONE 개발을 이끌었습니다. 딥러닝·자연어처리·멀티모달 분야에서 세계적 연구 업적을 보유하며, AI 기반 기업 혁신을 학술과 현장 양면에서 주도하고 있습니다.';
+
+    var sessDescEl = document.getElementById('sess-session-desc');
+    if(sessDescEl) sessDescEl.textContent = '파일럿 단계에 머문 AI 도입을 전사 전략으로 전환하기 위해 무엇이 필요한지, LG그룹의 실제 AI 전환 경험을 바탕으로 이야기합니다. AI를 단순 도구가 아닌 기업 운영 OS로 내재화하는 구조 설계, 조직 변화 원칙, 리더십 행동 변화를 중심으로 AI-Native Company로의 전환 좌표를 제시합니다.';
+
+    var tagsEl = document.getElementById('sess-tags');
+    if(tagsEl){
+      tagsEl.innerHTML = '';
+      ['#AX전환','#AI네이티브','#초거대AI'].forEach(function(tag){
+        var span = document.createElement('span');
+        span.className = 'sess-tag';
+        span.textContent = tag;
+        tagsEl.appendChild(span);
+      });
+    }
+
+    switchSessTab('speaker');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
   /* 카드 클릭 → 모달 (document 위임, 모달 내부 클릭 제외) */
   document.addEventListener('click', function(e){
     if(e.target.closest('#sess-overlay')) return;
+    var knBtn = e.target.closest('#kn-profile-btn');
+    if(knBtn){ openModalFromKnBanner(); return; }
+    var kn = e.target.closest('.pg-kn-hero-card');
+    if(kn){ openModalFromKn(); return; }
     var c5 = e.target.closest('.pgtl-c5');
-    if(c5){ openModal(c5); return; }
+    if(c5){
+      if(!c5.closest('#pg-panel-timetable')) openModal(c5);
+      return;
+    }
     var sc = e.target.closest('article.sc');
     if(sc){ openModalFromSc(sc); }
   });
 })();
 
-/* ── 홈 전체 섹션 사이드 내비게이션 ── */
-(function(){
-  var nav = document.getElementById('cxt-sidenav');
-  if(!nav) return;
-  var dots = nav.querySelectorAll('.cxt-dot');
-  var sectionIds = ['intro','concept','tracks','speakers','purchase','insight','archive'];
-  var targets = {};
-  sectionIds.forEach(function(id){ targets[id] = document.getElementById(id); });
-
-  dots.forEach(function(dot){
-    dot.addEventListener('click', function(){
-      var el = targets[dot.dataset.target];
-      if(el) el.scrollIntoView({ behavior:'smooth', block:'start' });
-    });
-  });
-
-  function setActive(id){
-    dots.forEach(function(d){
-      d.classList.toggle('active', d.dataset.target === id);
-    });
-  }
-
-  var heroVisible = true;
-  var heroEl = document.getElementById('hero');
-  if(heroEl){
-    new IntersectionObserver(function(entries){
-      heroVisible = entries[0].isIntersecting;
-      updateNavVisibility();
-    }, { threshold: 0.05 }).observe(heroEl);
-  }
-
-  function updateNavVisibility(){
-    if(heroVisible){ nav.classList.remove('visible'); return; }
-    var anyVisible = sectionIds.some(function(id){
-      var s = targets[id];
-      if(!s) return false;
-      var r = s.getBoundingClientRect();
-      return r.top < window.innerHeight && r.bottom > 0;
-    });
-    nav.classList.toggle('visible', anyVisible);
-  }
-
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting) setActive(entry.target.id);
-    });
-    updateNavVisibility();
-  }, { threshold: 0.15, rootMargin:'-60px 0px 0px 0px' });
-
-  sectionIds.forEach(function(id){ if(targets[id]) observer.observe(targets[id]); });
-})();
 
 
 /* ── 모바일/태블릿 인사이트 캐러셀 ── */
@@ -982,13 +1092,12 @@ function spScrollTo(id, btn){
     tickets.scrollBy({ left:  cardW(), behavior: 'smooth' });
   });
 
-  /* 판매중 카드로 초기 스크롤 */
+  /* 판매중 카드로 초기 스크롤 — 가운데 정렬 */
   function scrollToSelling(){
     if(window.innerWidth >= 1024) return;
     var selling = tickets.querySelector('.tkt[data-status="selling"]');
     if(!selling) return;
-    var offset = selling.offsetLeft - (tickets.offsetWidth - selling.offsetWidth) / 2;
-    tickets.scrollLeft = offset;
+    tickets.scrollLeft = selling.offsetLeft - (tickets.offsetWidth - selling.offsetWidth) / 2;
   }
   window.addEventListener('load', scrollToSelling);
   window.addEventListener('resize', function(){ scrollToSelling(); });
@@ -1035,3 +1144,168 @@ function spScrollTo(id, btn){
   window.addEventListener('resize', updateDots);
   updateDots();
 })();
+
+
+/* ── Stats 카드: deal 등장 + 두둥실 float ───────────────────────────── */
+;(function () {
+  var grid = document.querySelector('.stats-grid');
+  if (!grid) return;
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.stat-card'));
+  if (!cards.length) return;
+
+  /* 초기 펼쳐진(spread) 위치 — 중앙에서 부채꼴로 퍼진 상태 */
+  var spreads = [
+    'translateX(-300px) translateY(80px) rotateZ(-16deg) scale(0.82)',
+    'translateX(-110px) translateY(36px) rotateZ(-7deg)  scale(0.92)',
+    'translateX( 110px) translateY(36px) rotateZ( 7deg)  scale(0.92)',
+    'translateX( 300px) translateY(80px) rotateZ( 16deg) scale(0.82)'
+  ];
+
+  /* 초기 숨김 (transition 없이 즉시) */
+  cards.forEach(function (card, i) {
+    card.style.transition = 'none';
+    card.style.transform  = spreads[i] || '';
+    card.style.opacity    = '0';
+  });
+
+  var triggered = false;
+
+  var observer = new IntersectionObserver(function (entries) {
+    if (triggered || !entries[0].isIntersecting) return;
+    triggered = true;
+    observer.disconnect();
+
+    cards.forEach(function (card, i) {
+      /* 카드마다 80ms 스태거 */
+      setTimeout(function () {
+        card.style.transition = [
+          'transform 0.92s cubic-bezier(0.22,1,0.36,1)',
+          'opacity   0.65s ease'
+        ].join(',');
+        card.style.transform = 'none';
+        card.style.opacity   = '1';
+
+        /* deal 완료 후 float 시작 */
+        setTimeout(function () {
+          card.style.transition = '';
+          card.style.transform  = '';
+          card.style.opacity    = '';
+          card.classList.add('is-floating');
+        }, 960);
+      }, i * 85);
+    });
+  }, { threshold: 0.28 });
+
+  observer.observe(grid);
+})();
+
+/* ── Registration 카드 deal-in + float ── */
+;(function () {
+  var grid = document.querySelector('#reg-panel-register .reg-passcard-grid');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.reg-passcard'));
+  var spreads = [
+    'translateX(-180px) translateY(50px) rotateZ(-11deg) scale(0.88)',
+    'translateX( 180px) translateY(50px) rotateZ( 11deg) scale(0.88)'
+  ];
+  cards.forEach(function (card, i) {
+    card.style.transition = 'none';
+    card.style.transform  = spreads[i] || '';
+    card.style.opacity    = '0';
+  });
+  var triggered = false;
+  var observer = new IntersectionObserver(function (entries) {
+    if (triggered || !entries[0].isIntersecting) return;
+    triggered = true;
+    observer.disconnect();
+    cards.forEach(function (card, i) {
+      setTimeout(function () {
+        card.style.transition = [
+          'transform 0.88s cubic-bezier(0.22,1,0.36,1)',
+          'opacity   0.60s ease'
+        ].join(',');
+        card.style.transform = 'none';
+        card.style.opacity   = '1';
+        setTimeout(function () {
+          card.style.transition = '';
+          card.style.transform  = '';
+          card.style.opacity    = '';
+          card.classList.add('is-floating');
+        }, 940);
+      }, i * 100);
+    });
+  }, { threshold: 0.2 });
+  observer.observe(grid);
+})();
+
+/* ── 인사이트 프리뷰 슬라이더 + 유튜브 모달 ── */
+(function(){
+  var viewport   = document.getElementById('iv-viewport');
+  var track      = document.getElementById('iv-track');
+  var btnPrev    = document.getElementById('iv-prev');
+  var btnNext    = document.getElementById('iv-next');
+  var modal      = document.getElementById('iv-modal');
+  var modalBg    = document.getElementById('iv-modal-bg');
+  var modalClose = document.getElementById('iv-modal-close');
+  var iframe     = document.getElementById('iv-modal-iframe');
+  if(!track || !modal) return;
+
+  var slides = track.querySelectorAll('.iv-slide');
+  var idx = 0;
+
+  function visibleCount(){
+    var vw = viewport.offsetWidth;
+    if(vw < 680) return 1;
+    if(vw < 1024) return 2;
+    return 3;
+  }
+
+  function maxIdx(){ return Math.max(0, slides.length - visibleCount()); }
+
+  function goTo(n){
+    idx = Math.max(0, Math.min(n, maxIdx()));
+    var slideW = slides[0].offsetWidth + 16;
+    viewport.scrollTo({ left: idx * slideW, behavior: 'smooth' });
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx >= maxIdx();
+  }
+
+  /* 스크롤로 idx 동기화 */
+  viewport.addEventListener('scroll', function(){
+    var slideW = slides[0].offsetWidth + 16;
+    idx = Math.round(viewport.scrollLeft / slideW);
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx >= maxIdx();
+  }, {passive:true});
+
+  btnPrev.addEventListener('click', function(){ goTo(idx - 1); });
+  btnNext.addEventListener('click', function(){ goTo(idx + 1); });
+  window.addEventListener('resize', function(){ goTo(idx); });
+  goTo(0);
+
+  /* 카드 클릭 → 모달 */
+  track.addEventListener('click', function(e){
+    var card = e.target.closest('.iv-card');
+    if(!card) return;
+    e.preventDefault();
+    var ytid = card.dataset.ytid;
+    if(!ytid) return;
+    iframe.src = 'https://www.youtube.com/embed/' + ytid + '?autoplay=1&rel=0';
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeModal(){
+    modal.setAttribute('hidden','');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  modalBg.addEventListener('click', closeModal);
+  modalClose.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+})();
+
