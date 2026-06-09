@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp /tmp/foresight_design.html /tmp/foresight_design.html.gz)",
+      "Bash(gunzip -f /tmp/foresight_design.html.gz)",
+      "Read(//private/tmp/**)"
+    ]
+  }
+}

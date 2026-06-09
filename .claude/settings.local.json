@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"http.server 3000\")",
+      "Bash(python3 -m http.server 3000 --bind 127.0.0.1 --directory \"/Users/hunet/Downloads/포사이트코리아2027\")",
+      "Bash(open \"http://127.0.0.1:3000/FORESIGHT%20KOREA%202027%20-%20Home.html\")",
+      "WebFetch(domain:pleos.ai)",
+      "Bash(open \"/Users/somuzip/Desktop/포사이트코리아2027/FORESIGHT KOREA 2027 - Home.html\")",
+      "Bash(md5 /Users/somuzip/Desktop/포사이트코리아2027/assets/styles.css)",
+      "Bash(sed -i '' 's/\\\\.iv2-slider{flex-direction:column !important;gap:0 !important}/.iv2-slider{flex-direction:column !important;gap:0 !important;align-items:stretch !important}/' /Users/somuzip/Desktop/포사이트코리아2027/assets/styles.css)",
+      "Bash(python3 -)",
+      "Bash(awk -F: '$2 <= 1930 {print}')",
+      "Bash(awk 'NR>=1850 && NR<=1940 && /@media/' /Users/somuzip/Desktop/포사이트코리아2027/assets/styles.css)",
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(ls -lt /Users/somuzip/Downloads/ | head -10)",
+      "Read(//Users/somuzip/Downloads/**)",
+      "WebFetch(domain:ceo.hunet.co.kr)",
+      "Bash(awk -F: '$2 ~ /^<\\\\/div>$/ {print $1}')",
+      "Bash(curl -s \"https://ceo.hunet.co.kr/_next/static/chunks/app/\\(page\\)/foresight-korea/2026/faq/page-0fb6ca158e3e3738.js\")",
+      "Bash(python3 -c ' *)",
+      "Bash(sed -n '/<div class=\"container pt-40 pb-48/,/<\\\\/main>/p' /Users/somuzip/.claude/projects/-Users-somuzip-Desktop--------2027-2/10ed03c7-a8e4-44cb-86ce-b4ba3d4885f8/tool-results/bqt94w1iv.txt | head -100)"
+    ],
+    "additionalDirectories": [
+      "/Users/somuzip/Desktop/포사이트코리아2027/assets",
+      "/Users/somuzip/.claude/projects/-Users-somuzip-Desktop--------2027-2/10ed03c7-a8e4-44cb-86ce-b4ba3d4885f8/tool-results"
+    ]
+  }
+}
