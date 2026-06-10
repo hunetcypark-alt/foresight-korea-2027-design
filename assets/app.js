@@ -180,6 +180,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     b.addEventListener('click', ()=> applyState(b.dataset.state));
   });
 
+  // 판매중 카드 전체 클릭 → register 페이지 이동
+  document.querySelectorAll('.tkt[data-status="selling"]').forEach(card=>{
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e=>{
+      if(e.target.closest('.tkt-cta')) return;
+      switchPage('register');
+    });
+  });
+
   // Forum Archive dropdown
   const archBtn  = document.getElementById('gn-archive-btn');
   const archMenu = document.getElementById('gn-archive-menu');
