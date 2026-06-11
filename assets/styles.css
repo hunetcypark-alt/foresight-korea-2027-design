@@ -3984,7 +3984,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
     padding:8px 20px;margin-left:-20px;margin-right:-20px;margin-bottom:24px;
   }
   .pg-sb-nav{
-    display:grid;grid-template-columns:repeat(6,1fr);
+    display:grid;grid-template-columns:repeat(3,1fr);
     flex-direction:unset;gap:0;padding:0;
   }
   .pg-sb-sep{display:none}
