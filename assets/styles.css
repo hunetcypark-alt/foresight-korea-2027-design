@@ -1665,7 +1665,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .spb-keynote .spb-photo svg{height:100%;width:auto;object-fit:cover}
   .spb-keynote::after{
     display:block !important;
-    background:linear-gradient(to top,rgba(3,4,9,1) 0%,rgba(3,4,9,.85) 35%,rgba(3,4,9,.3) 65%,transparent 100%)
+    background:linear-gradient(to top,rgba(3,4,9,1) 0%,rgba(3,4,9,.92) 40%,rgba(3,4,9,.6) 70%,rgba(3,4,9,.2) 100%)
   }
   .spb-keynote .spb-inner{
     position:absolute;bottom:0;left:0;right:0;
