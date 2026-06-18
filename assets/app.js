@@ -6,7 +6,7 @@ const STATES = {
   presale: {
     label: '사전판매',
     hero: {
-      cta: '사전 등록하기',
+      cta: '등록하기',
       variant: '',
       hint: { dim: 'EARLY BIRD', main: '얼리버드 마감 D-34' },
       sub: 'AX · Transforming into an AI-Native Company',
