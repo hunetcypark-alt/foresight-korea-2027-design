@@ -1001,19 +1001,19 @@ section#purchase,section#speakers,section#insight,section#archive{border-top:non
   background:rgba(255,255,255,.14);color:var(--fg-80);box-shadow:none}
 
 .tkt[data-status="selling"]{
-  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.09));
-  border-color:rgba(255,255,255,.38);
-  box-shadow:0 28px 72px -24px rgba(180,210,255,.55),inset 0 1.5px 0 rgba(255,255,255,.4);
-  transform:translateY(-7px);z-index:2}
-.tkt[data-status="selling"]::before{opacity:.6}
-.tkt[data-status="selling"]::after{opacity:.65;left:10%;right:10%}
-.tkt[data-status="selling"]:hover{
   background:linear-gradient(160deg,rgba(255,255,255,.26),rgba(255,255,255,.13));
   border-color:rgba(255,255,255,.6);
   box-shadow:0 44px 90px -24px rgba(180,210,255,.7),inset 0 1.5px 0 rgba(255,255,255,.6);
-  transform:translateY(-12px)}
-.tkt[data-status="selling"]:hover::before{opacity:1}
-.tkt[data-status="selling"]:hover::after{opacity:1;left:6%;right:6%}
+  transform:translateY(0);z-index:2}
+.tkt[data-status="selling"]::before{opacity:1}
+.tkt[data-status="selling"]::after{opacity:1;left:6%;right:6%}
+.tkt[data-status="selling"]:hover{
+  background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.09));
+  border-color:rgba(255,255,255,.38);
+  box-shadow:0 28px 72px -24px rgba(180,210,255,.55),inset 0 1.5px 0 rgba(255,255,255,.4);
+  transform:translateY(-4px)}
+.tkt[data-status="selling"]:hover::before{opacity:.6}
+.tkt[data-status="selling"]:hover::after{opacity:.65;left:10%;right:10%}
 .tkt[data-status="selling"] .tkt-status{color:#dbe6ff}
 .tkt[data-status="selling"] .tkt-pass-tag{color:var(--brand-glow)}
 .tkt[data-status="selling"] .tkt-status::before{content:'';width:7px;height:7px;border-radius:50%;
