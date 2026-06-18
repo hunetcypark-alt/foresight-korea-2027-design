@@ -1028,6 +1028,7 @@ section#purchase,section#speakers,section#insight,section#archive{border-top:non
   cursor:default;pointer-events:none;opacity:.38;
   letter-spacing:.04em;transition:none;transform:none;box-shadow:none}
 
+.reg-mob-nav{display:none}
 .reg-note{text-align:center;font-size:13px;color:var(--fg-45);letter-spacing:-.01em;
   line-height:1.7;max-width:760px;margin:0 auto;text-wrap:pretty}
 
