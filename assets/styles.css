@@ -3949,34 +3949,33 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .pg-kn-hero-photo img{object-fit:contain;object-position:bottom center}
   .pg-kn-hero-body{padding:28px 24px}
   .pg-tab-bar{flex-wrap:wrap;gap:0;column-gap:24px}
-  .pg-pdf-btn{order:-1;margin-left:0 !important;width:100%;justify-content:center}
+  .pg-pdf-btn{order:-1;margin-left:0 !important;width:100%;justify-content:center;margin-bottom:30px}
+  /* 스크롤 후 상단 고정 탭바 */
+  .pg-sidebar.is-stuck{
+    display:block;position:fixed;top:0;left:0;right:0;z-index:100;
+    background:#fff;border-bottom:1px solid rgba(0,0,0,.08);
+    padding:0;margin:0;grid-column:unset;
+  }
+  .pg-sidebar.is-stuck .pg-sb-nav{
+    display:flex;flex-direction:row;overflow-x:auto;scrollbar-width:none;
+    gap:0;padding:0 20px;
+  }
+  .pg-sidebar.is-stuck .pg-sb-nav::-webkit-scrollbar{display:none}
+  .pg-sidebar.is-stuck .pg-sb-sep{display:none}
+  .pg-sidebar.is-stuck .pg-sb-item{
+    flex:0 0 auto;flex-direction:row;align-items:center;justify-content:center;
+    padding:12px 16px;font-size:13px;font-weight:600;
+    border-left:none;border-bottom:2px solid transparent;border-radius:0;
+    white-space:nowrap;color:var(--fg-45,#70737c);
+  }
+  .pg-sidebar.is-stuck .pg-sb-item span{font-size:11px;margin-left:4px}
+  .pg-sidebar.is-stuck .pg-sb-item.active{
+    color:var(--acc,#3a6bff);border-bottom-color:var(--acc,#3a6bff);
+    background:none;border-left-color:transparent;
+  }
+  .pg-kn-hero-sec,.pg-trk-sec{scroll-margin-top:50px}
 }
 @media(max-width:767px){
-  .pg-sidebar{
-    display:block;
-    position:sticky;top:0;z-index:10;
-    grid-column:unset;grid-row:unset;
-    width:auto;background:#fff;
-    border-right:none;border-bottom:1px solid transparent;transition:border-color .2s;
-    padding:8px 20px;margin-left:-20px;margin-right:-20px;margin-bottom:24px;
-  }
-  .pg-sidebar.is-stuck{border-bottom-color:rgba(0,0,0,.08)}
-  .pg-sb-nav{display:grid;grid-template-columns:repeat(3,1fr);flex-direction:unset;gap:0;padding:0}
-  .pg-sb-sep{display:none}
-  .pg-sb-item{
-    flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:10px 4px;
-    border-left:none;border-bottom:none;
-    font-size:10px;border-radius:4px;
-  }
-  .pg-sb-item span{font-size:9px}
-  .pg-sb-item.active{
-    color:var(--acc,#3a6bff);
-    background:none;
-    border-left-color:transparent;
-    border-bottom-color:transparent;
-  }
-  .pg-kn-hero-sec,.pg-trk-sec{scroll-margin-top:160px}
   .pg-kn-hero-name{font-size:18px}
 }
 

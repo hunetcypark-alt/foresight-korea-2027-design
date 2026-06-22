@@ -574,19 +574,15 @@ function switchMfTab(tab) {
   sections.forEach(function(s){ observer.observe(s.el); });
 })();
 
-/* ── Sidebar stuck border (tablet · mobile) ── */
+/* ── Sidebar stuck (tablet · mobile): pg-tab-bar가 뷰포트 밖으로 나가면 고정 탭바 표시 ── */
 (function(){
   var sidebar = document.getElementById('pg-sidebar');
-  var panel = document.getElementById('pg-panel-speakers');
-  if(!sidebar || !panel) return;
-  var sentinel = document.createElement('div');
-  sentinel.setAttribute('aria-hidden','true');
-  sentinel.style.cssText = 'height:1px;margin-bottom:-1px;pointer-events:none;';
-  panel.insertBefore(sentinel, panel.firstChild);
+  var tabBar = document.querySelector('.pg-tab-bar');
+  if(!sidebar || !tabBar) return;
   new IntersectionObserver(function(entries){
     if(window.innerWidth >= 1024) return;
     sidebar.classList.toggle('is-stuck', !entries[0].isIntersecting);
-  }, {threshold:0}).observe(sentinel);
+  }, {threshold:0, rootMargin:'-1px 0px 0px 0px'}).observe(tabBar);
 })();
 
 /* ── Program 탭 전환 ── */
