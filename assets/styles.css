@@ -3943,7 +3943,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .pg-sp-layout{display:block}
   .pg-sidebar{display:none}
   .pg-sp-main{grid-column:unset}
-  #pg-panel-speakers{padding-top:16px}
+  #pg-panel-speakers{padding-top:32px}
   .pg-kn-hero-card{flex-direction:column}
   .pg-kn-hero-photo{width:100%;height:auto;aspect-ratio:1/1;padding:24px 16px 0}
   .pg-kn-hero-photo img{object-fit:contain;object-position:bottom center}
