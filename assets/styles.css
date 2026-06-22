@@ -3871,7 +3871,12 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 .pg-sb-item.active{
   color:var(--fg-100,#171719);background:rgba(0,0,0,.04);
   border-left-color:var(--acc,#3a6bff)}
-.pg-sb-kn.active{border-left-color:#3a6bff}
+.pg-sb-kn.active{border-left-color:#3a6bff;color:#3a6bff}
+.pg-sb-item[data-section="pg-trk-a"].active{border-left-color:#3cc6ff;color:#3cc6ff}
+.pg-sb-item[data-section="pg-trk-b"].active{border-left-color:#4aa6ff;color:#4aa6ff}
+.pg-sb-item[data-section="pg-trk-c"].active{border-left-color:#5a8dff;color:#5a8dff}
+.pg-sb-item[data-section="pg-trk-d"].active{border-left-color:#6f7bf0;color:#6f7bf0}
+.pg-sb-item[data-section="pg-trk-e"].active{border-left-color:#8b5cf6;color:#8b5cf6}
 .pg-sp-main{grid-column:2;min-width:0}
 
 /* ── Keynote Hero 카드 ── */
