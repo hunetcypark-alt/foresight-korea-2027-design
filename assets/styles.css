@@ -97,7 +97,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   border:1px solid rgba(255,255,255,.18);transition:background .2s}
 .gt-myforum:hover{background:rgba(255,255,255,.08)}
 
-#gnb-nav{position:relative;z-index:50;flex-shrink:0;
+#gnb-nav{position:relative !important;top:auto !important;z-index:50;flex-shrink:0;
   display:flex;align-items:stretch;padding:0 40px;height:60px;
   background:#ffffff;
   border-bottom:1px solid #e6e7ea}
@@ -942,7 +942,7 @@ section#purchase,section#speakers,section#insight,section#archive{border-top:non
 .reg-count-cap b{color:var(--brand-glow);font-weight:700}
 
 /* Ticket grid */
-.reg-tickets{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;margin-bottom:28px}
+.reg-tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;margin-bottom:28px}
 
 .tkt{--perfY:98px;
   position:relative;border-radius:var(--radius-xl);
