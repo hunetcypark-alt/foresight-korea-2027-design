@@ -4,7 +4,7 @@ export const TICKETS: Ticket[] = [
   {
     tier: '1차 얼리버드',
     status: 'ended',
-    dateLabel: '~ 8/15(토)',
+    dateLabel: '~ 8/9(일)',
     passes: [
       { type: 'ALL_PASS', label: 'ALL PASS', originalPrice: 1_000_000, price: 600_000, discountRate: 0.4 },
       { type: 'LIVE_PASS', label: 'LIVE PASS', originalPrice: 750_000, price: 450_000, discountRate: 0.4 },
@@ -13,20 +13,11 @@ export const TICKETS: Ticket[] = [
   {
     tier: '2차 얼리버드',
     status: 'selling',
-    deadline: '2026-08-27T23:59:59+09:00',
-    dateLabel: '~ 8/27(목)',
-    passes: [
-      { type: 'ALL_PASS', label: 'ALL PASS', originalPrice: 1_000_000, price: 700_000, discountRate: 0.3 },
-      { type: 'LIVE_PASS', label: 'LIVE PASS', originalPrice: 750_000, price: 525_000, discountRate: 0.3 },
-    ],
-  },
-  {
-    tier: '3차 얼리버드',
-    status: 'upcoming',
+    deadline: '2026-09-13T23:59:59+09:00',
     dateLabel: '~ 9/13(일)',
     passes: [
-      { type: 'ALL_PASS', label: 'ALL PASS', originalPrice: 1_000_000, price: 850_000, discountRate: 0.15 },
-      { type: 'LIVE_PASS', label: 'LIVE PASS', originalPrice: 750_000, price: 637_500, discountRate: 0.15 },
+      { type: 'ALL_PASS', label: 'ALL PASS', originalPrice: 1_000_000, price: 750_000, discountRate: 0.25 },
+      { type: 'LIVE_PASS', label: 'LIVE PASS', originalPrice: 750_000, price: 562_500, discountRate: 0.25 },
     ],
   },
   {
