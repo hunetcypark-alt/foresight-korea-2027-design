@@ -213,7 +213,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
 
   let init = 'presale';
-  try{ const saved = localStorage.getItem('fk27_state'); if(saved && STATES[saved]) init = saved; }catch(_){}
   // Snapshot ticket baseline statuses (so 'closed' state can be reverted)
   document.querySelectorAll('#reg-tickets .tkt').forEach(t=>{ t.dataset.status0 = t.dataset.status; });
   applyState(init);
@@ -1313,4 +1312,5 @@ function spScrollTo(id, btn){
     if(e.key === 'Escape') closeModal();
   });
 })();
+
 
