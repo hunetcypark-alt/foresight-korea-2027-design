@@ -738,7 +738,38 @@ function spScrollTo(id, btn){
 
   var TRACK_COLORS = {'A':'#3cc6ff','B':'#4aa6ff','C':'#5a8dff','D':'#6f7bf0','E':'#8b5cf6'};
 
-  var SESS_DATA = {};
+  var SESS_DATA = {
+    'A-1': { tags: ['#거시경제','#성장률','#글로벌교역'] },
+    'A-2': { tags: ['#한국경제','#K자성장','#경기전망'] },
+    'A-3': { tags: ['#지정학리스크','#미중갈등','#공급망'] },
+    'A-4': { tags: ['#자본시장','#금리전망','#AI버블'] },
+    'A-5': { tags: ['#반도체인프라','#전력병목','#에너지'] },
+    'A-6': { tags: ['#정부정책','#예산안','#기업규제'] },
+    'B-1': { tags: ['#AI네이티브','#미래기업','#디지털전환'] },
+    'B-2': { tags: ['#AX마스터플랜','#조직재설계','#AI네이티브'] },
+    'B-3': { tags: ['#포트폴리오','#리밸런싱','#사업구조'] },
+    'B-4': { tags: ['#PoC','#ROI','#가치창출'] },
+    'B-5': { tags: ['#신사업전략','#AX혁신','#비즈니스모델'] },
+    'B-6': { tags: ['#실리콘밸리','#경영트렌드','#빅테크'] },
+    'C-1': { tags: ['#파운데이션모델','#AI인프라','#클라우드'] },
+    'C-2': { tags: ['#테크트렌드','#바이오','#초연결망'] },
+    'C-3': { tags: ['#다크팩토리','#피지컬AI','#제조혁신'] },
+    'C-4': { tags: ['#휴머노이드','#로봇공학','#스틸칼라'] },
+    'C-5': { tags: ['#AI에이전트','#오토파일럿','#업무자동화'] },
+    'C-6': { tags: ['#중국AI','#로봇기술','#테크패권'] },
+    'D-1': { tags: ['#소비트렌드','#2027전망','#소비심리'] },
+    'D-2': { tags: ['#소비자경험','#CX','#AX마케팅'] },
+    'D-3': { tags: ['#GEO','#AI검색','#브랜드노출'] },
+    'D-4': { tags: ['#퍼포먼스마케팅','#AI최적화','#마케팅ROI'] },
+    'D-5': { tags: ['#AX성공사례','#마케팅혁신','#고객경험'] },
+    'D-6': { tags: ['#콘텐츠마케팅','#미디어트렌드','#스토리텔링'] },
+    'E-1': { tags: ['#하이브리드인재','#HR트렌드','#조직관리'] },
+    'E-2': { tags: ['#일의미래','#직무재설계','#AInative'] },
+    'E-3': { tags: ['#AI디렉터','#협업툴','#일하는방식'] },
+    'E-4': { tags: ['#워크슬롭','#가짜생산성','#조직진단'] },
+    'E-5': { tags: ['#보상체계','#정서적연봉','#HR평가'] },
+    'E-6': { tags: ['#HR성공사례','#인재채용','#성과평가'] }
+  };
 
   function getSessionId(card) {
     var trk = (card.querySelector('.pgtl-c5-trk')||{}).textContent||'';
@@ -768,7 +799,8 @@ function spScrollTo(id, btn){
         scImg = ((sc.querySelector('.sc-photo img')||{}).src) || '';
       }
     });
-    if(photoImg) photoImg.src = scImg || data.photo || 'assets/img/man.svg';
+    var resolvedSrcPg = scImg || data.photo || 'assets/img/man.svg';
+    if(photoImg) photoImg.src = resolvedSrcPg;
 
     var orgTxt='', nameTxt='';
     if(spk.indexOf('·') > -1){
@@ -786,7 +818,10 @@ function spScrollTo(id, btn){
     nameEl.textContent     = nameTxt;
     nameEl.className       = 'sess-name' + (isTbd ? ' is-tbd' : '');
     var photoWrapPg = document.querySelector('.sess-photo-wrap');
-    if(photoWrapPg) photoWrapPg.style.setProperty('--ph-acc', color);
+    if(photoWrapPg){
+      photoWrapPg.style.setProperty('--ph-acc', color);
+      photoWrapPg.classList.toggle('no-real-photo', resolvedSrcPg.includes('man.svg'));
+    }
     /* 연사소개 탭 */
     var spkDescEl = document.getElementById('sess-speaker-desc');
     if(spkDescEl) spkDescEl.textContent = isTbd
@@ -918,21 +953,13 @@ function spScrollTo(id, btn){
     if(photoImg) photoImg.src = photo || 'assets/img/man.svg';
 
     var spkDescEl = document.getElementById('sess-speaker-desc');
-    if(spkDescEl) spkDescEl.textContent = '김세직 교수는 서울대학교 경제학부 교수로, 성장이론·기술혁신·경제발전을 연구합니다. 한국 경제의 성장 잠재력 분석과 AI 시대 기업의 구조적 도전을 주제로 학계와 정책 현장에서 활발하게 활동하고 있습니다.';
+    if(spkDescEl) spkDescEl.textContent = '연사 소개가 준비 중입니다.';
 
     var sessDescEl = document.getElementById('sess-session-desc');
-    if(sessDescEl) sessDescEl.textContent = 'AI·기술 충격이 한국 경제의 성장 잠재력을 어떻게 바꾸고 있는지 분석합니다. 피크코리아 담론을 기업 전략의 좌표로 재해석하고, AI Native Company로의 전환이 K자 양극화에서 위쪽 곡선을 차지하기 위한 핵심 조건임을 논증합니다.';
+    if(sessDescEl) sessDescEl.textContent = '세션 소개가 준비 중입니다.';
 
     var tagsEl = document.getElementById('sess-tags');
-    if(tagsEl){
-      tagsEl.innerHTML = '';
-      ['#피크코리아','#성장전략','#AX전환'].forEach(function(tag){
-        var span = document.createElement('span');
-        span.className = 'sess-tag';
-        span.textContent = tag;
-        tagsEl.appendChild(span);
-      });
-    }
+    if(tagsEl) tagsEl.innerHTML = '';
 
     switchSessTab('speaker');
     overlay.classList.add('open');
