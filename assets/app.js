@@ -1309,4 +1309,20 @@ function spScrollTo(id, btn){
   });
 })();
 
+/* ── Concept · AX 히어로: 스크롤 인뷰 시 1회 재생 (AX 좌측 이동 + 텍스트 좌→우 노출) ── */
+(function(){
+  var cxHero = document.getElementById('cx-hero');
+  if(!cxHero) return;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        cxHero.classList.add('cx-inview');
+        observer.unobserve(cxHero);
+      }
+    });
+  },{threshold:0.4});
+  observer.observe(cxHero);
+})();
+
+
 

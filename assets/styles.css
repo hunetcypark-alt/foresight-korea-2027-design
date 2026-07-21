@@ -480,15 +480,29 @@ section.s-concept{border-top:none}
 @media(prefers-reduced-motion:reduce){.cx-beam,.cx-glow,.cx-spark,.cx-stars{animation:none}.cx-lights{transition:none}}
 
 /* AX 히어로 */
-.cx-hero{margin-bottom:38px}
+.cx-hero{margin-bottom:38px;display:flex;align-items:center;justify-content:center;gap:28px}
 .cx-ax{font-family:var(--en);font-weight:700;
   font-size:clamp(104px,13.5vw,184px);line-height:.86;letter-spacing:-.04em;
   background:linear-gradient(135deg,#4f86ff 0%,#9bd0ff 44%,#eaf6ff 55%,#6aa0ff 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 6px 46px rgba(70,160,255,.4))}
-.cx-axsub{font-family:var(--en);font-weight:500;
-  font-size:clamp(18px,2vw,30px);letter-spacing:-.01em;color:rgba(255,255,255,.8);margin-top:6px}
-.cx-axsub em{font-style:normal;font-weight:700;color:#fff}
+  filter:drop-shadow(0 6px 46px rgba(70,160,255,.4));
+  opacity:0;transform:translateX(120px);
+  transition:opacity .9s cubic-bezier(.16,.84,.44,1),transform .9s cubic-bezier(.16,.84,.44,1)}
+.cx-axtext{display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+  clip-path:inset(0 100% 0 0);opacity:0;
+  transition:clip-path 1s cubic-bezier(.16,.84,.44,1) .25s,opacity .6s ease .25s}
+.cx-axtext-1{font-family:var(--en);font-weight:700;color:#fff;letter-spacing:-.02em;
+  font-size:clamp(24px,3vw,40px);line-height:1.4;margin:0}
+.cx-axtext-2{font-family:var(--en);letter-spacing:-.02em;line-height:1.4;margin:0;
+  display:flex;gap:8px;align-items:baseline;white-space:nowrap}
+.cx-axtext-into{font-weight:500;font-size:clamp(16px,1.6vw,30px);color:rgba(255,255,255,.8)}
+.cx-axtext-company{font-weight:700;font-size:clamp(24px,3vw,40px);color:#fff}
+.cx-hero.cx-inview .cx-ax{opacity:1;transform:translateX(0)}
+.cx-hero.cx-inview .cx-axtext{clip-path:inset(0 0 0 0);opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .cx-ax{opacity:1;transform:none;transition:none}
+  .cx-axtext{clip-path:none;opacity:1;transition:none}
+}
 
 /* 본문 — 단일 위계, 볼드/컬러로만 강조 */
 .cx-body{max-width:824px;margin:0 auto;text-align:center}
@@ -2294,8 +2308,13 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .cx-body{text-align:center !important}
 
   /* Concept (인라인 margin: 0px 248px, width: 824px 제압) */
+  .cx-hero{flex-direction:column;gap:8px}
+  .cx-axtext{align-items:center;text-align:center}
   .cx-ax{font-size:clamp(64px,20vw,100px) !important}
-  .cx-axsub{font-size:clamp(13px,3.8vw,18px) !important}
+  .cx-axtext-1{font-size:clamp(18px,5vw,24px) !important}
+  .cx-axtext-2{font-size:clamp(13px,3.8vw,18px) !important}
+  .cx-axtext-into{font-size:clamp(12px,3.2vw,16px) !important}
+  .cx-axtext-company{font-size:clamp(13px,3.8vw,18px) !important}
   .stats-bg-title{font-size:clamp(64px,20vw,100px)}
   .cx-body{margin:0 !important;padding:0 !important}
   .cx-body p{font-size:14px !important;width:auto !important}
