@@ -486,8 +486,8 @@ section.s-concept{border-top:none}
   background:linear-gradient(135deg,#4f86ff 0%,#9bd0ff 44%,#eaf6ff 55%,#6aa0ff 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 46px rgba(70,160,255,.4));
-  opacity:0;transform:translateX(120px);
-  transition:opacity .9s cubic-bezier(.16,.84,.44,1),transform .9s cubic-bezier(.16,.84,.44,1)}
+  transform:translateX(var(--ax-offset,0px));
+  transition:transform .6s cubic-bezier(.16,.84,.44,1)}
 .cx-axtext{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
 .cx-axtext-1{font-family:var(--en);font-weight:700;color:#fff;letter-spacing:-.02em;
   font-size:clamp(24px,3vw,40px);line-height:1.4;margin:0}
@@ -499,18 +499,31 @@ section.s-concept{border-top:none}
 /* 등장 전 상태 */
 .cx-axtext-1,.cx-axtext-into,.cx-axtext-company{display:inline-block}
 
-.cx-hero.cx-inview .cx-ax{opacity:1;transform:translateX(0)}
+/* AX 는 처음엔 중앙(--ax-offset)에 정지 → cx-inview 시 제자리(좌측)로 이동 */
+.cx-hero.cx-inview .cx-ax{transform:translateX(0)}
 
-/* 글자 단위 등장 — 위 줄(Transforming) 먼저 → 아래 줄(into an → AI-Native Company) 나중 */
+/* AX 글자 — 이동과 동시에 반짝이는 샤라락 효과 */
+.cx-ax-letter{display:inline-block}
+.cx-hero.cx-inview .cx-ax .cx-ax-letter{
+  animation:cxAxShimmer .5s ease-out;
+  animation-delay:calc(var(--i) * .08s)}
+
+@keyframes cxAxShimmer{
+  0%{opacity:1;transform:scale(1)}
+  35%{opacity:.5;transform:scale(1.08)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* 텍스트 글자 단위 등장 — 위 줄(Transforming) 먼저 → 아래 줄(into an → AI-Native Company) 나중, 더 빠르게 */
 .cx-letter{display:inline-block;opacity:0;transform:translateX(-16px)}
 
 .cx-hero.cx-inview .cx-axtext-1 .cx-letter{
-  animation:cxLetterIn .4s ease-out forwards;
-  animation-delay:calc(.3s + var(--i) * .035s)}
+  animation:cxLetterIn .35s ease-out forwards;
+  animation-delay:calc(.05s + var(--i) * .022s)}
 .cx-hero.cx-inview .cx-axtext-into .cx-letter,
 .cx-hero.cx-inview .cx-axtext-company .cx-letter{
-  animation:cxLetterIn .4s ease-out forwards;
-  animation-delay:calc(.85s + var(--i) * .035s)}
+  animation:cxLetterIn .35s ease-out forwards;
+  animation-delay:calc(.45s + var(--i) * .018s)}
 
 @keyframes cxLetterIn{
   0%{opacity:0;transform:translateX(-16px)}
@@ -518,7 +531,8 @@ section.s-concept{border-top:none}
 }
 
 @media(prefers-reduced-motion:reduce){
-  .cx-ax{opacity:1;transform:none;transition:none}
+  .cx-ax{transform:none;transition:none}
+  .cx-ax-letter{animation:none}
   .cx-letter{opacity:1;transform:none;animation:none}
 }
 

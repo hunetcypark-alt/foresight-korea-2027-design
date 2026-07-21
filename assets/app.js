@@ -1309,18 +1309,18 @@ function spScrollTo(id, btn){
   });
 })();
 
-/* ── Concept · AX 히어로: 스크롤 인뷰 시 1회 재생 (AX 좌측 이동 + 텍스트 글자 단위 순차 노출) ── */
+/* ── Concept · AX 히어로: AX 중앙 정지 → 좌측 이동+샤라락, 텍스트 글자 단위 순차 노출 ── */
 (function(){
   var cxHero = document.getElementById('cx-hero');
   if(!cxHero) return;
 
-  function wrapLetters(el, startIndex){
+  function wrapLetters(el, startIndex, className){
     if(!el) return startIndex;
     var text = el.textContent;
     el.textContent = '';
     Array.from(text).forEach(function(ch, i){
       var span = document.createElement('span');
-      span.className = 'cx-letter';
+      span.className = className;
       span.style.setProperty('--i', startIndex + i);
       span.textContent = (ch === ' ') ? '\u00A0' : ch;
       el.appendChild(span);
@@ -1328,18 +1328,38 @@ function spScrollTo(id, btn){
     return startIndex + text.length;
   }
 
+  var axEl = cxHero.querySelector('.cx-ax');
   var topEl = cxHero.querySelector('.cx-axtext-1');
   var intoEl = cxHero.querySelector('.cx-axtext-into');
   var companyEl = cxHero.querySelector('.cx-axtext-company');
-  wrapLetters(topEl, 0);
-  var next = wrapLetters(intoEl, 0);
-  wrapLetters(companyEl, next);
+
+  wrapLetters(axEl, 0, 'cx-ax-letter');
+  wrapLetters(topEl, 0, 'cx-letter');
+  var next = wrapLetters(intoEl, 0, 'cx-letter');
+  wrapLetters(companyEl, next, 'cx-letter');
+
+  // AX의 "제자리(좌측 정렬)" 위치를 기준으로, 섹션 정중앙까지의 거리를 계산해
+  // 처음엔 그 위치(중앙)에 서 있는 것처럼 보이게 만든다.
+  function centerAx(){
+    if(!axEl) return;
+    var heroRect = cxHero.getBoundingClientRect();
+    var axRect = axEl.getBoundingClientRect();
+    var heroCenter = heroRect.left + heroRect.width / 2;
+    var axCenter = axRect.left + axRect.width / 2;
+    var offset = heroCenter - axCenter;
+    axEl.style.setProperty('--ax-offset', offset + 'px');
+  }
+  centerAx();
+  window.addEventListener('resize', centerAx);
 
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
-        cxHero.classList.add('cx-inview');
         observer.unobserve(cxHero);
+        // 가운데 정지 상태를 잠깐 보여준 뒤 이동 + 텍스트 노출 시작
+        setTimeout(function(){
+          cxHero.classList.add('cx-inview');
+        }, 500);
       }
     });
   },{threshold:0.4});
