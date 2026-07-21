@@ -333,7 +333,7 @@ section.s-intro{border-top:none;min-height:1080px;position:relative;overflow:hid
 .s-intro .wrap{position:relative;z-index:3}
 .intro-eyebrow{display:flex;align-items:center;gap:10px;justify-content:flex-start !important;
   font-family:var(--ko);font-size:14px;font-weight:600;
-  letter-spacing:.01em;color:var(--fg-80);margin-bottom:64px}
+  letter-spacing:.01em;color:rgba(255,255,255,.62);margin-bottom:64px}
 .intro-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;
   background:var(--brand-glow)}
 .intro-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px 96px;align-items:start}
