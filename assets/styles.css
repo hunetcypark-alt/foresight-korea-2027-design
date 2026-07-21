@@ -2334,11 +2334,11 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   /* Concept (인라인 margin: 0px 248px, width: 824px 제압) */
   .cx-hero{gap:12px}
   .cx-axtext-2{white-space:normal}
-  .cx-ax{font-size:clamp(48px,15vw,72px) !important}
-  .cx-axtext-1{font-size:clamp(15px,4.2vw,19px) !important}
-  .cx-axtext-2{font-size:clamp(11px,3.2vw,14px) !important}
-  .cx-axtext-into{font-size:clamp(10px,2.8vw,13px) !important}
-  .cx-axtext-company{font-size:clamp(11px,3.2vw,14px) !important}
+  .cx-ax{font-size:clamp(62px,19.5vw,94px) !important}
+  .cx-axtext-1{font-size:clamp(20px,5.5vw,25px) !important}
+  .cx-axtext-2{font-size:clamp(14px,4.2vw,18px) !important}
+  .cx-axtext-into{font-size:clamp(13px,3.6vw,17px) !important}
+  .cx-axtext-company{font-size:clamp(14px,4.2vw,18px) !important}
   .stats-bg-title{font-size:clamp(64px,20vw,100px)}
   .cx-body{margin:0 !important;padding:0 !important}
   .cx-body p{font-size:14px !important;width:auto !important}
