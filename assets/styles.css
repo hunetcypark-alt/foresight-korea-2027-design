@@ -1499,6 +1499,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   color:color-mix(in srgb,var(--acc) 58%,#d6e6ff);margin-bottom:22px}
 .spb-title{font-family:var(--ko);font-weight:700;font-size:clamp(25px,2.6vw,39px);line-height:1.3;
   letter-spacing:-.025em;color:#fff;text-wrap:balance}
+.spb-br-mobile{display:none}
 .spb-meta{margin-top:30px}
 .spb-company{font-size:15px;color:var(--fg-60);font-weight:500;margin-bottom:6px;min-height:1px}
 .spb-name{font-size:21px;font-weight:700;color:#fff;letter-spacing:-.02em}
@@ -2331,13 +2332,13 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .cx-body{text-align:center !important}
 
   /* Concept (인라인 margin: 0px 248px, width: 824px 제압) */
-  .cx-hero{flex-direction:column;gap:8px}
-  .cx-axtext{align-items:center;text-align:center}
-  .cx-ax{font-size:clamp(64px,20vw,100px) !important}
-  .cx-axtext-1{font-size:clamp(18px,5vw,24px) !important}
-  .cx-axtext-2{font-size:clamp(13px,3.8vw,18px) !important}
-  .cx-axtext-into{font-size:clamp(12px,3.2vw,16px) !important}
-  .cx-axtext-company{font-size:clamp(13px,3.8vw,18px) !important}
+  .cx-hero{gap:12px}
+  .cx-axtext-2{white-space:normal}
+  .cx-ax{font-size:clamp(48px,15vw,72px) !important}
+  .cx-axtext-1{font-size:clamp(15px,4.2vw,19px) !important}
+  .cx-axtext-2{font-size:clamp(11px,3.2vw,14px) !important}
+  .cx-axtext-into{font-size:clamp(10px,2.8vw,13px) !important}
+  .cx-axtext-company{font-size:clamp(11px,3.2vw,14px) !important}
   .stats-bg-title{font-size:clamp(64px,20vw,100px)}
   .cx-body{margin:0 !important;padding:0 !important}
   .cx-body p{font-size:14px !important;width:auto !important}
@@ -4615,4 +4616,26 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 /* 초소형 화면(360px 이하)에서도 히어로 타이틀 2줄 유지 */
 @media(max-width:380px){
   .ht1,.ht2{font-size:clamp(14px,4.6vw,17px) !important;line-height:1.3 !important}
+}
+
+/* ── #kn-banner 모바일 전용: 세션명 3줄 표기 + 연사 이미지 우측 배치 ── */
+@media(max-width:767px){
+  #kn-banner .spb-title-colon{display:none}
+  #kn-banner .spb-br-mobile{display:block}
+
+  #speakers #kn-banner{min-height:460px !important}
+  #kn-banner::after{display:none !important}
+
+  #kn-banner .spb-photo{
+    position:absolute;top:0;bottom:0;right:0;left:auto;
+    width:42%;height:100%;opacity:1;
+    display:flex;align-items:flex-end;justify-content:center}
+  #kn-banner .spb-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:top center}
+
+  #kn-banner .spb-inner{
+    position:relative;
+    max-width:56%;
+    margin-left:0;
+    padding:28px 20px 32px}
 }
