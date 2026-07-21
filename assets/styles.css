@@ -4542,9 +4542,11 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   #kn-banner .spb-photo img{
     position:static !important;
     height:100% !important;
-    width:auto !important;
+    width:30% !important;
     object-fit:cover !important;
-    object-position:top center !important}
+    object-position:top right !important}
+  #kn-banner.in .spb-photo img{
+    transform:translateX(12%) scale(1) !important}
 }
 @media(max-width:390px){
   #kn-banner .spb-title{font-size:17px !important}
