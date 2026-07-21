@@ -1309,7 +1309,7 @@ function spScrollTo(id, btn){
   });
 })();
 
-/* ── Concept · AX 히어로: AX 중앙 정지 → 좌측 이동+샤라락, 텍스트 글자 단위 순차 노출 ── */
+/* ── Concept · AX 히어로: AX·텍스트 블록이 같은 중앙 지점에서 좌/우로 갈라짐 ── */
 (function(){
   var cxHero = document.getElementById('cx-hero');
   if(!cxHero) return;
@@ -1329,28 +1329,33 @@ function spScrollTo(id, btn){
   }
 
   var axEl = cxHero.querySelector('.cx-ax');
+  var axTextEl = cxHero.querySelector('.cx-axtext');
   var topEl = cxHero.querySelector('.cx-axtext-1');
   var intoEl = cxHero.querySelector('.cx-axtext-into');
   var companyEl = cxHero.querySelector('.cx-axtext-company');
 
-  wrapLetters(axEl, 0, 'cx-ax-letter');
   wrapLetters(topEl, 0, 'cx-letter');
   var next = wrapLetters(intoEl, 0, 'cx-letter');
   wrapLetters(companyEl, next, 'cx-letter');
 
-  // AX의 "제자리(좌측 정렬)" 위치를 기준으로, 섹션 정중앙까지의 거리를 계산해
-  // 처음엔 그 위치(중앙)에 서 있는 것처럼 보이게 만든다.
-  function centerAx(){
-    if(!axEl) return;
+  // AX와 텍스트 블록 각각의 "제자리" 위치를 기준으로, 섹션 정중앙까지의 거리를 계산해
+  // 처음엔 같은 중앙 지점에 겹쳐 있는 것처럼 보이게 만든다.
+  function centerEls(){
     var heroRect = cxHero.getBoundingClientRect();
-    var axRect = axEl.getBoundingClientRect();
     var heroCenter = heroRect.left + heroRect.width / 2;
-    var axCenter = axRect.left + axRect.width / 2;
-    var offset = heroCenter - axCenter;
-    axEl.style.setProperty('--ax-offset', offset + 'px');
+    if(axEl){
+      var axRect = axEl.getBoundingClientRect();
+      var axCenter = axRect.left + axRect.width / 2;
+      axEl.style.setProperty('--ax-offset', (heroCenter - axCenter) + 'px');
+    }
+    if(axTextEl){
+      var txtRect = axTextEl.getBoundingClientRect();
+      var txtCenter = txtRect.left + txtRect.width / 2;
+      axTextEl.style.setProperty('--axtext-offset', (heroCenter - txtCenter) + 'px');
+    }
   }
-  centerAx();
-  window.addEventListener('resize', centerAx);
+  centerEls();
+  window.addEventListener('resize', centerEls);
 
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){

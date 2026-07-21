@@ -487,8 +487,10 @@ section.s-concept{border-top:none}
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 46px rgba(70,160,255,.4));
   transform:translateX(var(--ax-offset,0px));
-  transition:transform .6s cubic-bezier(.16,.84,.44,1)}
-.cx-axtext{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+  transition:transform .7s cubic-bezier(.16,.84,.44,1)}
+.cx-axtext{display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+  transform:translateX(var(--axtext-offset,0px));
+  transition:transform .7s cubic-bezier(.16,.84,.44,1)}
 .cx-axtext-1{font-family:var(--en);font-weight:700;color:#fff;letter-spacing:-.02em;
   font-size:clamp(24px,3vw,40px);line-height:1.4;margin:0}
 .cx-axtext-2{font-family:var(--en);letter-spacing:-.02em;line-height:1.4;margin:0;
@@ -499,31 +501,20 @@ section.s-concept{border-top:none}
 /* 등장 전 상태 */
 .cx-axtext-1,.cx-axtext-into,.cx-axtext-company{display:inline-block}
 
-/* AX 는 처음엔 중앙(--ax-offset)에 정지 → cx-inview 시 제자리(좌측)로 이동 */
+/* AX·텍스트 블록은 처음엔 같은 중앙 지점에 겹쳐 있다가 → cx-inview 시 각자 제자리(좌/우)로 이동 */
 .cx-hero.cx-inview .cx-ax{transform:translateX(0)}
+.cx-hero.cx-inview .cx-axtext{transform:translateX(0)}
 
-/* AX 글자 — 이동과 동시에 반짝이는 샤라락 효과 */
-.cx-ax-letter{display:inline-block}
-.cx-hero.cx-inview .cx-ax .cx-ax-letter{
-  animation:cxAxShimmer .5s ease-out;
-  animation-delay:calc(var(--i) * .08s)}
-
-@keyframes cxAxShimmer{
-  0%{opacity:1;transform:scale(1)}
-  35%{opacity:.5;transform:scale(1.08)}
-  100%{opacity:1;transform:scale(1)}
-}
-
-/* 텍스트 글자 단위 등장 — 위 줄(Transforming) 먼저 → 아래 줄(into an → AI-Native Company) 나중, 더 빠르게 */
+/* 텍스트 글자 단위 등장 — 위 줄(Transforming) 먼저 → 아래 줄(into an → AI-Native Company) 나중, 이동 시작과 동시에 */
 .cx-letter{display:inline-block;opacity:0;transform:translateX(-16px)}
 
 .cx-hero.cx-inview .cx-axtext-1 .cx-letter{
   animation:cxLetterIn .35s ease-out forwards;
-  animation-delay:calc(.05s + var(--i) * .022s)}
+  animation-delay:calc(var(--i) * .022s)}
 .cx-hero.cx-inview .cx-axtext-into .cx-letter,
 .cx-hero.cx-inview .cx-axtext-company .cx-letter{
   animation:cxLetterIn .35s ease-out forwards;
-  animation-delay:calc(.45s + var(--i) * .018s)}
+  animation-delay:calc(.4s + var(--i) * .018s)}
 
 @keyframes cxLetterIn{
   0%{opacity:0;transform:translateX(-16px)}
@@ -532,7 +523,7 @@ section.s-concept{border-top:none}
 
 @media(prefers-reduced-motion:reduce){
   .cx-ax{transform:none;transition:none}
-  .cx-ax-letter{animation:none}
+  .cx-axtext{transform:none;transition:none}
   .cx-letter{opacity:1;transform:none;animation:none}
 }
 
