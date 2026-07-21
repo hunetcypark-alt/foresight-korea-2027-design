@@ -2337,7 +2337,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .cx-body{text-align:center !important}
 
   /* Concept (인라인 margin: 0px 248px, width: 824px 제압) */
-  .cx-hero{gap:12px;margin-bottom:0 !important;padding-bottom:0 !important}
+  .cx-hero{gap:12px;margin-bottom:16px !important;padding-bottom:0 !important}
   .cx-axtext-2{white-space:normal}
   .cx-ax{font-size:clamp(62px,19.5vw,94px) !important;letter-spacing:normal !important}
   .cx-axtext-1{font-size:clamp(20px,5.5vw,25px) !important}
