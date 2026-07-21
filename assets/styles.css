@@ -482,9 +482,9 @@ section.s-concept{border-top:none}
 @media(prefers-reduced-motion:reduce){.cx-beam,.cx-glow,.cx-spark,.cx-stars{animation:none}.cx-lights{transition:none}}
 
 /* AX 히어로 */
-.cx-hero{margin-bottom:38px;display:flex;align-items:center;justify-content:center;gap:28px}
+.cx-hero{margin-bottom:38px;padding:24px 0;display:flex;align-items:center;justify-content:center;gap:28px}
 .cx-ax{font-family:var(--en);font-weight:700;
-  font-size:clamp(104px,13.5vw,184px);line-height:.86;letter-spacing:-12px;
+  font-size:clamp(104px,13.5vw,184px);line-height:1;letter-spacing:-12px;
   background:linear-gradient(135deg,#4f86ff 0%,#9bd0ff 44%,#eaf6ff 55%,#6aa0ff 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 46px rgba(70,160,255,.4));
