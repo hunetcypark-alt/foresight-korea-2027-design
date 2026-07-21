@@ -172,7 +172,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 .ht1{font-family:var(--ko);font-weight:800;
   font-size:clamp(44px,5.4vw,68px);line-height:1.05;letter-spacing:-.025em;
-  margin-bottom:4px;opacity:0;animation:fu .9s .42s ease forwards;
+  margin-bottom:16px;opacity:0;animation:fu .9s .42s ease forwards;
   background:linear-gradient(115deg,
     #4f86ff 0%,#6aa0ff 12%,#9bd0ff 24%,#eaf6ff 34%,
     #ffffff 42%,#ffffff 58%,
@@ -2293,7 +2293,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   #lw svg{width:clamp(48px,13vw,68px)}
 
   /* Hero 타이포 (인라인 font-size: 72px 제압) */
-  .ht1,.ht2{font-size:clamp(16px,5.6vw,44px) !important;line-height:1.25 !important}
+  .ht1,.ht2{font-size:clamp(20px,6.4vw,44px) !important;line-height:1.25 !important}
   .hsub{font-size:12px !important;letter-spacing:.04em !important;margin:0 0 24px !important;line-height:1.5 !important}
 
   /* Hero CTA (인라인 width: 492px, height: 60px 제압) */
@@ -4636,4 +4636,9 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
     max-width:56%;
     margin-left:0;
     padding:28px 20px 32px}
+}
+
+/* 초소형 화면(340px 이하)에서는 안전마진을 위해 조금 더 보수적으로 */
+@media(max-width:340px){
+  .ht1,.ht2{font-size:clamp(16px,5.6vw,20px) !important}
 }
