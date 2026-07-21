@@ -2294,6 +2294,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 
   /* Hero 타이포 (인라인 font-size: 72px 제압) */
   .ht1,.ht2{font-size:clamp(20px,6.4vw,44px) !important;line-height:1.25 !important}
+  .ht1{margin-bottom:4px !important}
   .hsub{font-size:12px !important;letter-spacing:.04em !important;margin:0 0 24px !important;line-height:1.5 !important}
 
   /* Hero CTA (인라인 width: 492px, height: 60px 제압) */
