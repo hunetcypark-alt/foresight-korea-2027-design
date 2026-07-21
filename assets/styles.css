@@ -496,29 +496,30 @@ section.s-concept{border-top:none}
 .cx-axtext-into{font-weight:500;font-size:clamp(16px,1.6vw,30px);color:rgba(255,255,255,.8)}
 .cx-axtext-company{font-weight:700;font-size:clamp(24px,3vw,40px);color:#fff}
 
-/* 등장 전 상태 — 셋 다 숨김 (단순 페이드) */
-.cx-axtext-1,.cx-axtext-into,.cx-axtext-company{
-  display:inline-block;opacity:0;transform:translateY(6px)}
+/* 등장 전 상태 */
+.cx-axtext-1,.cx-axtext-into,.cx-axtext-company{display:inline-block}
 
 .cx-hero.cx-inview .cx-ax{opacity:1;transform:translateX(0)}
 
-/* 순서: 위 줄(Transforming) 먼저 → 아래 줄(into an → AI-Native Company) 나중, 부드러운 페이드 */
-.cx-hero.cx-inview .cx-axtext-1{
-  animation:cxFadeIn .6s cubic-bezier(.3,.7,.3,1) .35s forwards}
-.cx-hero.cx-inview .cx-axtext-into{
-  animation:cxFadeIn .5s cubic-bezier(.3,.7,.3,1) .8s forwards}
-.cx-hero.cx-inview .cx-axtext-company{
-  animation:cxFadeIn .5s cubic-bezier(.3,.7,.3,1) .95s forwards}
+/* 글자 단위 등장 — 위 줄(Transforming) 먼저 → 아래 줄(into an → AI-Native Company) 나중 */
+.cx-letter{display:inline-block;opacity:0;transform:translateX(-16px)}
 
-@keyframes cxFadeIn{
-  0%{opacity:0;transform:translateY(6px)}
-  100%{opacity:1;transform:translateY(0)}
+.cx-hero.cx-inview .cx-axtext-1 .cx-letter{
+  animation:cxLetterIn .4s ease-out forwards;
+  animation-delay:calc(.3s + var(--i) * .035s)}
+.cx-hero.cx-inview .cx-axtext-into .cx-letter,
+.cx-hero.cx-inview .cx-axtext-company .cx-letter{
+  animation:cxLetterIn .4s ease-out forwards;
+  animation-delay:calc(.85s + var(--i) * .035s)}
+
+@keyframes cxLetterIn{
+  0%{opacity:0;transform:translateX(-16px)}
+  100%{opacity:1;transform:translateX(0)}
 }
 
 @media(prefers-reduced-motion:reduce){
   .cx-ax{opacity:1;transform:none;transition:none}
-  .cx-axtext-1,.cx-axtext-into,.cx-axtext-company{
-    opacity:1;transform:none;animation:none}
+  .cx-letter{opacity:1;transform:none;animation:none}
 }
 
 /* 본문 — 단일 위계, 볼드/컬러로만 강조 */
