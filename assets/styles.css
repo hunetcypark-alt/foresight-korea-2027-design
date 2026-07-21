@@ -2292,7 +2292,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   #lw svg{width:clamp(48px,13vw,68px)}
 
   /* Hero 타이포 (인라인 font-size: 72px 제압) */
-  .ht1,.ht2{font-size:clamp(28px,9vw,44px) !important;line-height:1.1 !important}
+  .ht1,.ht2{font-size:clamp(18px,5.2vw,34px) !important;line-height:1.25 !important}
   .hsub{font-size:12px !important;letter-spacing:.04em !important;margin:0 0 24px !important;line-height:1.5 !important}
 
   /* Hero CTA (인라인 width: 492px, height: 60px 제압) */
@@ -4610,4 +4610,9 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   38% {opacity:.9; transform:scaleX(1.09) scaleY(1.6)}
   68% {opacity:.5; transform:scaleX(.98)  scaleY(.8)}
   100%{opacity:.5; transform:scaleX(1.03) scaleY(1.2)}
+}
+
+/* 초소형 화면(360px 이하)에서도 히어로 타이틀 2줄 유지 */
+@media(max-width:380px){
+  .ht1,.ht2{font-size:clamp(14px,4.6vw,17px) !important;line-height:1.3 !important}
 }
