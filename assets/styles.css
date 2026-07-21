@@ -4647,3 +4647,15 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 @media(max-width:340px){
   .ht1,.ht2{font-size:clamp(16px,5.6vw,20px) !important}
 }
+
+/* ── 키노트 배너: 스크롤에 따라 확대되며 화면을 채우는 인터랙션 ── */
+.kn-pin{position:relative;height:180vh}
+.kn-pin-sticky{position:sticky;top:0;height:100vh;
+  display:flex;align-items:center;justify-content:center}
+.kn-scale{width:100%;transform:scale(.85);transform-origin:center center;
+  will-change:transform}
+@media(prefers-reduced-motion:reduce){
+  .kn-pin{height:auto}
+  .kn-pin-sticky{position:static;height:auto}
+  .kn-scale{transform:none}
+}

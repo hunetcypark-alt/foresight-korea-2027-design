@@ -1371,5 +1371,35 @@ function spScrollTo(id, btn){
   observer.observe(cxHero);
 })();
 
+/* ── 키노트 배너: 스크롤 진행률에 따라 확대되며 화면을 채우는 인터랙션 ── */
+(function(){
+  var pin = document.getElementById('kn-pin');
+  var scaleEl = document.getElementById('kn-scale');
+  if(!pin || !scaleEl) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var rect = pin.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var total = rect.height - vh;
+    if(total <= 0) return;
+    var progress = (0 - rect.top) / total;
+    progress = Math.max(0, Math.min(1, progress));
+    var scale = 0.85 + progress * 0.15;
+    scaleEl.style.transform = 'scale(' + scale.toFixed(3) + ')';
+  }
+  function onScroll(){
+    if(!ticking){
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+
 
 
