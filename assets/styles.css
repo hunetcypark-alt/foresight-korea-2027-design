@@ -2328,7 +2328,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   section.s-intro::after{background:linear-gradient(to bottom,rgba(6,9,26,1) 0%,rgba(6,9,26,1) 40%,rgba(6,9,26,.8) 58%,rgba(6,9,26,.2) 76%,transparent 88%)}
   .intro-cols{grid-template-columns:1fr;gap:20px}
   .intro-h-title{font-size:clamp(20px,6.5vw,28px) !important}
-  .intro-h-sub{font-size:clamp(14px,4vw,17px) !important}
+  .intro-h-sub{font-size:clamp(18px,5.5vw,22px) !important}
   .intro-text p{font-size:15px}
   .intro-eyebrow{margin-bottom:32px;justify-content:center !important;text-align:center}
   .intro-h{text-align:center}
