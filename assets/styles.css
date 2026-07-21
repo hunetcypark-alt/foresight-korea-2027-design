@@ -487,10 +487,10 @@ section.s-concept{border-top:none}
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 46px rgba(70,160,255,.4));
   transform:translateX(var(--ax-offset,0px));
-  transition:transform .7s cubic-bezier(.16,.84,.44,1)}
+  transition:transform .7s cubic-bezier(.22,1,.36,1)}
 .cx-axtext{display:flex;flex-direction:column;align-items:flex-start;text-align:left;
   transform:translateX(var(--axtext-offset,0px));
-  transition:transform .7s cubic-bezier(.16,.84,.44,1)}
+  transition:transform .7s cubic-bezier(.22,1,.36,1)}
 .cx-axtext-1{font-family:var(--en);font-weight:700;color:#fff;letter-spacing:-.02em;
   font-size:clamp(24px,3vw,40px);line-height:1.4;margin:0}
 .cx-axtext-2{font-family:var(--en);letter-spacing:-.02em;line-height:1.4;margin:0;
