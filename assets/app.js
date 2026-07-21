@@ -1387,7 +1387,7 @@ function spScrollTo(id, btn){
     if(total <= 0) return;
     var progress = (0 - rect.top) / total;
     progress = Math.max(0, Math.min(1, progress));
-    var scale = 0.85 + progress * 0.15;
+    var scale = progress;
     scaleEl.style.transform = 'scale(' + scale.toFixed(3) + ')';
   }
   function onScroll(){
