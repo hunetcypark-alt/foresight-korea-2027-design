@@ -195,6 +195,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* ── Dynamic CTA (state-driven) ── */
 .ctas{display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap;
   opacity:0;animation:fu .9s .84s ease forwards}
+.hero-cta-row{justify-content:center}
 .cbtn{display:inline-flex;align-items:center;gap:10px;
   padding:15px 38px;border-radius:100px;
   font-family:var(--ko);font-size:16px;font-weight:600;
@@ -216,8 +217,12 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   border-color:rgba(255,255,255,.08);box-shadow:none;cursor:not-allowed}
 .cbtn[data-variant="disabled"]::before{display:none}
 .cbtn[data-variant="disabled"]:hover{transform:none}
+.cbtn[data-variant="ghost"]{background:rgba(255,255,255,.06);box-shadow:none;
+  border:1px solid rgba(255,255,255,.18)}
+.cbtn[data-variant="ghost"]:hover{background:rgba(255,255,255,.12);opacity:1}
 .cbtn .arrow{display:inline-block;transition:transform .2s}
 .cbtn:hover .arrow{transform:translateX(3px)}
+.cbtn .ico{display:inline-flex;align-items:center;margin-right:4px}
 
 .chint{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:rgba(160,195,255,.6)}
 .chint .dim{color:rgba(255,255,255,.35);margin-right:6px}
@@ -2081,7 +2086,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .chint{font-size:11px}
 
   /* Hero CTA */
-  .cbtn#hero-cta{width:auto !important;min-width:240px}
+  .cbtn#hero-cta,.cbtn#hero-leaflet{width:auto !important;min-width:240px}
 
   /* Intro 헤드라인 */
   .intro-h-title{font-size:clamp(28px,3.2vw,42px) !important}
@@ -2305,6 +2310,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 
   /* Hero CTA (인라인 width: 492px, height: 60px 제압) */
   .ctas{flex-direction:column !important;gap:12px}
+  .hero-cta-row{flex-direction:column !important;width:100% !important}
   .cbtn{width:100% !important;justify-content:center !important;height:52px !important;padding:14px 24px !important}
   .chint{font-size:11px !important}
 
@@ -3686,12 +3692,12 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   transition:opacity .18s,transform .15s,background .18s;
 }
 .subtop-btn--ghost{
-  color:#3a6bff;
-  background:rgba(0,0,0,.22);
-  border:2px solid #3a6bff;
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  border:2px solid rgba(255,255,255,.18);
 }
 .subtop-btn--ghost:hover{
-  background:rgba(58,107,255,.16);
+  background:rgba(255,255,255,.12);
 }
 .subtop-btn--solid{
   color:#fff;
