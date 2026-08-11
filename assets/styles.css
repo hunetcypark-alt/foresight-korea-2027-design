@@ -222,7 +222,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cbtn[data-variant="ghost"]:hover{background:rgba(255,255,255,.12);opacity:1}
 .cbtn .arrow{display:inline-block;transition:transform .2s}
 .cbtn:hover .arrow{transform:translateX(3px)}
-.cbtn .ico{display:inline-flex;align-items:center;margin-right:4px}
+.cbtn .ico{display:inline-flex;align-items:center;margin-left:4px}
 
 .chint{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:rgba(160,195,255,.6)}
 .chint .dim{color:rgba(255,255,255,.35);margin-right:6px}
