@@ -2907,83 +2907,233 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
    ║  EVENT PAGE                                                        ║
    ╚══════════════════════════════════════════════════════════════════╝ */
 #page-events .ev-page-title{color:#fff}
-.ev-sub{
-  font-size:15px;color:var(--fg-60);
-  margin-bottom:48px;letter-spacing:-.01em;line-height:1.6;
-}
-.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ev-grid{display:grid;grid-template-columns:1fr;gap:24px}
 
 .ev-card{
   position:relative;
-  display:flex;flex-direction:column;
-  padding:32px 32px 28px;
+  display:block;
+  padding:32px;
   border-radius:var(--radius-xl);
   background:rgba(255,255,255,.04);
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   overflow:hidden;isolation:isolate;
-  min-height:520px;
   transition:border-color .32s,box-shadow .32s;
 }
 .ev-card:hover{
-  border-color:color-mix(in srgb,var(--acc) 48%,var(--line));
+  border-color:color-mix(in srgb,var(--acc) 48%,rgba(255,255,255,.12));
   box-shadow:0 24px 64px -28px color-mix(in srgb,var(--acc) 50%,transparent);
 }
-/* 상단 컬러 글로우 */
-.ev-card::before{
-  content:'';position:absolute;inset:0;z-index:0;border-radius:inherit;
-  background:radial-gradient(110% 62% at 50% -8%,
-    color-mix(in srgb,var(--acc) 26%,transparent),transparent 64%);
+.ev-card-glow{
+  position:absolute;left:50%;bottom:-1px;translate:-50% 0;
+  width:430px;max-width:80%;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--acc) 50%,transparent);
+  box-shadow:0 0 18px 0 var(--acc);opacity:.7;
 }
-.ev-card .tr-bot{
-  background:linear-gradient(to top,
-    color-mix(in srgb,var(--acc) 20%,transparent) 0%,
-    transparent 100%);
-}
-.ev-card .tr-edge{opacity:.7;transition:opacity .32s,left .32s,right .32s}
-.ev-card:hover .tr-edge{opacity:1;left:6%;right:6%}
 
 .ev-card-body{position:relative;z-index:1;text-align:left}
-.ev-card-sub{
-  font-family:var(--ko);font-size:15px;font-weight:500;
-  color:var(--fg-60);letter-spacing:-.01em;margin:0 0 4px;
-}
 .ev-card-title{
   font-family:var(--ko);font-size:32px;font-weight:700;
   color:#fff;line-height:1.3;letter-spacing:-.03em;
-  margin:0 0 16px;
+  margin:0 0 8px;
 }
-.ev-divider{height:1px;background:var(--line-soft);margin-bottom:14px;}
 .ev-card-desc{
-  font-size:16px;line-height:1.7;
-  color:var(--fg-80);letter-spacing:-.01em;margin:0 0 14px;
+  font-family:var(--ko);font-size:14px;font-weight:400;line-height:1.7;
+  color:rgba(255,255,255,.82);letter-spacing:-.01em;margin:0 0 16px;
 }
-.ev-card-note{
-  font-size:14px;line-height:1.7;
-  color:var(--fg-60);letter-spacing:-.01em;
+.ev-card-tags{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ev-card-tag{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:34px;padding:0 12px;border-radius:100px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+  font-family:var(--ko);font-size:14px;font-weight:700;line-height:1.6;
+  color:#fff;letter-spacing:-.5px;white-space:nowrap;
 }
-.ev-note-sub{
-  display:block;font-size:13px;color:var(--fg-45);margin-top:2px;
-}
-/* 하단 데코 — .tr-deco 동일 언어, 카드 폭 가득 */
+.ev-card-tag--wide{padding:0 12px}
+/* 우측 상단 라인 아이콘 (웹 전용, 모바일은 숨김) */
 .ev-deco{
-  position:absolute;bottom:-30px;left:40%;
-  width:80%;
+  position:absolute;right:-30px;top:20px;
+  width:300px;max-width:38%;
   pointer-events:none;z-index:0;
   opacity:.28;
   transition:opacity .3s ease;
 }
 .ev-card:hover .ev-deco{opacity:.42}
-.ev-deco img,.ev-deco svg{width:100%;height:auto;display:block;margin:0 auto}
+.ev-deco img,.ev-deco svg{width:100%;height:auto;display:block}
 
 @media(max-width:1023px){
   .ev-grid{grid-template-columns:1fr}
-  .ev-card{min-height:480px}
-  .ev-graphic{width:200px}
 }
 @media(max-width:767px){
-  .ev-card{padding:24px 22px 22px;min-height:420px}
-  .ev-card-title{font-size:19px}
-  .ev-graphic{width:168px}
+  .ev-card{padding:24px 22px}
+  .ev-card-title{font-size:22px}
+  .ev-card-desc{font-size:14px}
+  .ev-card-tag{height:30px;padding:0 10px;font-size:12.5px}
+  .ev-deco{display:none}
+}
+
+/* ── Events 페이지: 서브섹션 헤더 ── */
+.ev-section-head{margin:100px 0 28px}
+.ev-section-head:first-of-type{margin-top:0}
+.ev-section-title{font-family:var(--ko);font-size:26px;font-weight:700;
+  color:#fff;letter-spacing:-.02em;margin:0;text-align:center}
+.ev-section-head{text-align:center}
+.ev-section-head .eyebrow{display:inline-flex;justify-content:center !important}
+
+/* 3열 프로그램 그리드 (컴팩트 카드) */
+.ev-grid-3{grid-template-columns:repeat(3,1fr)}
+.ev-grid-3 .ev-card{min-height:440px;padding:28px 26px 24px}
+.ev-grid-3 .ev-card-title{font-size:24px}
+
+@media(max-width:1023px){
+  .ev-grid-3{grid-template-columns:1fr 1fr}
+  .ev-section-title{font-size:22px}
+  .ev-section-head{margin:56px 0 24px}
+}
+@media(max-width:767px){
+  .ev-grid-3{grid-template-columns:1fr}
+  .ev-grid-3 .ev-card{min-height:auto}
+}
+
+/* ── Events 페이지 배경 글로우 ── */
+#page-events{
+  background:
+    radial-gradient(ellipse 700px 900px at 0% 25%,rgba(18,64,255,.16),transparent 55%),
+    radial-gradient(ellipse 700px 900px at 100% 25%,rgba(18,64,255,.16),transparent 55%),
+    radial-gradient(ellipse 900px 400px at 50% 100%,rgba(10,48,210,.16),transparent 60%),
+    #03040a;
+}
+.ev-sp-wrap{position:relative}
+.ev-sp-watermark{
+  position:absolute;left:50%;top:50%;translate:-50% -50%;
+  width:100%;margin:0;text-align:center;
+  font-family:var(--ko);font-weight:700;
+  font-size:clamp(32px,6vw,110px);line-height:1.4;
+  letter-spacing:-.03em;white-space:nowrap;
+  background:linear-gradient(172deg,#4f86ff 0%,#9bd0ff 44%,#eaf6ff 55%,#6aa0ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  opacity:.55;pointer-events:none;z-index:0;
+}
+@media(max-width:1023px){.ev-sp-watermark{display:none}}
+
+/* ── 스페셜 프로그램: 2x2 가로형 카드 (살짝 회전 + 겹침) ── */
+.ev-grid-wide{
+  grid-template-columns:1fr 1fr;
+  row-gap:56px;column-gap:44px;
+  padding:64px 20px 40px;
+}
+.ev-wcard{
+  position:relative;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+  border-radius:var(--radius-xl);
+  background:
+    radial-gradient(120% 140% at 100% 0%,color-mix(in srgb,var(--acc) 30%,transparent),transparent 60%),
+    rgba(8,14,36,.52);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  border:1px solid rgba(120,160,255,.18);
+  padding:38px 28px 28px;
+  height:370px;
+  overflow:hidden;
+  box-shadow:0 10px 24px -10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);
+  transition:border-color .3s,box-shadow .3s,rotate .35s cubic-bezier(.22,1,.36,1),scale .35s cubic-bezier(.22,1,.36,1),translate .35s cubic-bezier(.22,1,.36,1),z-index 0s;
+}
+/* 카드마다 다른 각도로 살짝 기울이고, 음수 마진으로 모서리를 겹침 */
+/* rotate/translate/scale을 개별 속성으로 분리 — 애니메이션(translate)과 고정 기울기(rotate)가 서로 충돌하지 않도록 */
+.ev-grid-wide .ev-wcard:nth-child(1){rotate:-3deg;z-index:2;margin:0 -14px 0 0;animation-delay:-.6s}
+.ev-grid-wide .ev-wcard:nth-child(2){rotate:2.5deg;z-index:1;margin:0 0 0 -14px;animation-delay:-1.9s}
+.ev-grid-wide .ev-wcard:nth-child(3){rotate:2deg;z-index:1;margin:0 -14px 0 0;animation-delay:-3.2s}
+.ev-grid-wide .ev-wcard:nth-child(4){rotate:-2.5deg;z-index:2;margin:0 0 0 -14px;animation-delay:-4.5s}
+.ev-grid-wide .ev-wcard{animation:ev-wcard-float 5.2s ease-in-out infinite}
+@keyframes ev-wcard-float{
+  0%,100%{translate:0 0}
+  50%{translate:0 -10px}
+}
+.ev-wcard:hover{
+  border-color:color-mix(in srgb,var(--acc) 48%,rgba(120,160,255,.18));
+  box-shadow:0 24px 60px -26px color-mix(in srgb,var(--acc) 55%,transparent),inset 0 1px 0 rgba(255,255,255,.08);
+  rotate:0deg;scale:1.03;translate:0 -6px;
+  animation-play-state:paused;
+  z-index:5;
+}
+.ev-wcard-num{
+  position:absolute;top:18px;left:24px;z-index:1;
+  font-family:var(--ko);font-size:16px;font-weight:700;
+  letter-spacing:-.01em;color:var(--acc);
+}
+.ev-wcard-text{position:relative;z-index:1;max-width:94%;margin-top:14px}
+.ev-wcard-sub{font-family:var(--ko);font-size:16px;font-weight:700;
+  color:var(--acc);letter-spacing:-.01em;margin:0 0 4px}
+.ev-wcard-title{font-family:var(--ko);font-size:23px;font-weight:700;
+  color:#fff;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;
+  white-space:nowrap}
+.mobile-br{display:none}
+.ev-wcard-desc{font-family:var(--ko);font-weight:400;font-size:14px;line-height:1.6;color:rgba(255,255,255,.82);letter-spacing:-.5px;margin:0}
+.ev-wcard-tags{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:14px}
+.ev-wcard-tag{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:34px;padding:0 12px;border-radius:100px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+  font-family:var(--ko);font-size:14px;font-weight:700;line-height:1.6;
+  color:#fff;letter-spacing:-.5px;white-space:nowrap;
+}
+.ev-wcard-note-sub{font-family:var(--ko);font-size:14px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.82);letter-spacing:-.5px;margin:10px 0 0}
+.ev-wcard-deco{
+  position:absolute;right:-60px;bottom:-30px;
+  width:340px;
+  opacity:.34;pointer-events:none;z-index:0;
+  transition:opacity .3s,transform .3s;
+}
+.ev-wcard:hover .ev-wcard-deco{opacity:.55;transform:scale(1.05)}
+.ev-wcard-deco img{width:100%;height:auto;display:block}
+/* 카메라 그래픽은 자체 opacity가 이미 적용되어 있어 컨테이너는 100%로 */
+.ev-wcard[style*="#8b5cf6"] .ev-wcard-deco{opacity:1}
+.ev-wcard[style*="#8b5cf6"]:hover .ev-wcard-deco{opacity:1;transform:scale(1.05)}
+/* 고놈+사탕 그래픽은 자체 opacity가 이미 적용되어 있어 컨테이너는 100%로 */
+.ev-wcard[style*="#5a8dff"] .ev-wcard-deco{opacity:1;width:375px}
+.ev-wcard[style*="#5a8dff"]:hover .ev-wcard-deco{opacity:1;transform:scale(1.05)}
+
+@media(max-width:1023px){
+  .ev-grid-wide{grid-template-columns:1fr;row-gap:28px;padding:20px 16px 32px}
+  .ev-grid-wide .ev-wcard:nth-child(1),
+  .ev-grid-wide .ev-wcard:nth-child(2),
+  .ev-grid-wide .ev-wcard:nth-child(3),
+  .ev-grid-wide .ev-wcard:nth-child(4){margin:0;rotate:0deg;animation:none}
+}
+@media(max-width:767px){
+  .ev-wcard{padding:36px 18px 20px;min-height:220px;gap:14px}
+  .ev-wcard-num{top:14px;left:18px;font-size:13px}
+  .ev-wcard-sub{font-size:13px}
+  .ev-wcard-text{margin-top:10px}
+  .ev-wcard-title{font-size:18px}
+  .mobile-br{display:block}
+  .desktop-br{display:none}
+  .ev-wcard-desc{font-size:14px}
+  .ev-wcard-text{max-width:100%}
+  .ev-wcard-tag{height:30px;padding:0 10px;font-size:12.5px}
+  .ev-wcard-deco{width:220px;right:-40px;bottom:-20px}
+  .ev-wcard[style*="#5a8dff"] .ev-wcard-deco{width:260px}
+}
+
+/* ── Exhibition 부스 타일 ── */
+.ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ex-grid-3{grid-template-columns:repeat(3,1fr)}
+.ex-tile{
+  position:relative;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;
+  text-align:center;padding:32px 36px;border-radius:32px;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 8px 30px rgba(0,15,80,.18),inset 0 1.5px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,15,80,.22);
+  min-height:140px;transition:border-color .25s,background .25s;
+}
+.ex-tile:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.2)}
+.ex-tile-name{font-family:var(--ko);font-size:24px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.ex-tile-tag{font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.02em}
+.ex-tile-tag--brand{color:#3cc6ff}
+.ex-tile-tag--solution{color:#3a6bff}
+@media(max-width:1023px){
+  .ex-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:767px){
+  .ex-grid{grid-template-columns:1fr}
 }
 
 /* ── KEYNOTE 타임라인 ── */
