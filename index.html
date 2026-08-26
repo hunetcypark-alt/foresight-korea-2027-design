@@ -1613,6 +1613,11 @@
       </div>
 
     </div>
+    <div class="ev-carousel-nav">
+      <button type="button" class="ev-carousel-arrow" data-dir="prev" aria-label="이전 프로그램">‹</button>
+      <span class="ev-carousel-count"><span class="cur">1</span> / <span class="total">4</span></span>
+      <button type="button" class="ev-carousel-arrow" data-dir="next" aria-label="다음 프로그램">›</button>
+    </div>
     </div><!-- /ev-sp-wrap -->
 
     <!-- ══ PARTICIPANT CONVENIENCE ══ -->
@@ -2226,6 +2231,54 @@
 
 <script src="assets/hero-canvas.js"></script>
 <script src="assets/app.js"></script>
+<script>
+(function(){
+  var track = document.querySelector('.ev-grid-wide');
+  var nav = document.querySelector('.ev-carousel-nav');
+  if(!track || !nav) return;
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.ev-wcard'));
+  var prevBtn = nav.querySelector('[data-dir="prev"]');
+  var nextBtn = nav.querySelector('[data-dir="next"]');
+  var curEl = nav.querySelector('.cur');
+  var totalEl = nav.querySelector('.total');
+  if(!cards.length || !prevBtn || !nextBtn || !curEl || !totalEl) return;
+  totalEl.textContent = cards.length;
+
+  function currentIndex(){
+    var trackCenter = track.getBoundingClientRect().left + track.getBoundingClientRect().width / 2;
+    var best = 0, bestDist = Infinity;
+    cards.forEach(function(card, i){
+      var r = card.getBoundingClientRect();
+      var dist = Math.abs((r.left + r.width / 2) - trackCenter);
+      if(dist < bestDist){ bestDist = dist; best = i; }
+    });
+    return best;
+  }
+  function update(){
+    var idx = currentIndex();
+    curEl.textContent = idx + 1;
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === cards.length - 1;
+  }
+  function goTo(idx){
+    idx = Math.max(0, Math.min(cards.length - 1, idx));
+    var trackRect = track.getBoundingClientRect();
+    var cardRect = cards[idx].getBoundingClientRect();
+    var trackLeft = trackRect.left + trackRect.width / 2;
+    var cardLeft = cardRect.left + cardRect.width / 2;
+    track.scrollTo({left: track.scrollLeft + (cardLeft - trackLeft), behavior:'smooth'});
+  }
+  prevBtn.addEventListener('click', function(){ goTo(currentIndex() - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(currentIndex() + 1); });
+  var scrollTimer;
+  track.addEventListener('scroll', function(){
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(update, 80);
+  }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 </body>
 </html>
 

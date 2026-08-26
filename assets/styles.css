@@ -2965,7 +2965,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 }
 @media(max-width:767px){
   .ev-card{padding:24px 22px}
-  .ev-card-title{font-size:22px}
+  .ev-card-title{font-size:18px}
   .ev-card-desc{font-size:14px}
   .ev-card-tag{height:30px;padding:0 10px;font-size:12.5px}
   .ev-deco{display:none}
@@ -3091,6 +3091,27 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
 .ev-wcard[style*="#5a8dff"] .ev-wcard-deco{opacity:1;width:375px}
 .ev-wcard[style*="#5a8dff"]:hover .ev-wcard-deco{opacity:1;transform:scale(1.05)}
 
+/* 캐러셀 하단 화살표 + 페이지네이션 (모바일 전용) */
+.ev-carousel-nav{
+  display:none;align-items:center;justify-content:center;gap:20px;
+  margin-top:4px;
+}
+.ev-carousel-arrow{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+  color:#fff;font-size:20px;line-height:1;font-family:var(--ko);
+  transition:opacity .2s,background .2s;
+}
+.ev-carousel-arrow:active{background:rgba(255,255,255,.14)}
+.ev-carousel-arrow:disabled{opacity:.3;pointer-events:none}
+.ev-carousel-count{
+  font-family:var(--ko);font-size:14px;font-weight:600;
+  color:rgba(255,255,255,.7);letter-spacing:.02em;
+  min-width:46px;text-align:center;font-variant-numeric:tabular-nums;
+}
+.ev-carousel-count .cur{color:#fff}
+
 @media(max-width:1023px){
   .ev-grid-wide{grid-template-columns:1fr;row-gap:28px;padding:20px 16px 32px}
   .ev-grid-wide .ev-wcard:nth-child(1),
@@ -3099,6 +3120,19 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .ev-grid-wide .ev-wcard:nth-child(4){margin:0;rotate:0deg;animation:none}
 }
 @media(max-width:767px){
+  /* 스페셜 프로그램: 세로로 너무 길어지지 않도록 가로 스크롤 캐러셀로 전환 */
+  .ev-grid-wide{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:14px;row-gap:0;
+    margin:0 -20px;
+    padding:20px 20px 32px;
+  }
+  .ev-grid-wide::-webkit-scrollbar{display:none}
+  .ev-grid-wide{scrollbar-width:none}
+  .ev-grid-wide .ev-wcard{flex:0 0 90%;width:90%;scroll-snap-align:center}
   .ev-wcard{padding:36px 18px 20px;min-height:220px;gap:14px}
   .ev-wcard-num{top:14px;left:18px;font-size:13px}
   .ev-wcard-sub{font-size:13px}
@@ -3111,6 +3145,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .ev-wcard-tag{height:30px;padding:0 10px;font-size:12.5px}
   .ev-wcard-deco{width:220px;right:-40px;bottom:-20px}
   .ev-wcard[style*="#5a8dff"] .ev-wcard-deco{width:260px}
+  .ev-carousel-nav{display:flex}
 }
 
 /* ── Exhibition 부스 타일 ── */
