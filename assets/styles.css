@@ -3162,7 +3162,7 @@ footer{padding:60px 0;border-top:1px solid var(--line-soft);
   .ev-wcard-caption{font-size:13px}
   .ev-wcard-deco{width:220px;right:-40px;bottom:-20px}
   .ev-wcard[style*="#5a8dff"] .ev-wcard-deco{width:260px}
-  .ev-wcard[style*="#8b5cf6"] .ev-wcard-deco{bottom:-110px}
+  .ev-wcard[style*="#8b5cf6"] .ev-wcard-deco{bottom:-120px}
   .ev-carousel-nav{display:flex}
 }
 
